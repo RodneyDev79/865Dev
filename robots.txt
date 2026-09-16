@@ -1,0 +1,7 @@
+# 865Dev robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://865dev.com/sitemap.xml
