@@ -109,12 +109,12 @@ function updateCalc() {
   }
 }
 
-// Contact Form submission handling with client validation & toast modal
+// Contact Form submission handling with client validation, API dispatch & toast modal
 function initContactForm() {
   const leadForm = document.getElementById('leadForm');
   if (!leadForm) return;
 
-  leadForm.addEventListener('submit', (e) => {
+  leadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Honeypot anti-bot check
@@ -127,25 +127,61 @@ function initContactForm() {
     const name = document.getElementById('fullName').value.trim();
     const business = document.getElementById('businessName').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const tradeType = document.getElementById('tradeType') ? document.getElementById('tradeType').value : 'Home Services & Trades';
+    const projectDetails = document.getElementById('projectDetails') ? document.getElementById('projectDetails').value.trim() : '';
+    const calcTotalEl = document.getElementById('calcTotal');
+    const estimateTotal = calcTotalEl ? calcTotalEl.textContent.trim() : '$1,500';
 
-    if (!name || !business || !phone) {
+    if (!name || !business || !phone || !email) {
       alert('Please fill out all required fields (*)');
       return;
     }
 
-    // Display confirmation modal
-    const toastMsg = document.getElementById('toastMessage');
-    if (toastMsg) {
-      toastMsg.innerHTML = `Thanks <strong>${name}</strong> from <strong>${business}</strong>! We've received your request for an 865Dev static build. A Knoxville developer will call or email you shortly.`;
+    const submitBtn = leadForm.querySelector('button[type="submit"]');
+    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending Quote Request...';
     }
 
-    const toastModal = document.getElementById('toastModal');
-    if (toastModal) {
-      toastModal.classList.add('active');
-    }
+    try {
+      const formData = new FormData();
+      formData.append('fullName', name);
+      formData.append('businessName', business);
+      formData.append('phone', phone);
+      formData.append('email', email);
+      formData.append('tradeType', tradeType);
+      formData.append('projectDetails', projectDetails);
+      formData.append('estimateTotal', estimateTotal);
+      formData.append('website_url_hp', hpField ? hpField.value : '');
 
-    leadForm.reset();
-    updateCalc();
+      await fetch('/api/contact.php', {
+        method: 'POST',
+        body: formData
+      });
+    } catch (err) {
+      console.warn('Contact API dispatch fallback:', err);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
+
+      // Display confirmation modal
+      const toastMsg = document.getElementById('toastMessage');
+      if (toastMsg) {
+        toastMsg.innerHTML = `Thanks <strong>${name}</strong> from <strong>${business}</strong>! We've received your request for an 865Dev static build. A Knoxville developer will call or email you shortly.`;
+      }
+
+      const toastModal = document.getElementById('toastModal');
+      if (toastModal) {
+        toastModal.classList.add('active');
+      }
+
+      leadForm.reset();
+      updateCalc();
+    }
   });
 }
 
