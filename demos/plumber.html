@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>East Tennessee Plumbing & Drain | 24/7 Knoxville Plumbing Experts</title>
+  <meta name="description" content="24/7 Emergency plumbing, hydrojet drain cleaning, water heater installation, and pipe leak repair in Knoxville, TN.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --teal-950: #042F2E;
+      --teal-900: #134E4A;
+      --teal-800: #0F766E;
+      --teal-600: #0D9488;
+      --teal-500: #14B8A6;
+      --teal-100: #CCFBF1;
+      --teal-50:  #F0FDFA;
+      
+      --copper-600: #B45309;
+      --copper-500: #D97706;
+      --amber-400:  #F59E0B;
+      --copper-glow: rgba(217, 119, 6, 0.25);
+      
+      --slate-800: #1E293B;
+      --slate-600: #475569;
+      --slate-200: #E2E8F0;
+      
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--teal-50);
+      color: var(--teal-950);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    /* Top 865Dev Return Bar */
+    .demo-bar {
+      background: #022C22;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      border-bottom: 2px solid var(--teal-500);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: var(--amber-400);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hydro-Teal Header */
+    .plumb-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--teal-600);
+      padding: 1rem 0;
+      box-shadow: 0 4px 20px rgba(13, 148, 136, 0.08);
+    }
+
+    .plumb-nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .plumb-brand {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--teal-950);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .plumb-brand span { color: var(--teal-600); }
+
+    .plumb-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .plumb-links a {
+      color: var(--slate-800);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .plumb-links a:hover { color: var(--teal-600); }
+
+    .btn-copper {
+      background: linear-gradient(135deg, var(--copper-500), var(--copper-600));
+      color: #FFFFFF;
+      padding: 0.8rem 1.6rem;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 20px var(--copper-glow);
+      border: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-copper:hover {
+      background: var(--copper-600);
+      transform: translateY(-2px);
+    }
+
+    /* Hydro-Teal Hero */
+    .plumb-hero {
+      background: linear-gradient(135deg, var(--teal-950) 0%, var(--teal-900) 100%);
+      color: #FFFFFF;
+      padding: 5.5rem 0 6.5rem 0;
+      position: relative;
+    }
+
+    .plumb-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(20, 184, 166, 0.15);
+      border: 1px solid var(--teal-500);
+      color: var(--teal-100);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-heading span { color: var(--amber-400); }
+
+    .hero-text {
+      color: var(--teal-100);
+      font-size: 1.15rem;
+      margin-bottom: 2.2rem;
+      line-height: 1.6;
+    }
+
+    .dispatch-box {
+      background: #FFFFFF;
+      color: var(--teal-950);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 45px rgba(4, 47, 46, 0.4);
+      border-top: 6px solid var(--copper-500);
+    }
+
+    .dispatch-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      color: var(--teal-950);
+    }
+
+    /* Services Grid */
+    .section-padding { padding: 6rem 0; }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      color: var(--teal-950);
+      letter-spacing: -0.02em;
+    }
+
+    .plumb-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 2.2rem 1.8rem;
+      box-shadow: 0 4px 16px rgba(13, 148, 136, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--teal-600);
+      box-shadow: 0 12px 30px rgba(13, 148, 136, 0.15);
+    }
+
+    .icon-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--teal-100);
+      color: var(--teal-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      color: var(--teal-950);
+    }
+
+    .service-card p {
+      color: var(--slate-600);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Trust Guarantee Banner */
+    .trust-strip {
+      background: var(--teal-900);
+      color: #FFFFFF;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    /* Footer */
+    .plumb-footer {
+      background: var(--teal-950);
+      color: var(--teal-100);
+      padding: 3.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .plumb-hero-grid, .plumb-services-grid { grid-template-columns: 1fr; }
+      .plumb-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Return Bar -->
+  <div class="demo-bar">
+    <span>⚡ 865Dev Live Demo Site &bull; 100/100 PageSpeed Rating</span>
+    <a href="../index.html#examples">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Distinct Hydro-Teal Navigation -->
+  <nav class="plumb-nav">
+    <div class="container plumb-nav-flex">
+      <a href="#" class="plumb-brand">
+        💧 East TN <span>Plumbing</span>
+      </a>
+      <ul class="plumb-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#guarantee">Our Guarantee</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#dispatch">Dispatch</a></li>
+      </ul>
+      <a href="tel:8655550199" class="btn-copper">🚨 24/7 Call: (865) 555-0199</a>
+    </div>
+  </nav>
+
+  <!-- Hydro-Teal Hero Section -->
+  <header class="plumb-hero">
+    <div class="container plumb-hero-grid">
+      <div>
+        <div class="hero-badge">💧 45-Minute Emergency Response in Knox & Blount County</div>
+        <h1 class="hero-heading">Knoxville’s 24/7 Emergency <span>Plumbing Experts.</span></h1>
+        <p class="hero-text">
+          Burst pipes, backed-up sewers, or zero hot water? Licensed master plumbers dispatched to your home or business in under 45 minutes with upfront pricing.
+        </p>
+        <a href="tel:8655550199" class="btn-copper" style="font-size: 1.05rem; padding: 1rem 2.2rem;">Call Dispatch (865) 555-0199</a>
+      </div>
+
+      <div class="dispatch-box" id="dispatch">
+        <h3>Fast Service Dispatch</h3>
+        <p style="color: var(--slate-600); font-size: 0.9rem; margin-bottom: 1.5rem;">Upfront flat-rate quotes &bull; No trip fees &bull; 100% Guaranteed.</p>
+        
+        <form onsubmit="event.preventDefault(); alert('Plumbing dispatch request submitted!');">
+          <div style="margin-bottom: 1rem;">
+            <label style="font-weight: 700; font-size: 0.85rem; color: var(--teal-950);">Full Name *</label>
+            <input type="text" placeholder="John Miller" required style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--slate-200); margin-top: 0.3rem;">
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-weight: 700; font-size: 0.85rem; color: var(--teal-950);">Phone Number *</label>
+            <input type="tel" placeholder="(865) 555-0199" required style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--slate-200); margin-top: 0.3rem;">
+          </div>
+          <button type="submit" class="btn-copper" style="width: 100%; justify-content: center;">Send Dispatch Team</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <h2 class="section-title">Emergency & General Plumbing Services</h2>
+      
+      <div class="plumb-services-grid">
+        <div class="service-card">
+          <div class="icon-badge">🌊</div>
+          <h4>Hydrojet Drain Clearing</h4>
+          <p>High-pressure camera hydrojetting to blast away heavy grease buildup, tree roots, and stubborn main sewer line clogs.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-badge">🔥</div>
+          <h4>Water Heater Replacement</h4>
+          <p>Same-day installation for tankless and traditional gas or electric water heating units with 10-year manufacturer warranties.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-badge">📡</div>
+          <h4>Acoustic Slab Leak Repair</h4>
+          <p>Non-destructive underground pipe sonar detection and whole-house PEX repiping services with minimal wall disruption.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="plumb-footer">
+    <div class="container">
+      <p>&copy; 2026 East Tennessee Plumbing & Drain &bull; License #TN-94812 &bull; Knoxville, TN</p>
+      <p style="margin-top: 0.5rem;"><a href="../index.html#examples" style="color: var(--amber-400);">Built by 865Dev Static Architecture</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

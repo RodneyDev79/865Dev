@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>865 Auto Exchange | Used Trucks, SUVs & Cars | Knoxville & Maryville, TN</title>
+  <meta name="description" content="Top quality used trucks, 4x4s, SUVs, and cars in Knoxville, TN. Instant financing approval & transparent pricing. Powered by 865Dev Dealership CMS.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0B0F17;
+      --card-bg: #141B2D;
+      --card-border: #232F48;
+      --accent-blue: #2563EB;
+      --accent-amber: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    /* Demo Top Bar */
+    .demo-bar {
+      background: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      border-bottom: 2px solid var(--accent-blue);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: #60A5FA;
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 15, 23, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1.1rem 0;
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand span { color: var(--accent-amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #CBD5E1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: #FFFFFF; }
+
+    .btn-phone {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-phone:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3rem;
+      background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.15), transparent 70%);
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.15;
+      max-width: 850px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Inventory Filter Bar */
+    .filter-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      margin-top: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .filter-select {
+      background: #0B0F17;
+      border: 1px solid var(--card-border);
+      color: #FFFFFF;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .btn-search {
+      background: var(--accent-amber);
+      color: #000000;
+      border: none;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s ease;
+    }
+
+    .btn-search:hover { background: #D97706; }
+
+    /* Inventory Grid */
+    .inventory-section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .car-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-blue);
+    }
+
+    .car-img-wrapper {
+      position: relative;
+      height: 220px;
+      background: #1E293B;
+      overflow: hidden;
+    }
+
+    .car-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .car-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .car-price-tag {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(11, 15, 23, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--accent-amber);
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 900;
+      padding: 0.3rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .car-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .car-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .car-specs {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.8rem;
+    }
+
+    .car-specs span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .car-vin {
+      font-size: 0.78rem;
+      color: #64748B;
+      font-family: monospace;
+      margin-bottom: 1rem;
+    }
+
+    .car-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .btn-details {
+      flex: 1;
+      background: transparent;
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      padding: 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-details:hover {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+    }
+
+    .btn-apply {
+      flex: 1;
+      background: var(--accent-amber);
+      border: none;
+      color: #000000;
+      padding: 0.6rem;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* CMS Highlight Callout Box */
+    .cms-callout-box {
+      background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);
+      border: 2px solid #6366F1;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .cms-badge {
+      background: #6366F1;
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .cms-callout-left h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .cms-callout-left p {
+      color: #CBD5E1;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cms-list {
+      list-style: none;
+    }
+
+    .cms-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #E2E8F0;
+    }
+
+    .cms-list svg { color: #818CF8; flex-shrink: 0; }
+
+    .cms-mockup-panel {
+      background: #090D16;
+      border: 1px solid #312E81;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .cms-mockup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1E293B;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+
+    .cms-item-row {
+      background: #141B2D;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .status-active {
+      background: rgba(16, 185, 129, 0.2);
+      color: #10B981;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .status-sold {
+      background: rgba(239, 68, 68, 0.2);
+      color: #EF4444;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .car-grid { grid-template-columns: 1fr; }
+      .filter-grid { grid-template-columns: 1fr 1fr; }
+      .cms-callout-box { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Return Bar -->
+  <div class="demo-bar">
+    <span>🚘 865Dev Master Architecture Demo: Dealership Inventory CMS Solution</span>
+    <a href="../index.html#services">← Return to 865Dev Pricing & Plans</a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-flex">
+      <a href="#" class="brand">865<span>AUTO</span> EXCHANGE</a>
+      <ul class="nav-links">
+        <li><a href="#inventory">Current Inventory</a></li>
+        <li><a href="#financing">Instant Credit Approval</a></li>
+        <li><a href="#trade">Value Your Trade</a></li>
+        <li><a href="#location">Knoxville Lot</a></li>
+      </ul>
+      <a href="tel:8655550199" class="btn-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        (865) 555-AUTO
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero & Filter -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Verified Quality Used Vehicles in East TN</div>
+      <h1>Drive Away Today with Guaranteed Local Financing</h1>
+      <p>Clean title, thoroughly inspected pre-owned trucks, SUVs, and cars. Instant financing approvals for all credit types in Knoxville, Maryville, and Oak Ridge.</p>
+
+      <div class="filter-card">
+        <div class="filter-grid">
+          <select class="filter-select">
+            <option>All Body Types (Trucks, SUVs, Sedans)</option>
+            <option>4x4 & Pickup Trucks</option>
+            <option>SUVs & Crossovers</option>
+            <option>Sedans & Economy</option>
+          </select>
+          <select class="filter-select">
+            <option>All Price Ranges</option>
+            <option>Under $15,000</option>
+            <option>$15,000 - $25,000</option>
+            <option>$25,000 +</option>
+          </select>
+          <select class="filter-select">
+            <option>Sort By: Newly Added</option>
+            <option>Price: Low to High</option>
+            <option>Mileage: Lowest First</option>
+          </select>
+          <button class="btn-search">Search Inventory (24 Cars)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inventory Showcase -->
+  <section class="inventory-section" id="inventory">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Inventory on the Lot</h2>
+        <span style="font-size: 0.95rem; color: var(--accent-amber); font-weight: 600;">⚡ Updated Daily via 865Dev Dealership CMS</span>
+      </div>
+
+      <div class="car-grid">
+        <!-- Vehicle 1 -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="../assets/hero_mockup.png" alt="2021 Ford F-150 Lariat 4x4">
+            <div class="car-badge">4x4 Truck</div>
+            <div class="car-price-tag">$34,900</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2021 Ford F-150 Lariat 4x4</h3>
+            <div class="car-specs">
+              <span>Mileage: 45,200 mi</span>
+              <span>Engine: 3.5L V6 EcoBoost</span>
+            </div>
+            <div class="car-vin">VIN: 1FTFW1E85MFB19823 • CARFAX Clean Title</div>
+            <div class="car-actions">
+              <a href="#contact" class="btn-details">View Details</a>
+              <a href="#contact" class="btn-apply">Apply For Credit</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 2 -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="../assets/bakery_hero.png" alt="2020 Chevrolet Tahoe LT">
+            <div class="car-badge">3rd Row SUV</div>
+            <div class="car-price-tag">$31,500</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2020 Chevrolet Tahoe LT AWD</h3>
+            <div class="car-specs">
+              <span>Mileage: 52,100 mi</span>
+              <span>Engine: 5.3L V8 Flex</span>
+            </div>
+            <div class="car-vin">VIN: 1GNSSKKC4LR991042 • CARFAX 1-Owner</div>
+            <div class="car-actions">
+              <a href="#contact" class="btn-details">View Details</a>
+              <a href="#contact" class="btn-apply">Apply For Credit</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 3 -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="../assets/hero_mockup.png" alt="2019 Toyota Tacoma TRD Off-Road">
+            <div class="car-badge">Off-Road Pickup</div>
+            <div class="car-price-tag">$29,800</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2019 Toyota Tacoma TRD Off-Road</h3>
+            <div class="car-specs">
+              <span>Mileage: 38,400 mi</span>
+              <span>Engine: 3.5L V6</span>
+            </div>
+            <div class="car-vin">VIN: 3TMCZ5AN4KM820193 • CARFAX Clean Title</div>
+            <div class="car-actions">
+              <a href="#contact" class="btn-details">View Details</a>
+              <a href="#contact" class="btn-apply">Apply For Credit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CMS Value Showcase Callout -->
+      <div class="cms-callout-box">
+        <div class="cms-callout-left">
+          <span class="cms-badge">Powered by 865Dev Dealership CMS</span>
+          <h2>The Ultimate Turnkey Inventory CMS for Used Car Dealers</h2>
+          <p>Tired of paying $1,000/mo to expensive auto portal providers for slow websites? 865Dev gives independent dealers complete control with a custom static inventory platform.</p>
+
+          <ul class="cms-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Mobile Admin Dashboard:</strong> Upload vehicle photos, price, VIN & specs in 30 seconds from your phone.</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Instant Lead Alerts:</strong> Credit applications & test-drive requests sent directly to your phone via SMS/email.</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>3 Hours Included Dev Assistance / Month:</strong> Our Knoxville team handles your weekly inventory batch uploads & banner edits!</li>
+          </ul>
+        </div>
+
+        <div class="cms-mockup-panel">
+          <div class="cms-mockup-header">
+            <span>📱 Dealership CMS Mobile Dashboard</span>
+            <span style="color: #818CF8;">865Dev Admin v2.4</span>
+          </div>
+
+          <div class="cms-item-row">
+            <div>
+              <strong>2021 Ford F-150 Lariat</strong>
+              <div style="font-size: 0.78rem; color: #64748B;">45k mi • $34,900</div>
+            </div>
+            <span class="status-active">ACTIVE ON LOT</span>
+          </div>
+
+          <div class="cms-item-row">
+            <div>
+              <strong>2020 Chevrolet Tahoe LT</strong>
+              <div style="font-size: 0.78rem; color: #64748B;">52k mi • $31,500</div>
+            </div>
+            <span class="status-active">ACTIVE ON LOT</span>
+          </div>
+
+          <div class="cms-item-row">
+            <div>
+              <strong>2018 RAM 1500 Bighorn</strong>
+              <div style="font-size: 0.78rem; color: #64748B;">68k mi • $22,400</div>
+            </div>
+            <span class="status-sold">MARK AS SOLD</span>
+          </div>
+
+          <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(99, 102, 241, 0.15); border: 1px dashed #6366F1; border-radius: 8px; text-align: center; color: #818CF8; font-weight: 700; font-size: 0.85rem;">
+            + Add New Vehicle In 30 Seconds
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>865 Auto Exchange • 8500 Kingston Pike, Knoxville, TN 37919 • (865) 555-AUTO</p>
+      <p style="margin-top: 0.5rem; color: #64748B; font-size: 0.8rem;">Powered by 865Dev Static Architecture & Dealership CMS. 100/100 Mobile PageSpeed Guaranteed.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

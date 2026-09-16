@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honeybee Bakehouse & Vintage Nook | Market Square Knoxville</title>
+  <meta name="description" content="Whimsical bakery cafe & vintage gift nook in downtown Knoxville, TN. Artisanal pastries, sourdough, and handmade treasures.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink-500: #FF5277;
+      --pink-400: #FF7597;
+      --pink-100: #FFEAEF;
+      --yellow-400: #FFC72C;
+      --yellow-100: #FFF8D6;
+      --mint-500: #00C9A7;
+      --mint-100: #E0F8F3;
+      --purple-900: #3D1E4A;
+      --purple-700: #6B2D84;
+      --cream-bg: #FFFDF9;
+      --font-playful: 'Fredoka', cursive, sans-serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--cream-bg);
+      color: var(--purple-900);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    /* Top 865Dev Return Bar */
+    .demo-bar {
+      background: var(--purple-900);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      border-bottom: 3px dashed var(--yellow-400);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: var(--yellow-400);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Whimsical Navbar */
+    .honey-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid var(--pink-500);
+      padding: 1rem 0;
+    }
+
+    .honey-nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .honey-brand {
+      font-family: var(--font-playful);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--pink-500);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .honey-brand span { color: var(--purple-900); }
+
+    .honey-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .honey-links a {
+      font-family: var(--font-playful);
+      color: var(--purple-900);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .honey-links a:hover { color: var(--pink-500); }
+
+    .btn-pink {
+      background: var(--pink-500);
+      color: #FFFFFF;
+      padding: 0.8rem 1.6rem;
+      border-radius: 9999px;
+      font-family: var(--font-playful);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 6px 0 var(--purple-900);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-pink:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--purple-900);
+    }
+
+    .btn-yellow {
+      background: var(--yellow-400);
+      color: var(--purple-900);
+      padding: 0.8rem 1.6rem;
+      border-radius: 9999px;
+      font-family: var(--font-playful);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 6px 0 var(--purple-900);
+      transition: all 0.2s ease;
+    }
+
+    .btn-yellow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--purple-900);
+    }
+
+    /* Whimsical Big Color Hero */
+    .honey-hero {
+      padding: 5rem 0 6rem 0;
+      background: radial-gradient(circle at 20% 20%, var(--pink-100) 0%, transparent 40%),
+                  radial-gradient(circle at 80% 80%, var(--yellow-100) 0%, transparent 40%),
+                  var(--cream-bg);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .whimsy-tag {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: var(--yellow-400);
+      color: var(--purple-900);
+      font-family: var(--font-playful);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      margin-bottom: 1.2rem;
+      transform: rotate(-2deg);
+      box-shadow: 0 4px 0 var(--purple-900);
+    }
+
+    .hero-title {
+      font-family: var(--font-playful);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--purple-900);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title em {
+      color: var(--pink-500);
+      font-style: normal;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--purple-700);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .photo-frame-group {
+      position: relative;
+    }
+
+    .photo-card-main {
+      border: 12px solid #FFFFFF;
+      border-bottom: 40px solid #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(61, 30, 74, 0.15);
+      transform: rotate(3deg);
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    .photo-card-sub {
+      position: absolute;
+      bottom: -2rem;
+      left: -2rem;
+      width: 55%;
+      border: 8px solid #FFFFFF;
+      border-bottom: 30px solid #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(61, 30, 74, 0.2);
+      transform: rotate(-6deg);
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    /* Photo Grid Section */
+    .section-padding { padding: 6rem 0; }
+
+    .section-title {
+      font-family: var(--font-playful);
+      font-size: 2.8rem;
+      text-align: center;
+      color: var(--purple-900);
+      margin-bottom: 3.5rem;
+    }
+
+    .photo-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.8rem;
+    }
+
+    .menu-photo-card {
+      background: #FFFFFF;
+      border: 3px solid var(--purple-900);
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 8px 0 var(--purple-900);
+      transition: transform 0.3s ease;
+    }
+
+    .menu-photo-card:hover {
+      transform: translateY(-6px) rotate(1deg);
+    }
+
+    .menu-img {
+      border-radius: 10px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .menu-item-title {
+      font-family: var(--font-playful);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--purple-900);
+      margin-bottom: 0.4rem;
+    }
+
+    .menu-item-price {
+      font-family: var(--font-playful);
+      font-size: 1.2rem;
+      color: var(--pink-500);
+      font-weight: 700;
+    }
+
+    /* Whimsical Order Form */
+    .order-box {
+      background: var(--pink-100);
+      border: 4px solid var(--purple-900);
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 12px 0 var(--purple-900);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-playful);
+      font-size: 1.1rem;
+      color: var(--purple-900);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border-radius: 12px;
+      border: 2px solid var(--purple-900);
+      font-size: 1rem;
+      background: #FFFFFF;
+    }
+
+    /* Footer */
+    .honey-footer {
+      background: var(--purple-900);
+      color: #FFFFFF;
+      padding: 3rem 0;
+      text-align: center;
+      font-family: var(--font-playful);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .photo-menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .honey-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Bar -->
+  <div class="demo-bar">
+    <span>⚡ 865Dev Whimsical Demo Site &bull; 100/100 PageSpeed Rating</span>
+    <a href="../index.html#examples">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Whimsical Navigation -->
+  <nav class="honey-nav">
+    <div class="container honey-nav-flex">
+      <a href="#" class="honey-brand">
+        🌸 Honeybee <span>Bakehouse</span>
+      </a>
+      <ul class="honey-links">
+        <li><a href="#menu">Daily Bakes</a></li>
+        <li><a href="#shop">Vintage Nook</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#order">Custom Orders</a></li>
+      </ul>
+      <a href="#order" class="btn-pink">Order Goodies 🍰</a>
+    </div>
+  </nav>
+
+  <!-- Big Color Whimsical Hero -->
+  <header class="honey-hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="whimsy-tag">✨ Downtown Knoxville Market Square</div>
+        <h1 class="hero-title">Whimsical Pastries & <em>Vintage Treasures!</em></h1>
+        <p class="hero-desc">
+          Fresh French macarons, artisan sourdough loaves, lavender honey tarts, and handpicked retro goods baked and curated with love every morning.
+        </p>
+        <div style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
+          <a href="#menu" class="btn-pink">Browse Today's Treats</a>
+          <a href="#order" class="btn-yellow">Custom Cake Order</a>
+        </div>
+      </div>
+
+      <div class="photo-frame-group">
+        <div class="photo-card-main">
+          <img src="../assets/bakery_hero.png" alt="Fresh Bakery Pastries Showcase" width="600" height="500">
+        </div>
+        <div class="photo-card-sub">
+          <img src="../assets/boutique_shop.png" alt="Vintage Boutique Shop Nook" width="400" height="350">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Photo Menu Grid -->
+  <section class="section-padding" id="menu" style="background: var(--yellow-100);">
+    <div class="container">
+      <h2 class="section-title">Fresh Baked Daily Specials 🥐</h2>
+
+      <div class="photo-menu-grid">
+        <div class="menu-photo-card">
+          <img src="../assets/bakery_hero.png" alt="Artisan Macarons" class="menu-img">
+          <div class="menu-item-title">Pastel Macaron Box</div>
+          <p style="font-size: 0.85rem; color: var(--purple-700); margin-bottom: 0.5rem;">Vanilla, pistachio, lavender & raspberry.</p>
+          <div class="menu-item-price">$16.00 / dozen</div>
+        </div>
+
+        <div class="menu-photo-card">
+          <img src="../assets/boutique_shop.png" alt="Handmade Ceramics" class="menu-img">
+          <div class="menu-item-title">Handmade Ceramic Mugs</div>
+          <p style="font-size: 0.85rem; color: var(--purple-700); margin-bottom: 0.5rem;">Local Knoxville potter artisan mugs.</p>
+          <div class="menu-item-price">$24.00</div>
+        </div>
+
+        <div class="menu-photo-card">
+          <img src="../assets/bakery_hero.png" alt="Fresh Berry Tarts" class="menu-img">
+          <div class="menu-item-title">Fresh Berry Tarts</div>
+          <p style="font-size: 0.85rem; color: var(--purple-700); margin-bottom: 0.5rem;">Organic berries with sweet custard crust.</p>
+          <div class="menu-item-price">$6.50 each</div>
+        </div>
+
+        <div class="menu-photo-card">
+          <img src="../assets/boutique_shop.png" alt="Botanical Candles" class="menu-img">
+          <div class="menu-item-title">Botanical Soy Candles</div>
+          <p style="font-size: 0.85rem; color: var(--purple-700); margin-bottom: 0.5rem;">Lavender honey & wildflowers scent.</p>
+          <div class="menu-item-price">$18.00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Whimsical Order Section -->
+  <section class="section-padding" id="order">
+    <div class="container">
+      <div class="order-box">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Custom Cake & Treat Orders 🎂</h2>
+        <p style="text-align: center; color: var(--purple-700); margin-bottom: 2rem;">Planning a party or event? Tell us what sweet creations you need!</p>
+
+        <form onsubmit="event.preventDefault(); alert('Custom treat order demo submitted!');">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" class="form-input" placeholder="Lily Montgomery" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" class="form-input" placeholder="(865) 555-0199" required>
+          </div>
+          <div class="form-group">
+            <label>Treat Details & Event Date</label>
+            <input type="text" class="form-input" placeholder="2-tier birthday cake for 15 guests on Saturday">
+          </div>
+          <button type="submit" class="btn-pink" style="width: 100%; justify-content: center; margin-top: 1rem;">Send Sweet Request 💕</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="honey-footer">
+    <div class="container">
+      <p>&copy; 2026 Honeybee Bakehouse & Vintage Nook &bull; Market Square, Knoxville, TN</p>
+      <p style="margin-top: 0.5rem; font-size: 0.95rem;"><a href="../index.html#examples" style="color: var(--yellow-400);">Built by 865Dev Static Architecture</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

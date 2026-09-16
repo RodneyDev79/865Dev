@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Template: The Curator | 865Dev Architecture</title>
+  <meta name="description" content="Minimalist showcase editorial layout for vintage electronics, ceramics, and boutique retail.">
+
+  <!-- White-Labeling CSS Variables Engine -->
+  <style>
+    :root {
+      /* Brand Color Palette */
+      --primary-color: #09090B;     /* Stark Noir */
+      --secondary-color: #18181B;   /* Dark Off-Black */
+      --accent-color: #EC4899;      /* Editorial Magenta / Electric Pink Accent */
+      --bg-white: #FFFFFF;
+      --bg-slate: #FAFAFA;
+      --text-dark: #09090B;
+      --text-muted: #71717A;
+      --border-color: #E4E4E7;
+
+      /* Typography Engine */
+      --font-display: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    /* Top Demo Bar */
+    .demo-bar {
+      background: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border-bottom: 2px solid var(--accent-color);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: var(--accent-color);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Editorial Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 0;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .brand-logo span { color: var(--accent-color); }
+
+    .nav-menu {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .nav-menu a:hover { color: var(--accent-color); }
+
+    /* Minimalist Hero */
+    .hero {
+      padding: 7rem 0 5rem 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .btn-stark {
+      background: var(--primary-color);
+      color: #FFFFFF;
+      padding: 1rem 2.2rem;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s ease;
+    }
+
+    .btn-stark:hover { background: var(--accent-color); }
+
+    /* Asymmetrical Featured Arrivals Grid */
+    .section-padding { padding: 6rem 0; }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
+    }
+
+    .asym-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2.5rem;
+    }
+
+    .card-large {
+      background: var(--bg-slate);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .card-large img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .card-small {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .card-item {
+      background: var(--bg-slate);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+    }
+
+    .card-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-meta {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .card-name {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .card-price {
+      font-weight: 800;
+      color: var(--accent-color);
+    }
+
+    /* Sourcing & Story Block */
+    .story-block {
+      background: var(--primary-color);
+      color: #FFFFFF;
+      padding: 6rem 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .story-title {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .asym-grid, .story-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Bar -->
+  <div class="demo-bar">
+    <span>⚡ Master Template #3: The Curator (Minimalist Showcase Layout)</span>
+    <a href="../index.html#templates">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo">THE <span>CURATOR</span></a>
+      <ul class="nav-menu">
+        <li><a href="#arrivals">Arrivals</a></li>
+        <li><a href="#story">Our Sourcing</a></li>
+        <li><a href="#visit">Knoxville Studio</a></li>
+      </ul>
+      <a href="#arrivals" class="btn-stark">View Collection</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">EST. 2026 &bull; MARKET SQUARE STUDIO</div>
+        <h1 class="hero-title">Rare Audio & <em>Artisan Ceramics.</em></h1>
+        <p class="hero-desc">An editorial collection of restored analog turntables, Japanese ceramics, and rare mid-century artifacts curated in downtown Knoxville, TN.</p>
+        <a href="#arrivals" class="btn-stark">Explore Featured Goods</a>
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80" alt="Vintage Turntable" style="width: 100%; height: 500px; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Asymmetrical Showcase Grid -->
+  <section class="section-padding" id="arrivals" style="background: var(--bg-slate);">
+    <div class="container">
+      <h2 class="section-title">FEATURED ARRIVALS</h2>
+
+      <div class="asym-grid">
+        <div class="card-large">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80" alt="Studio Headphones">
+          <div class="card-meta">
+            <span class="card-name">Restored High-Fidelity Studio Monitor</span>
+            <span class="card-price">$450.00</span>
+          </div>
+        </div>
+
+        <div class="card-small">
+          <div class="card-item">
+            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80" alt="Japanese Ceramic Vessel">
+            <div class="card-meta">
+              <span class="card-name">Artisan Ceramic Vessel</span>
+              <span class="card-price">$120.00</span>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Vintage Camera">
+            <div class="card-meta">
+              <span class="card-name">1974 Rangefinder Camera</span>
+              <span class="card-price">$380.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sourcing Story Block -->
+  <section class="story-block" id="story">
+    <div class="container story-grid">
+      <div>
+        <h2 class="story-title">Curated Sourcing & Quality Guarantee</h2>
+        <p style="color: #A1A1AA; font-size: 1.15rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          Every item in our shop is individually sourced from estates across North America and Europe, meticulously tested, and restored by hand.
+        </p>
+      </div>
+
+      <div style="border-left: 2px solid var(--accent-color); padding-left: 2rem;">
+        <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem;">Knoxville Showroom</h3>
+        <p style="color: #A1A1AA;">Visit our studio at 112 S. Gay Street in Knoxville, TN for private listening sessions and ceramic viewings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2026 The Curator Studio &bull; Serving Knoxville, Maryville & Oak Ridge, TN &bull; Built on 865Dev Curator Architecture
+    </div>
+  </footer>
+
+</body>
+</html>

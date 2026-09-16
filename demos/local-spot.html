@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Template: The Local Spot | 865Dev Architecture</title>
+  <meta name="description" content="Experiential & immersive dining layout for local cafes, restaurants, and specialty eateries.">
+
+  <!-- White-Labeling CSS Variables Engine -->
+  <style>
+    :root {
+      /* Brand Color Palette */
+      --primary-color: #1C1917;     /* Warm Dark Stone */
+      --secondary-color: #292524;   /* Surface Stone */
+      --accent-color: #D97706;      /* Warm Warm Amber Gold */
+      --accent-light: #FDE68A;
+      --bg-cream: #FAFAF9;
+      --text-dark: #1C1917;
+      --text-muted: #78716C;
+      --text-light: #FAFAF9;
+      --border-color: #E7E5E4;
+
+      /* Typography Engine */
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: system-ui, -apple-system, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    /* Top Demo Bar */
+    .demo-bar {
+      background: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border-bottom: 2px solid var(--accent-color);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: var(--accent-color);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Elegant Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(28, 25, 23, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(217, 119, 6, 0.3);
+      padding: 1.2rem 0;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .brand-logo span { color: var(--accent-color); font-style: italic; }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-menu a:hover { color: var(--accent-color); }
+
+    .btn-reserve {
+      background: var(--accent-color);
+      color: #FFFFFF;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-reserve:hover { opacity: 0.9; }
+
+    /* Full-Bleed Hero */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 550px;
+      background: linear-gradient(rgba(28, 25, 23, 0.65), rgba(28, 25, 23, 0.75)),
+                  url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    .hero-content { max-width: 800px; padding: 0 1.5rem; }
+
+    .hero-subtitle {
+      color: var(--accent-light);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Structured Menu Grid */
+    .section-padding { padding: 6rem 0; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .menu-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .menu-item-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .menu-item-price {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    /* Masonry Photo Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-img:hover { transform: scale(1.02); }
+
+    /* Split Footer */
+    .footer {
+      background: var(--primary-color);
+      color: #D6D3D1;
+      padding: 4rem 0 2rem 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-box h4 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: #FFFFFF;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .menu-grid, .gallery-grid, .footer-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Bar -->
+  <div class="demo-bar">
+    <span>⚡ Master Template #2: The Local Spot (Experiential & Immersive Layout)</span>
+    <a href="../index.html#templates">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo">KNOX <span>BISTRO</span></a>
+      <ul class="nav-menu">
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#hours">Hours & Location</a></li>
+      </ul>
+      <a href="#hours" class="btn-reserve">Reserve Table</a>
+    </div>
+  </header>
+
+  <!-- Full-Bleed Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-subtitle">Downtown Knoxville &bull; Market Square</div>
+      <h1 class="hero-title">Artisan Fare & Handcrafted Flavors.</h1>
+      <p style="font-size: 1.2rem; color: #E7E5E4; margin-bottom: 2rem;">Experiential local dining crafted with fresh East Tennessee ingredients and seasonal wood-fired specials.</p>
+      <a href="#menu" class="btn-reserve" style="font-size: 1.1rem; padding: 1rem 2rem;">Explore Today's Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="section-padding" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Seasonal Dinner Menu</h2>
+        <p style="color: var(--text-muted);">Handcrafted daily in our wood-fired kitchen</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Wood-Fired Ribeye Steak</span>
+            <span class="menu-item-price">$34.00</span>
+          </div>
+          <p style="color: var(--text-muted);">14oz prime cut grilled over oak embers with roasted garlic compound butter & truffle fries.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Hickory Smoked Pork Shoulder</span>
+            <span class="menu-item-price">$22.50</span>
+          </div>
+          <p style="color: var(--text-muted);">12-hour slow-smoked heritage pork, house apple cider slaw & skillet cornbread.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Pan-Seared Mountain Trout</span>
+            <span class="menu-item-price">$26.00</span>
+          </div>
+          <p style="color: var(--text-muted);">Locally sourced East Tennessee trout, brown butter lemon sauce & wild rice pilaf.</p>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Artisan Burrata Salad</span>
+            <span class="menu-item-price">$16.00</span>
+          </div>
+          <p style="color: var(--text-muted);">Fresh burrata cheese, heirloom tomatoes, basil oil & aged balsamic glaze.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery Grid -->
+  <section class="section-padding" id="gallery" style="background: #F5F5F4;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Atmosphere & Kitchen</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Dining Room" class="gallery-img">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Plated Dish" class="gallery-img">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Craft Cocktail" class="gallery-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Footer -->
+  <footer class="footer" id="hours">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h4>Operating Hours</h4>
+          <p>Monday - Thursday: 4:00 PM - 10:00 PM</p>
+          <p>Friday - Saturday: 4:00 PM - 11:00 PM</p>
+          <p>Sunday Brunch: 10:00 AM - 3:00 PM</p>
+        </div>
+
+        <div class="footer-box">
+          <h4>Location & Map</h4>
+          <p>412 Market Street, Downtown Knoxville, TN 37902</p>
+          <p style="margin-top: 1rem; color: var(--accent-color); font-weight: 700;">📍 Located in Historic Market Square</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; border-top: 1px solid #44403C; padding-top: 2rem; font-size: 0.85rem;">
+        &copy; 2026 Knox Bistro &bull; Powered by 865Dev Local Spot Architecture
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

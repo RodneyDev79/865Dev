@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Template: The Consultant | 865Dev Architecture</title>
+  <meta name="description" content="Authority & professionalism layout for financial advisors, legal practices, and B2B consulting.">
+
+  <!-- White-Labeling CSS Variables Engine -->
+  <style>
+    :root {
+      /* Brand Color Palette */
+      --primary-color: #0F172A;     /* Corporate Navy Slate */
+      --secondary-color: #1E40AF;   /* Executive Cobalt Blue */
+      --accent-color: #2563EB;      /* Sapphire Accent */
+      --bg-light: #F8FAFC;
+      --surface-card: #FFFFFF;
+      --text-dark: #0F172A;
+      --text-muted: #475569;
+      --text-light: #F8FAFC;
+      --border-color: #E2E8F0;
+
+      /* Typography Engine */
+      --font-heading: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    /* Top Demo Bar */
+    .demo-bar {
+      background: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border-bottom: 2px solid var(--secondary-color);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: #60A5FA;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Corporate Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--surface-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.2rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo span { color: var(--secondary-color); }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-menu a:hover { color: var(--secondary-color); }
+
+    .btn-consult {
+      background: var(--secondary-color);
+      color: #FFFFFF;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-consult:hover { background: #1D4ED8; }
+
+    /* Split-Screen Hero */
+    .hero {
+      padding: 5rem 0 6rem 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-portrait {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: #EFF6FF;
+      color: var(--secondary-color);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Trusted By Banner */
+    .trusted-banner {
+      background: var(--bg-light);
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .trusted-labels {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Complex Service Accordions */
+    .section-padding { padding: 6rem 0; }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .accordion-grid {
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .accordion-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .accordion-summary {
+      padding: 1.4rem 1.8rem;
+      font-weight: 800;
+      font-size: 1.15rem;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    .accordion-content {
+      padding: 0 1.8rem 1.5rem 1.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Lead-Magnet Capture Form */
+    .lead-magnet-box {
+      background: var(--primary-color);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 4rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .form-control {
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-color);
+      color: #94A3B8;
+      padding: 3rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #334155;
+    }
+
+    @media (max-width: 900px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Bar -->
+  <div class="demo-bar">
+    <span>⚡ Master Template #4: The Consultant (Authority & Professionalism Layout)</span>
+    <a href="../index.html#templates">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo">CUMBERLAND <span>ADVISORS</span></a>
+      <ul class="nav-menu">
+        <li><a href="#services">Advisory Services</a></li>
+        <li><a href="#trusted">Experience</a></li>
+        <li><a href="#download">Free Tax Guide</a></li>
+      </ul>
+      <a href="#download" class="btn-consult">Book Consultation</a>
+    </div>
+  </header>
+
+  <!-- Split-Screen Hero -->
+  <section class="hero">
+    <div class="container hero-split">
+      <div>
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Executive Consultant Portrait" class="hero-portrait">
+      </div>
+
+      <div>
+        <div class="hero-tag">FINANCIAL & CORPORATE ADVISORY</div>
+        <h1 class="hero-title">Strategic Financial Leadership for <span>Local Business Owners.</span></h1>
+        <p class="hero-desc">Over 25 years of wealth management, tax planning, and corporate M&A guidance across Knoxville, Farragut, and Oak Ridge, TN.</p>
+        <a href="#download" class="btn-consult" style="font-size: 1.1rem; padding: 1rem 2rem;">Schedule Strategic Review</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By Banner -->
+  <div class="trusted-banner" id="trusted">
+    <div class="container">
+      <div style="font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase;">Trusted By Industry Leaders Across East Tennessee</div>
+      <div class="trusted-labels">
+        <span>Knoxville Commercial Real Estate</span>
+        <span>Tennessee Manufacturing Co.</span>
+        <span>Appalachian Healthcare Group</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion Service Section -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <h2 class="section-title">Corporate & Advisory Practice Areas</h2>
+
+      <div class="accordion-grid">
+        <details class="accordion-item" open>
+          <summary class="accordion-summary">Executive Wealth & Business Tax Optimization</summary>
+          <div class="accordion-content">
+            <p>Comprehensive corporate tax structuring, deduction acceleration, and executive retirement plans tailored specifically to Tennessee business owners.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">Mergers, Acquisitions & Succession Planning</summary>
+          <div class="accordion-content">
+            <p>Valuation analysis, deal structuring, and smooth leadership transition planning to maximize enterprise exit value.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-summary">Commercial Risk Management & Compliance</summary>
+          <div class="accordion-content">
+            <p>Regulatory compliance audits, asset protection strategies, and fiduciary risk reduction for growing middle-market firms.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead-Magnet Capture Form -->
+  <section class="section-padding" id="download">
+    <div class="container">
+      <div class="lead-magnet-box">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem;">Download The 2026 TN Business Tax Guide</h2>
+        <p style="color: #94A3B8; margin-bottom: 2rem; font-size: 1.1rem;">Get our complimentary 18-page whitepaper outlining key tax strategy updates for Knoxville business owners.</p>
+
+        <form onsubmit="event.preventDefault(); alert('Lead magnet guide sent to email!');" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem;">
+          <input type="text" placeholder="Full Name" required class="form-control">
+          <input type="email" placeholder="Business Email" required class="form-control">
+          <button type="submit" class="btn-consult">Download PDF</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2026 Cumberland Financial Advisors &bull; Knoxville & Maryville, TN &bull; Built on 865Dev Consultant Architecture
+    </div>
+  </footer>
+
+</body>
+</html>

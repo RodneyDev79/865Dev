@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>865Dev | High-Performance Static Websites for East TN Contractors</title>
+  <meta name="description" content="Custom, blazing-fast static websites for East Tennessee businesses, shops, restaurants, and service providers in Knoxville, TN. 100/100 Google PageSpeed guaranteed.">
+  
+  <!-- OpenGraph SEO Tags -->
+  <meta property="og:title" content="865Dev - Lightning-Fast Websites for East Tennessee Businesses">
+  <meta property="og:description" content="Convert local Knoxville & East TN traffic into booked jobs. Static architecture, zero bloat, $1,500 turnkey builds.">
+  <meta property="og:type" content="website">
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Local Business Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebDesignCompany",
+    "name": "865Dev",
+    "image": "assets/hero_mockup.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Knoxville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.9606,
+      "longitude": -83.9207
+    },
+    "url": "https://865dev.com",
+    "telephone": "+18655550199",
+    "priceRange": "$1500 - $3000",
+    "areaServed": ["Knoxville", "Farragut", "Maryville", "Sevierville", "Oak Ridge", "Blount County", "Knox County"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--orange-500);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        865<span class="brand-accent">Dev</span>
+        <span class="brand-tag">Knoxville, TN</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#why-us">Why Static</a></li>
+        <li><a href="#examples">Sample Work</a></li>
+        <li><a href="#services">Pricing & Plans</a></li>
+        <li><a href="#about">Analytical Approach</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-cta-group">
+        <a href="tel:8655550199" class="phone-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (865) 555-0199
+        </a>
+        <a href="#contact" class="btn btn-orange">Get a Free Quote</a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu">
+        &#9776;
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge badge-orange">
+          <span class="pulse-dot"></span> Built for Knoxville & East TN Businesses
+        </div>
+        
+        <h1 class="heading-xl">
+          Lightning-Fast Websites for <span class="text-gradient-orange">East Tennessee Businesses.</span>
+        </h1>
+        
+        <p class="hero-subheadline">
+          Stop losing customers to slow, bloated templates. We engineer clean static sites guaranteed to load in under 0.4 seconds, helping local shops, restaurants, and service providers convert local traffic into foot traffic and booked appointments.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn btn-orange">
+            Get a Free Quote
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#services" class="btn btn-outline-white">
+            View $1,500 Package
+          </a>
+        </div>
+
+        <div class="hero-metrics-strip">
+          <div class="metric-item">
+            <div class="metric-number"><span id="speedCounter">0</span>/100</div>
+            <div class="metric-label">PageSpeed Score</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">&lt; <span class="highlight">0.4s</span></div>
+            <div class="metric-label">Avg Load Time</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number"><span class="highlight">0</span> Bloat</div>
+            <div class="metric-label">No Slow Plugins</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-wrapper">
+        <div class="hero-img-card">
+          <img src="assets/hero_mockup.png" alt="865Dev High Speed Contractor Website Mockup on Laptop and Mobile" width="600" height="500">
+        </div>
+        <div class="speed-floating-badge">
+          <div class="speed-score-circle">100</div>
+          <div class="speed-badge-info">
+            <h4>Google Lighthouse Score</h4>
+            <p>Verified 100/100 Speed & Mobile Performance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Local Trade Services Banner -->
+  <section class="industries-banner">
+    <div class="container">
+      <div class="industries-title">Tailored Web Design For Local East Tennessee Businesses</div>
+      <div class="industries-grid">
+        <div class="industry-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Home Services & Trades</div>
+        <div class="industry-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Restaurants & Cafes</div>
+        <div class="industry-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Vintage Boutiques & Retail</div>
+        <div class="industry-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Professional Services</div>
+        <div class="industry-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Health & Wellness</div>
+        <div class="industry-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Automotive Services</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition Section -->
+  <section class="value-props-section section-padding" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-steel">Core Architecture</div>
+        <h2 class="heading-lg" style="margin-top: 0.8rem;">Why Local Businesses Choose 865Dev</h2>
+        <p>Most local business websites are built on heavy, outdated page builders that take 4 to 8 seconds to load. We handcraft static architecture so mobile users instantly find your store hours, menu, or booking links on the go.</p>
+      </div>
+
+      <div class="value-grid">
+        <!-- Benefit 1: Blazing Fast Speeds -->
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3>Blazing Fast Speeds</h3>
+          <p>We build with modern static Jamstack architecture. No database lookups, no server delays—just instant pre-rendered HTML served directly as lightweight files for instant rendering.</p>
+          <ul class="value-card-bullets">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Under 0.4 second instant loading</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Perfect 100 Mobile PageSpeed score</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Higher Google local search ranking</li>
+          </ul>
+        </div>
+
+        <!-- Benefit 2: Zero Headaches -->
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Zero Headaches</h3>
+          <p>Forget plugin updates breaking your layout or hacker bots attacking your login page. Our static setups have zero database vulnerabilities and are fully managed for you.</p>
+          <ul class="value-card-bullets">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Fully managed hosting & SSL included</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Automatic backups & 99.9% uptime</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> We handle all text & image updates</li>
+          </ul>
+        </div>
+
+        <!-- Benefit 3: Locally Owned -->
+        <div class="value-card">
+          <div class="value-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <h3>Locally Owned</h3>
+          <p>Based right here in Knoxville, Tennessee. When you need help, you speak directly with local engineers who understand the East Tennessee market, not an overseas call center.</p>
+          <ul class="value-card-bullets">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Knoxville-based direct line (865)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> In-person kickoff & local support</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Tailored to Knox, Blount & Sevier Co.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Template Architectures Section -->
+  <section class="demos-section section-padding" id="examples">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-orange">Proven Starter Architectures</div>
+        <h2 class="heading-lg" style="margin-top: 0.8rem;">Select Your Master Starting Template</h2>
+        <p>Every 865Dev site is engineered from one of our 6 master, 100/100 speed-rated static layouts. Select the structural foundation for your business, and we fully white-label it with your custom colors, typography, photos, and copy.</p>
+      </div>
+
+      <div class="demo-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <!-- Template 1: The Service Pro -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="assets/mockup_plumber.png" alt="The Service Pro Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-orange" style="margin-bottom: 0.6rem;">Contracting & Property Services</div>
+            <h3>1. The Service Pro</h3>
+            <p><strong>Utility & Trust Layout</strong>: Dark structured hero, sticky call header, licensed & insured trust banner, and 3-column service grid.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Visibility Call-Now Header</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Licensed & Insured Trust Banner</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Rapid Quote Capture Form</li>
+            </ul>
+            <a href="demos/service-pro.html" class="btn btn-orange" style="width: 100%; margin-top: 1.2rem;">View Master Template ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Home Services & Trades')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Service Pro Build &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Template 2: The Local Spot -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="assets/bakery_hero.png" alt="The Local Spot Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-steel" style="margin-bottom: 0.6rem; background: #FFFBEB; color: #D97706; border-color: #D97706;">Dining, Eateries & Cafes</div>
+            <h3>2. The Local Spot</h3>
+            <p><strong>Experiential & Immersive Layout</strong>: Full-bleed hero image, text-based grid menu, masonry photo gallery, and split operating hours footer.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Full-Bleed Hero & Warm Overlay</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> CSS Grid Menu & Pricing Cards</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Masonry Photo Showcase Grid</li>
+            </ul>
+            <a href="demos/local-spot.html" class="btn btn-steel" style="width: 100%; margin-top: 1.2rem; background: #D97706; color: #FFFFFF;">View Master Template ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Restaurants & Cafes')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Local Spot Build &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Template 3: The Curator -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="assets/boutique_shop.png" alt="The Curator Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-green" style="margin-bottom: 0.6rem; background: #FDF2F8; color: #EC4899; border-color: #EC4899;">Retail, Vintage & Ceramics</div>
+            <h3>3. The Curator</h3>
+            <p><strong>Minimalist Showcase Layout</strong>: Editorial whitespace, stark monochrome aesthetic, asymmetrical featured arrivals grid, and sourcing story block.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Editorial Monochrome Design</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Asymmetrical Product Showcase</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Artisan Sourcing Story Block</li>
+            </ul>
+            <a href="demos/curator.html" class="btn btn-steel" style="width: 100%; margin-top: 1.2rem; background: #09090B; color: #FFFFFF;">View Master Template ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Vintage Boutiques & Retail')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Curator Build &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Template 4: The Consultant -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="The Consultant Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-steel" style="margin-bottom: 0.6rem; background: #EFF6FF; color: #1E40AF; border-color: #1E40AF;">Financial, Legal & B2B</div>
+            <h3>4. The Consultant</h3>
+            <p><strong>Authority & Professionalism Layout</strong>: Split-screen portrait hero, corporate navy palette, practice accordions, and lead-magnet capture form.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Split Portrait Executive Hero</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Trusted-By Client Banner</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Integrated PDF Guide Capture</li>
+            </ul>
+            <a href="demos/consultant.html" class="btn btn-steel" style="width: 100%; margin-top: 1.2rem; background: #1E40AF; color: #FFFFFF;">View Master Template ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Professional Services')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Consultant Build &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Template 5: The Maker -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" alt="The Maker Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-green" style="margin-bottom: 0.6rem; background: #ECFDF5; color: #059669; border-color: #059669;">Builders, Landscapers & Excavation</div>
+            <h3>5. The Maker</h3>
+            <p><strong>Field Showcase Wide Layout</strong>: Rugged full-width layout, high-res project portfolio grid, and before & after terrain transformation blocks.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Widescreen Fieldwork Portfolio</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Visual Before & After Blocks</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Rugged Heavy Equipment Theme</li>
+            </ul>
+            <a href="demos/maker.html" class="btn btn-steel" style="width: 100%; margin-top: 1.2rem; background: #111827; color: #FFFFFF;">View Master Template ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Home Services & Trades')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Maker Build &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Template 6: The Funnel -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="assets/hero_mockup.png" alt="The Funnel Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-orange" style="margin-bottom: 0.6rem; background: #FEF2F2; color: #DC2626; border-color: #DC2626;">Single Product & Ad Campaigns</div>
+            <h3>6. The Funnel</h3>
+            <p><strong>Direct Response Layout</strong>: Stripped-down hyper-focused page, zero navigation leak, central video placeholder, benefits list, and opt-in card.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Navigation Bar Distraction</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Scarcity Alert & Video Placeholder</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Central Direct Response Form</li>
+            </ul>
+            <a href="demos/funnel.html" class="btn btn-steel" style="width: 100%; margin-top: 1.2rem; background: #DC2626; color: #FFFFFF;">View Master Template ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Professional Services')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Funnel Build &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Template 7: Dealership CMS -->
+        <div class="demo-card">
+          <div class="demo-img-wrapper">
+            <img src="assets/hero_mockup.png" alt="Dealership CMS Master Template" width="500" height="350">
+            <div class="demo-badge-tag">100/100 Speed</div>
+          </div>
+          <div class="demo-card-body">
+            <div class="badge badge-orange" style="margin-bottom: 0.6rem; background: #EEF2FF; color: #4F46E5; border-color: #4F46E5;">Independent Auto Dealers</div>
+            <h3>7. Dealership Inventory CMS</h3>
+            <p><strong>Auto Catalog & Lead Engine</strong>: Mobile inventory search, VIN & spec cards, instant credit application form, and mobile CMS dashboard.</p>
+            <ul class="demo-feature-list">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile Vehicle Inventory CMS</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Instant Financing Approval Form</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 3 Hrs/Mo Included Dev Assistance</li>
+            </ul>
+            <a href="demos/dealership.html" class="btn btn-steel" style="width: 100%; margin-top: 1.2rem; background: #4F46E5; color: #FFFFFF;">View Dealership CMS Demo ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Auto Dealerships & Sales')" style="font-size: 0.85rem; font-weight: 700; color: var(--slate-600); margin-top: 0.6rem; text-align: center; display: block;">Select Dealership Package &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speed & Architecture Comparison -->
+  <section class="comparison-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-orange">The Technical Difference</div>
+        <h2 class="heading-lg" style="margin-top: 0.8rem;">Traditional WordPress vs 865Dev Static</h2>
+        <p>Why local trade businesses are switching away from bloated, slow WordPress setups.</p>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Feature</th>
+              <th style="width: 36%;">Traditional WordPress Agency ($3k-$5k)</th>
+              <th class="highlight-header" style="width: 36%;">865Dev Static Architecture</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-title">Mobile Speed Score</td>
+              <td><span class="badge-fail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 35 - 55 / 100 (Slow)</span></td>
+              <td class="highlight-cell"><span class="badge-pass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 98 - 100 / 100 (Blazing)</span></td>
+            </tr>
+            <tr>
+              <td class="feature-title">Average Load Time</td>
+              <td><span class="badge-fail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 3.8s to 6.2 seconds</span></td>
+              <td class="highlight-cell"><span class="badge-pass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 0.2s to 0.4 seconds</span></td>
+            </tr>
+            <tr>
+              <td class="feature-title">Security & Vulnerability</td>
+              <td><span class="badge-fail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> High Risk (SQL & Plugin exploits)</span></td>
+              <td class="highlight-cell"><span class="badge-pass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bulletproof (No database to hack)</span></td>
+            </tr>
+            <tr>
+              <td class="feature-title">Ongoing Maintenance</td>
+              <td><span class="badge-fail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Constant plugin updates & breakages</span></td>
+              <td class="highlight-cell"><span class="badge-pass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero bloat, fully managed by us</span></td>
+            </tr>
+            <tr>
+              <td class="feature-title">Local Lead Conversion</td>
+              <td><span class="badge-fail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> High bounce rates from slow loading</span></td>
+              <td class="highlight-cell"><span class="badge-pass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Instant loading = More phone calls</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services & Pricing Section -->
+  <section class="pricing-section section-padding" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-green">Transparent Pricing</div>
+        <h2 class="heading-lg" style="margin-top: 0.8rem;">Simple, Honest Pricing. No Hidden Fees.</h2>
+        <p>Everything you need to showcase your craft, capture leads, and dominate local search in East Tennessee.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Initial Build Package -->
+        <div class="pricing-card featured">
+          <div class="popular-ribbon">Most Popular</div>
+          <div class="pricing-card-header">
+            <h3>5-Page Turnkey Build</h3>
+            <p>Engineered specifically for local trade contractors and local service providers in East TN.</p>
+          </div>
+          
+          <div class="price-box">
+            <span class="price-currency">$</span>
+            <span class="price-amount">1,500</span>
+            <span class="price-period">one-time build</span>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--orange-500); font-weight: 700; margin-top: -0.5rem; margin-bottom: 1.2rem; text-align: center;">Or $150/mo Subscription ($0 Down)</div>
+
+          <ul class="pricing-features">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 5 Handcrafted Custom Static Pages</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Guaranteed 100/100 Mobile PageSpeed</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Lead Capture Form & Click-to-Call CTA</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> On-Page Local SEO & Google Map Embed</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Res Image & Assets Optimization</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Professional Copywriting & Proofing</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-orange" style="width: 100%;">Start Turnkey Build</a>
+        </div>
+
+        <!-- Custom & Hourly Card -->
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3>Custom Dev & Hourly</h3>
+            <p>Bespoke web applications, CRM/booking integrations, and specialized developer engineering.</p>
+          </div>
+          
+          <div class="price-box">
+            <span class="price-currency">$</span>
+            <span class="price-amount">95</span>
+            <span class="price-period">/ hour</span>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--slate-600); margin-top: -0.5rem; margin-bottom: 1.2rem; text-align: center;">Transparent 1-Hour Min. / Flat Quotes</div>
+
+          <ul class="pricing-features">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Bespoke Web Applications & Interactive Calculators</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> CRM & Booking Tool Integration (Jobber, Housecall Pro, Zapier)</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-County Landing Page Campaigns</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom API & Database Backend Setup</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Legacy Website Migration & Speed Remediation</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Direct Senior Developer Consultations</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-outline-white" style="width: 100%;">Request Custom Quote</a>
+        </div>
+
+        <!-- Care Plan Package -->
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3>Managed Care Plan</h3>
+            <p>Peace-of-mind hosting, domain management, and ongoing edits so you can run your jobs.</p>
+          </div>
+          
+          <div class="price-box">
+            <span class="price-currency">$</span>
+            <span class="price-amount">100</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--slate-600); margin-top: -0.5rem; margin-bottom: 1.2rem; text-align: center;">Base Hosting Available at $50/mo</div>
+
+          <ul class="pricing-features">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ultra-Fast Global Static CDN Hosting</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> SSL Certificate & Domain Security Management</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Content Edits & Updates (Up to 45 mins/mo)</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 99.99% Uptime Guarantee & Instant Rollbacks</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Monthly Traffic & Speed Audits</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Direct Knoxville Phone & Text Support</li>
+          </ul>
+
+        </div>
+      </div>
+
+      <!-- Industry Vertical Feature Banner: Dealership CMS Package -->
+      <div style="max-width: 1200px; margin: 3rem auto 0; background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%); border: 2px solid #6366F1; border-radius: 20px; padding: 2.5rem; color: #FFFFFF; box-shadow: 0 16px 40px rgba(99, 102, 241, 0.15);">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+          <div style="flex: 1; min-width: 300px;">
+            <span style="background: #6366F1; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.3rem 0.8rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 0.8rem;">Specialized Industry Package</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">Independent Used Car Dealership CMS Solution</h3>
+            <p style="color: #CBD5E1; font-size: 0.98rem; max-width: 700px; margin-bottom: 1.2rem;">
+              Complete mobile inventory management platform for independent auto dealers in Knoxville, Maryville & East TN. Includes custom inventory CMS dashboard, VIN/spec catalog, instant financing lead forms, plus <strong>3 hours of direct monthly developer assistance</strong> for batch vehicle photo uploads, monthly promos, and inventory management.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.9rem; color: #E2E8F0; font-weight: 600;">
+              <span>✓ $3,500 Turnkey Setup (or $350/mo Subscription)</span>
+              <span>✓ $250/mo Retainer (Includes 3 Dev Hours/Mo)</span>
+              <span>✓ 100/100 Mobile PageSpeed</span>
+            </div>
+          </div>
+          <div style="text-align: right; min-width: 220px;">
+            <a href="demos/dealership.html" class="btn btn-orange" style="background: #6366F1; border-color: #6366F1; color: #FFFFFF; margin-bottom: 0.8rem; display: block; text-align: center;">View Live Dealership Demo ↗</a>
+            <a href="#contact" onclick="selectTradeCategory('Auto Dealerships & Sales')" class="btn btn-outline-white" style="display: block; text-align: center;">Book Dealership Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Widget -->
+      <div class="calc-wrapper">
+        <div class="calc-header">
+          <h3 class="heading-md">Build Your Custom Project Estimate</h3>
+          <p style="color: var(--slate-300); margin-top: 0.4rem;">Select optional add-ons to estimate your upfront investment in real-time.</p>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc-options">
+            <label class="calc-checkbox-card active">
+              <input type="checkbox" checked disabled>
+              <div>
+                <strong>Core 5-Page Static Site</strong>
+                <div style="font-size: 0.8rem; color: var(--slate-600);">$1,500 base package</div>
+              </div>
+            </label>
+
+            <label class="calc-checkbox-card" id="optGbp">
+              <input type="checkbox" id="chkGbp" onchange="updateCalc()">
+              <div>
+                <strong>Google Business Profile Setup</strong>
+                <div style="font-size: 0.8rem; color: var(--slate-600);">+$250 local map optimization</div>
+              </div>
+            </label>
+
+            <label class="calc-checkbox-card" id="optExtraPage">
+              <input type="checkbox" id="chkExtraPage" onchange="updateCalc()">
+              <div>
+                <strong>Extra Service Pages (+2)</strong>
+                <div style="font-size: 0.8rem; color: var(--slate-600);">+$300 tailored sub-services</div>
+              </div>
+            </label>
+
+            <label class="calc-checkbox-card" id="optReviews">
+              <input type="checkbox" id="chkReviews" onchange="updateCalc()">
+              <div>
+                <strong>Live Google Reviews Feed</strong>
+                <div style="font-size: 0.8rem; color: var(--slate-600);">+$150 automated review sync</div>
+              </div>
+            </label>
+
+            <label class="calc-checkbox-card" id="optCustomIntegration">
+              <input type="checkbox" id="chkCustomIntegration" onchange="updateCalc()">
+              <div>
+                <strong>Custom CRM / Booking Setup</strong>
+                <div style="font-size: 0.8rem; color: var(--slate-600);">+$285 (3 hrs @ $95/hr dev rate)</div>
+              </div>
+            </label>
+          </div>
+
+          <div class="calc-summary-card">
+            <div class="calc-total-label">Estimated Total</div>
+            <div class="calc-total-price" id="calcTotal">$1,500</div>
+            <div style="font-size: 0.85rem; color: var(--slate-300);">Includes Care Plan option ($100/mo)</div>
+            <a href="#contact" class="btn btn-orange" style="margin-top: 1rem; width: 100%;">Lock In Estimate</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About / Analytical Trust Section -->
+  <section class="about-section section-padding" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="badge badge-orange">Analytical & Data-Driven</div>
+          <h2 class="heading-lg" style="margin-top: 0.8rem;">Clean Code & Zero Bloat. Focus On Your Work, Not Your Site.</h2>
+          <p>
+            At 865Dev, we treat web design like fine engineering. We don't drag-and-drop heavy page templates filled with thousands of lines of unused JavaScript code.
+          </p>
+          <p>
+            Instead, we write lightweight, semantic HTML, modern CSS, and clean code. The result? Your website loads instantaneously on job site cellular connections in Farragut, Maryville, or Oak Ridge, ensuring you never lose a homeowner's quote request to a loading spinner.
+          </p>
+
+          <div class="about-pillar-grid">
+            <div class="about-pillar">
+              <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Peak Lead Conversion
+              </h4>
+              <p>Every element is optimized for action: tap-to-call buttons, instant quote forms, and social proof gallery displays.</p>
+            </div>
+
+            <div class="about-pillar">
+              <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                Mobile-First Design
+              </h4>
+              <p>Over 75% of trade leads originate on mobile phones. Our layouts render instantly on any screen size.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="knoxville-badge-box">
+          <div class="badge badge-steel" style="margin-bottom: 1rem;">Local East TN Expertise</div>
+          <h3>Knoxville & Surrounding Counties</h3>
+          <p>We take pride in serving local business owners, shops, and service providers throughout East Tennessee.</p>
+          
+          <div class="location-tags">
+            <span class="location-tag">Knoxville</span>
+            <span class="location-tag">Farragut</span>
+            <span class="location-tag">Maryville</span>
+            <span class="location-tag">Sevierville</span>
+            <span class="location-tag">Oak Ridge</span>
+            <span class="location-tag">Alcoa</span>
+            <span class="location-tag">Lenoir City</span>
+            <span class="location-tag">Powell</span>
+            <span class="location-tag">Pigeon Forge</span>
+            <span class="location-tag">Blount County</span>
+            <span class="location-tag">Knox County</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <section class="faq-section section-padding" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-orange">Got Questions?</div>
+        <h2 class="heading-lg" style="margin-top: 0.8rem;">Frequently Asked Questions</h2>
+        <p>Everything you need to know about our domain ownership, care plan terms, and hassle-free cancellation policy.</p>
+      </div>
+
+      <div class="faq-accordion-wrapper">
+        <!-- Question 1 -->
+        <details class="faq-card" open>
+          <summary class="faq-question">
+            <span>Do I have to buy my own domain name?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>No, we handle all the technical heavy lifting. Your $1,500 build includes the registration of one standard domain name (up to $20/year value). We set it up and connect it to our servers, but you retain 100% legal ownership of the domain at all times.</p>
+          </div>
+        </details>
+
+        <!-- Question 2 -->
+        <details class="faq-card">
+          <summary class="faq-question">
+            <span>What happens if I want to cancel my Care Plan?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>You can cancel your managed hosting at any time with a simple written email notice. We will immediately stop billing and issue a prorated refund for any unused days in that month. Because you own the website, we will package all your site files into a neat .zip folder and send them to you.</p>
+          </div>
+        </details>
+
+        <!-- Question 3 -->
+        <details class="faq-card">
+          <summary class="faq-question">
+            <span>How do I get my domain if I leave?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>We make transferring out completely painless. If you cancel, we do an instant 'Account Push.' You simply create a free account with our domain registrar, and we push the domain directly into your account. You get immediate, full control without dealing with complex transfer codes, and we keep your site live on our servers for a 14-day grace period so you have plenty of time to set up your new hosting.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Lead Form Section -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container">
+      <div class="contact-card-wrapper">
+        <div class="contact-header">
+          <div class="badge badge-orange">Get Started Today</div>
+          <h2 class="heading-lg" style="margin-top: 0.8rem;">Ready For A Fast Website That Books Jobs?</h2>
+          <p style="color: var(--slate-600); margin-top: 0.5rem;">Fill out the brief form below. We'll review your business and respond with a free consultation and quote within 24 hours.</p>
+        </div>
+
+        <form class="contact-form" id="leadForm">
+          <!-- Anti-spam honeypot field -->
+          <input type="text" name="website_url_hp" class="hp-field" tabindex="-1" autocomplete="off">
+
+          <div class="form-group">
+            <label for="fullName">Your Full Name *</label>
+            <input type="text" id="fullName" class="form-control" placeholder="John Miller" required>
+          </div>
+
+          <div class="form-group">
+            <label for="businessName">Business Name *</label>
+            <input type="text" id="businessName" class="form-control" placeholder="Miller Roofing & Construction" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" class="form-control" placeholder="(865) 555-0123" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" class="form-control" placeholder="john@millerroofing.com" required>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="tradeType">Business Category</label>
+            <select id="tradeType" class="form-control">
+              <option value="Home Services & Trades">Home Services & Trades</option>
+              <option value="Auto Dealerships & Sales">Auto Dealerships & Sales (Dealership CMS)</option>
+              <option value="Restaurants & Cafes">Restaurants & Cafes</option>
+              <option value="Vintage Boutiques & Retail">Vintage Boutiques & Retail</option>
+              <option value="Professional Services">Professional Services</option>
+              <option value="Health & Wellness">Health & Wellness</option>
+              <option value="Automotive Services">Automotive Services</option>
+              <option value="Other Local Business">Other Local Business</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="projectDetails">Project Details & Current Website (Optional)</label>
+            <textarea id="projectDetails" class="form-control" placeholder="Tell us about your business, current website URL, or target launch date..."></textarea>
+          </div>
+
+          <div class="form-group-full">
+            <button type="submit" class="btn btn-orange" style="width: 100%; font-size: 1.1rem; padding: 1.1rem;">
+              Request My Free Quote & Speed Audit
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+
+          <div class="form-guarantee-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            No pushy sales pitches. 100% locally owned Knoxville service.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand-logo">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--orange-500);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            865<span class="brand-accent">Dev</span>
+          </a>
+          <p>
+            Engineering high-performance static websites for shops, restaurants, and local service providers across Knoxville and East Tennessee.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#why-us">Why Static Architecture</a></li>
+            <li><a href="#services">Services & Pricing</a></li>
+            <li><a href="#about">Analytical Approach</a></li>
+            <li><a href="#contact">Get a Free Quote</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Local Office</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Knoxville, TN 37902
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              (865) 555-0199
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              hello@865dev.com
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 865Dev Web Agency. All Rights Reserved. Built in Knoxville, TN.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#why-us">Privacy Policy</a>
+          <a href="#why-us">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Mobile Action Bar -->
+  <div class="mobile-sticky-bar">
+    <a href="tel:8655550199" class="btn btn-outline-white">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Call (865)
+    </a>
+    <a href="#contact" class="btn btn-orange">
+      Free Quote
+    </a>
+  </div>
+
+  <!-- Interactive Submission Toast Modal -->
+  <div class="toast-modal" id="toastModal">
+    <div class="toast-content">
+      <div class="toast-icon">✓</div>
+      <h3 class="heading-md" style="color: var(--slate-900);">Quote Request Received!</h3>
+      <p style="color: var(--slate-600); margin: 0.8rem 0 1.5rem 0;" id="toastMessage">
+        Thanks for reaching out to 865Dev. A local Knoxville developer will review your request and get back to you within 24 hours.
+      </p>
+      <button class="btn btn-orange" onclick="closeToastModal()" style="width: 100%;">Done</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

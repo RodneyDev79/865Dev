@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Auto Diagnostics & Performance | Maryville & Knoxville, TN</title>
+  <meta name="description" content="High-tech computer auto diagnostics, performance tuning, and brake service in Knoxville & Maryville, TN.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cyber-bg: #07090E;
+      --cyber-card: #10141D;
+      --neon-cyan: #06B6D4;
+      --neon-magenta: #EC4899;
+      --neon-green: #10B981;
+      --text-main: #F4F4F5;
+      --text-muted: #94A3B8;
+      --font-cyber: 'Orbitron', sans-serif;
+      --font-tech: 'Rajdhani', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--cyber-bg);
+      color: var(--text-main);
+      font-family: var(--font-tech);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    /* Top Return Bar */
+    .demo-bar {
+      background: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      border-bottom: 2px solid var(--neon-cyan);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: var(--neon-cyan);
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Cyber Nav Header */
+    .cyber-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 9, 14, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 1.1rem 0;
+    }
+
+    .cyber-nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cyber-brand {
+      font-family: var(--font-cyber);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cyber-brand span { color: var(--neon-cyan); text-shadow: 0 0 12px var(--neon-cyan); }
+
+    .cyber-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .cyber-links a {
+      font-family: var(--font-cyber);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .cyber-links a:hover {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 8px var(--neon-cyan);
+    }
+
+    .btn-cyber-cyan {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--neon-cyan);
+      border: 1px solid var(--neon-cyan);
+      padding: 0.75rem 1.6rem;
+      font-family: var(--font-cyber);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+      transition: all 0.25s ease;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    }
+
+    .btn-cyber-cyan:hover {
+      background: var(--neon-cyan);
+      color: #000000;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.7);
+    }
+
+    /* Cyber Hero */
+    .cyber-hero {
+      padding: 6rem 0;
+      background: radial-gradient(circle at 75% 30%, rgba(6, 182, 212, 0.15), transparent 55%),
+                  radial-gradient(circle at 25% 70%, rgba(236, 72, 153, 0.1), transparent 55%),
+                  var(--cyber-bg);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hud-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 1rem;
+      background: rgba(236, 72, 153, 0.15);
+      border: 1px solid var(--neon-magenta);
+      color: var(--neon-magenta);
+      font-family: var(--font-cyber);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 8px var(--neon-magenta);
+    }
+
+    .hero-title {
+      font-family: var(--font-cyber);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title span {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 16px rgba(6, 182, 212, 0.5);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .tech-box {
+      background: var(--cyber-card);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 2.5rem 2rem;
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+      position: relative;
+    }
+
+    .tech-box h3 {
+      font-family: var(--font-cyber);
+      font-size: 1.3rem;
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: #090C12;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      font-family: var(--font-tech);
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--neon-cyan);
+    }
+
+    /* Cyber Grid Cards */
+    .section-padding { padding: 6rem 0; }
+
+    .section-title {
+      font-family: var(--font-cyber);
+      font-size: 2.4rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .cyber-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .cyber-card {
+      background: var(--cyber-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2.2rem 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .cyber-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .cyber-card h4 {
+      font-family: var(--font-cyber);
+      font-size: 1.2rem;
+      color: var(--neon-cyan);
+      margin-bottom: 0.8rem;
+    }
+
+    .cyber-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    .cyber-footer {
+      background: #030406;
+      border-top: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 3rem 0;
+      text-align: center;
+      font-family: var(--font-cyber);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .cyber-card-grid { grid-template-columns: 1fr; }
+      .cyber-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Return Bar -->
+  <div class="demo-bar">
+    <span>⚡ 865Dev High-Tech Demo Site &bull; 100/100 PageSpeed Rating</span>
+    <a href="../index.html#examples">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Cyber Neon Header -->
+  <nav class="cyber-nav">
+    <div class="container cyber-nav-flex">
+      <a href="#" class="cyber-brand">
+        Apex <span>Diagnostics</span>
+      </a>
+      <ul class="cyber-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hud">HUD Scanning</a></li>
+        <li><a href="#location">Shop GPS</a></li>
+        <li><a href="#book">Book Scan</a></li>
+      </ul>
+      <a href="#book" class="btn-cyber-cyan">Schedule Scan</a>
+    </div>
+  </nav>
+
+  <!-- Cyber Hero Section -->
+  <header class="cyber-hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hud-badge">SYS.DIAG // ASE MASTER CERTIFIED TECHNICIANS</div>
+        <h1 class="hero-title">PRECISION AUTO <span>DIAGNOSTICS & TUNING.</span></h1>
+        <p class="hero-desc">
+          OEM diagnostic scanning, computer sensor recalibration, brake performance service, and engine diagnostics in Maryville & Knoxville.
+        </p>
+        <a href="tel:8655550199" class="btn-cyber-cyan" style="font-size: 1rem;">📞 Hotline: (865) 555-0199</a>
+      </div>
+
+      <div class="tech-box" id="book">
+        <h3>SCHEDULE VEHICLE SCAN</h3>
+        <form onsubmit="event.preventDefault(); alert('Auto diagnostic scan demo submitted!');">
+          <div style="margin-bottom: 1rem;">
+            <label style="font-size: 0.85rem; color: var(--text-muted);">Vehicle Year & Model *</label>
+            <input type="text" placeholder="2022 Ford F-150 / BMW M3" required class="form-control">
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 0.85rem; color: var(--text-muted);">Primary Service Code *</label>
+            <select class="form-control">
+              <option>Check Engine Light Scan</option>
+              <option>Brake Pad & Rotor Replacement</option>
+              <option>Full Synthetic Oil Flush</option>
+              <option>Transmission Diagnostic</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-cyber-cyan" style="width: 100%; justify-content: center;">Initialize Appointment</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services Grid -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <h2 class="section-title">HIGH-TECH DIAGNOSTIC SERVICES</h2>
+
+      <div class="cyber-card-grid">
+        <div class="cyber-card">
+          <h4>01 // COMPUTER DIAGNOSTIC SCAN</h4>
+          <p>Full-system ECU fault code analysis, sensor calibration, and electronic control module diagnostics.</p>
+        </div>
+
+        <div class="cyber-card">
+          <h4>02 // BRAKE & HYDRAULIC SERVICE</h4>
+          <p>Ceramic pad installation, 3D laser rotor alignment, ABS module testing, and hydraulic fluid flush.</p>
+        </div>
+
+        <div class="cyber-card">
+          <h4>03 // ENGINE TUNING & DRIVETRAIN</h4>
+          <p>Ignition coil pack service, fuel injection cleaning, turbo inspection, and transmission fluid service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="cyber-footer">
+    <div class="container">
+      <p>&copy; 2026 APEX DIAGNOSTICS & PERFORMANCE &bull; 1820 AIRPORT PKWY, MARYVILLE / KNOXVILLE, TN</p>
+      <p style="margin-top: 0.5rem;"><a href="../index.html#examples" style="color: var(--neon-cyan);">Built by 865Dev Static Architecture</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

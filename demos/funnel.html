@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Template: The Funnel | 865Dev Architecture</title>
+  <meta name="description" content="Direct response hyper-focused landing page template for single products, ad campaigns, and exclusive offers.">
+
+  <!-- White-Labeling CSS Variables Engine -->
+  <style>
+    :root {
+      /* Brand Color Palette */
+      --primary-color: #0F172A;     /* Focus Dark Slate */
+      --secondary-color: #1E293B;   /* Card Slate */
+      --accent-color: #DC2626;      /* High-Converting Crimson Red CTA */
+      --accent-hover: #B91C1C;
+      --highlight-yellow: #FEF08A;
+      --bg-slate: #F8FAFC;
+      --surface-card: #FFFFFF;
+      --text-dark: #0F172A;
+      --text-muted: #475569;
+      --text-light: #FFFFFF;
+      --border-color: #E2E8F0;
+
+      /* Typography Engine */
+      --font-heading: system-ui, -apple-system, 'Impact', sans-serif;
+      --font-body: system-ui, -apple-system, sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px rgba(15, 23, 42, 0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-slate);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    /* Top Demo Bar */
+    .demo-bar {
+      background: #000000;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border-bottom: 2px solid var(--accent-color);
+      position: relative;
+      z-index: 2000;
+    }
+
+    .demo-bar a {
+      color: #FCA5A5;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    /* Top Scarcity Alert Strip (No Nav Bar as per rule) */
+    .scarcity-strip {
+      background: var(--accent-color);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Central High-Converting Hero */
+    .funnel-hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .funnel-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: var(--highlight-yellow);
+      color: var(--primary-color);
+      font-weight: 900;
+      font-size: 0.85rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .funnel-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--primary-color);
+      margin-bottom: 1.2rem;
+    }
+
+    .funnel-title span { color: var(--accent-color); }
+
+    .funnel-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    /* Central Video/Image Placeholder */
+    .video-placeholder-card {
+      background: var(--primary-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 3.5rem;
+      position: relative;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+    }
+
+    .play-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+      cursor: pointer;
+    }
+
+    /* Benefits List & Central Opt-in Form */
+    .funnel-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 4rem;
+    }
+
+    .benefits-list {
+      list-style: none;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--text-dark);
+    }
+
+    .benefits-list svg {
+      color: var(--accent-color);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .optin-card {
+      background: #FFFFFF;
+      border: 3px solid var(--accent-color);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .optin-card h3 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-submit {
+      background: var(--accent-color);
+      color: #FFFFFF;
+      width: 100%;
+      padding: 1.1rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+      transition: background 0.2s ease;
+    }
+
+    .btn-submit:hover { background: var(--accent-hover); }
+
+    /* Guarantee Badge */
+    .guarantee-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 4rem auto;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-color);
+      color: #94A3B8;
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .funnel-body-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Demo Bar -->
+  <div class="demo-bar">
+    <span>⚡ Master Template #6: The Funnel (Direct Response Single Offer)</span>
+    <a href="../index.html#templates">&larr; Return to 865Dev Main Site</a>
+  </div>
+
+  <!-- Direct Response Alert Strip (No Nav Bar) -->
+  <div class="scarcity-strip">
+    🔥 LIMITED TIME EXCLUSIVE OFFER FOR KNOXVILLE & SURROUNDING BUSINESSES
+  </div>
+
+  <!-- Central Hero -->
+  <section class="funnel-hero">
+    <div class="container">
+      <div class="funnel-badge">EXCLUSIVE LOCAL PROMOTION</div>
+      <h1 class="funnel-title">Get 50% Off Your First <span>Commercial Roof Inspection & Tune-Up.</span></h1>
+      <p class="funnel-subtitle">Stop roof leaks before storm season hits East Tennessee. Claim your instant discount voucher in under 60 seconds.</p>
+
+      <!-- Video / Presentation Placeholder -->
+      <div class="video-placeholder-card">
+        <div style="text-align: center;">
+          <div class="play-btn" onclick="alert('Video playback demo!');">▶</div>
+          <p style="margin-top: 1rem; font-weight: 700;">Watch Quick 90-Second Explanation Video</p>
+        </div>
+      </div>
+
+      <!-- Benefits & Opt-in Grid -->
+      <div class="funnel-body-grid">
+        <div>
+          <h3 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 1.5rem; text-align: left;">What You Get Included Today:</h3>
+          <ul class="benefits-list">
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Full 24-point drone & infrared thermal roof inspection.
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Complete photo report detailing hidden leaks & shingle wear.
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Priority booking for Knoxville, Farragut & Maryville.
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              100% No-obligation repair estimate.
+            </li>
+          </ul>
+        </div>
+
+        <div class="optin-card">
+          <h3>Claim Offer Voucher</h3>
+          <p style="color: var(--text-muted); text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem;">Vouchers limited to the first 25 local claims this week.</p>
+          
+          <form onsubmit="event.preventDefault(); alert('Funnel voucher claimed!');">
+            <input type="text" placeholder="Your Full Name" required style="width:100%; padding:0.9rem; margin-bottom:1rem; border:1px solid var(--border-color); border-radius:var(--radius-sm);">
+            <input type="email" placeholder="Email Address" required style="width:100%; padding:0.9rem; margin-bottom:1rem; border:1px solid var(--border-color); border-radius:var(--radius-sm);">
+            <input type="tel" placeholder="Phone Number" required style="width:100%; padding:0.9rem; margin-bottom:1.5rem; border:1px solid var(--border-color); border-radius:var(--radius-sm);">
+            <button type="submit" class="btn-submit">Claim 50% Voucher Now ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Guarantee Badge -->
+      <div class="guarantee-box">
+        <h4 style="font-weight: 900; font-size: 1.1rem; margin-bottom: 0.4rem;">🔒 100% Satisfaction Guarantee</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">We respect your privacy. Your information will never be shared or sold.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2026 Special Offer Campaign &bull; Serving Knoxville, Maryville & Oak Ridge, TN &bull; Built on 865Dev Direct Response Funnel Architecture
+    </div>
+  </footer>
+
+</body>
+</html>
