@@ -147,21 +147,42 @@ function initContactForm() {
 
     try {
       const formData = new FormData();
-      formData.append('fullName', name);
-      formData.append('businessName', business);
+      formData.append('name', name);
+      formData.append('business', business);
       formData.append('phone', phone);
       formData.append('email', email);
-      formData.append('tradeType', tradeType);
-      formData.append('projectDetails', projectDetails);
-      formData.append('estimateTotal', estimateTotal);
-      formData.append('website_url_hp', hpField ? hpField.value : '');
+      formData.append('trade_category', tradeType);
+      formData.append('project_details', projectDetails);
+      formData.append('calculator_estimate', estimateTotal);
+      if (hpField && hpField.value) {
+        formData.append('_gotcha', hpField.value);
+      }
 
-      await fetch('/api/contact.php', {
+      // Dispatch to Formspree endpoint
+      await fetch('https://formspree.io/f/xyezzoga', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
+
+      // Dual-dispatch backup to server-side endpoint
+      const backupData = new FormData();
+      backupData.append('fullName', name);
+      backupData.append('businessName', business);
+      backupData.append('phone', phone);
+      backupData.append('email', email);
+      backupData.append('tradeType', tradeType);
+      backupData.append('projectDetails', projectDetails);
+      backupData.append('estimateTotal', estimateTotal);
+      fetch('/api/contact.php', {
+        method: 'POST',
+        body: backupData
+      }).catch(() => {});
+
     } catch (err) {
-      console.warn('Contact API dispatch fallback:', err);
+      console.warn('Form submission dispatch fallback:', err);
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;

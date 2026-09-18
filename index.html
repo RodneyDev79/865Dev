@@ -770,33 +770,34 @@
           <p style="color: var(--slate-600); margin-top: 0.5rem;">Fill out the brief form below. We'll review your business and respond with a free consultation and quote within 24 hours.</p>
         </div>
 
-        <form class="contact-form" id="leadForm">
+        <form class="contact-form" id="leadForm" action="https://formspree.io/f/xyezzoga" method="POST">
           <!-- Anti-spam honeypot field -->
-          <input type="text" name="website_url_hp" class="hp-field" tabindex="-1" autocomplete="off">
+          <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" style="display:none !important">
+          <input type="text" name="website_url_hp" class="hp-field" tabindex="-1" autocomplete="off" style="display:none !important">
 
           <div class="form-group">
             <label for="fullName">Your Full Name *</label>
-            <input type="text" id="fullName" class="form-control" placeholder="John Miller" required>
+            <input type="text" id="fullName" name="name" class="form-control" placeholder="John Miller" required>
           </div>
 
           <div class="form-group">
             <label for="businessName">Business Name *</label>
-            <input type="text" id="businessName" class="form-control" placeholder="Miller Roofing & Construction" required>
+            <input type="text" id="businessName" name="business" class="form-control" placeholder="Miller Roofing & Construction" required>
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" class="form-control" placeholder="(865) 245-0363" required>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="(865) 245-0363" required>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address *</label>
-            <input type="email" id="email" class="form-control" placeholder="john@millerroofing.com" required>
+            <input type="email" id="email" name="email" class="form-control" placeholder="john@millerroofing.com" required>
           </div>
 
           <div class="form-group form-group-full">
             <label for="tradeType">Business Category</label>
-            <select id="tradeType" class="form-control">
+            <select id="tradeType" name="trade_category" class="form-control">
               <option value="Home Services & Trades">Home Services & Trades</option>
               <option value="Auto Dealerships & Sales">Auto Dealerships & Sales (Dealership CMS)</option>
               <option value="Restaurants & Cafes">Restaurants & Cafes</option>
@@ -810,7 +811,7 @@
 
           <div class="form-group form-group-full">
             <label for="projectDetails">Project Details & Current Website (Optional)</label>
-            <textarea id="projectDetails" class="form-control" placeholder="Tell us about your business, current website URL, or target launch date..."></textarea>
+            <textarea id="projectDetails" name="project_details" class="form-control" placeholder="Tell us about your business, current website URL, or target launch date..."></textarea>
           </div>
 
           <div class="form-group-full">
