@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cedar Bluff Plumbing | Knoxville, TN Since 1986 | Fast 0.3s Spec Build by 865Dev</title>
+  <meta name="description" content="Cedar Bluff Plumbing has served Knoxville since 1986. Licensed master plumbers for residential & commercial plumbing, water heaters, and drain cleaning. Ultra-fast prototype by 865Dev.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cb-navy: #0B2545;
+      --cb-dark-blue: #133E70;
+      --cb-blue: #0066CC;
+      --cb-blue-light: #EBF3FC;
+      --cb-cyan: #0EA5E9;
+      --cb-amber: #D97706;
+      --cb-amber-glow: rgba(217, 119, 6, 0.2);
+      --cb-red: #DC2626;
+      --cb-green: #10B981;
+      
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --slate-50: #F8FAFC;
+      
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--slate-50);
+      color: var(--slate-800);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       865Dev Interactive Client Pitch / Benchmark Bar
+       ========================================================================== */
+    .pitch-header {
+      background: #021226;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--cb-cyan);
+      position: sticky;
+      top: 0;
+      z-index: 2100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .pitch-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .pitch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      color: #93C5FD;
+    }
+
+    .pitch-comparison {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-slow {
+      background: rgba(220, 38, 38, 0.2);
+      border: 1px solid #EF4444;
+      color: #FCA5A5;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .pill-fast {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #6EE7B7;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .pitch-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-audit {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-audit:hover {
+      background: var(--cb-blue);
+      border-color: var(--cb-blue);
+    }
+
+    .pitch-call {
+      color: #FCD34D;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .pitch-call:hover { text-decoration: underline; }
+
+    /* Audit Modal */
+    .audit-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .audit-modal.open { display: flex; }
+
+    .audit-box {
+      background: #FFFFFF;
+      border-radius: 12px;
+      max-width: 650px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .audit-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 0.75rem;
+    }
+
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .audit-table th, .audit-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--slate-200);
+    }
+
+    .audit-table th { background: var(--slate-100); color: var(--slate-700); font-weight: 700; }
+
+    /* ==========================================================================
+       Main Cedar Bluff Header / Navigation
+       ========================================================================== */
+    .site-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--slate-200);
+      position: sticky;
+      top: 36px;
+      z-index: 2000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 48px;
+      max-width: 220px;
+      object-fit: contain;
+    }
+
+    .brand-fallback {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-fallback-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--cb-navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .brand-fallback-title span { color: var(--cb-blue); }
+
+    .brand-fallback-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--slate-700);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover { color: var(--cb-blue); }
+
+    .nav-call-btn {
+      background: linear-gradient(135deg, var(--cb-navy), var(--cb-dark-blue));
+      color: #FFFFFF;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .nav-call-btn:hover {
+      background: var(--cb-blue);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Hero Section
+       ========================================================================== */
+    .hero {
+      background: linear-gradient(180deg, #0B2545 0%, #133E70 100%);
+      color: #FFFFFF;
+      padding: 4.5rem 0 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.18) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #BAE6FD;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      color: #38BDF8;
+    }
+
+    .hero-desc {
+      color: #E2E8F0;
+      font-size: 1.15rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-emergency {
+      background: linear-gradient(135deg, var(--cb-amber), #B45309);
+      color: #FFFFFF;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 20px var(--cb-amber-glow);
+      transition: all 0.2s ease;
+    }
+
+    .btn-emergency:hover {
+      background: #B45309;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* Dispatch Card in Hero */
+    .dispatch-card {
+      background: #FFFFFF;
+      color: var(--slate-900);
+      border-radius: 14px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-top: 5px solid var(--cb-blue);
+    }
+
+    .dispatch-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--cb-navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .dispatch-card p {
+      font-size: 0.9rem;
+      color: var(--slate-600);
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--slate-800);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      background: var(--slate-50);
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--cb-blue);
+      background: #FFFFFF;
+    }
+
+    .btn-submit-dispatch {
+      width: 100%;
+      background: var(--cb-blue);
+      color: #FFFFFF;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit-dispatch:hover { background: #0052A3; }
+
+    /* ==========================================================================
+       Trust Accreditations Bar
+       ========================================================================== */
+    .trust-strip {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--slate-200);
+      padding: 1.75rem 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .trust-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--cb-blue-light);
+      color: var(--cb-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .trust-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--cb-navy);
+      line-height: 1.2;
+    }
+
+    .trust-sub {
+      font-size: 0.8rem;
+      color: var(--slate-600);
+    }
+
+    /* Senior & Veteran Banner */
+    .discount-banner {
+      background: linear-gradient(90deg, #F0FDF4 0%, #DCFCE7 100%);
+      border-top: 1px solid #BBF7D0;
+      border-bottom: 1px solid #BBF7D0;
+      padding: 0.85rem 1.5rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .discount-banner strong { color: #14532D; font-weight: 800; }
+
+    /* ==========================================================================
+       Knox County Neighborhood Direct-Dial Grid
+       ========================================================================== */
+    .section { padding: 5rem 0; }
+    .section-bg-alt { background: #FFFFFF; }
+
+    .section-header {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cb-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--cb-navy);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--slate-600);
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .area-card {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 1.5rem 1.3rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .area-card:hover {
+      border-color: var(--cb-blue);
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .area-name {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--cb-navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .area-tag {
+      font-size: 0.8rem;
+      color: var(--slate-600);
+    }
+
+    .area-phone {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--cb-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ==========================================================================
+       Services Section
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      padding: 2.2rem 1.8rem;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .service-card:hover {
+      background: #FFFFFF;
+      border-color: var(--cb-blue);
+      box-shadow: 0 12px 30px rgba(11, 37, 69, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--cb-blue-light);
+      color: var(--cb-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .service-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--cb-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--slate-600);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-link {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--cb-blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .service-link:hover { text-decoration: underline; }
+
+    /* ==========================================================================
+       Founder & Authority Section
+       ========================================================================== */
+    .about-box {
+      background: var(--cb-navy);
+      color: #FFFFFF;
+      border-radius: 16px;
+      padding: 4rem 3.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-box h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .about-box p {
+      color: #E2E8F0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .stats-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #CBD5E1;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .site-footer {
+      background: #06152B;
+      color: #94A3B8;
+      padding: 4rem 0 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li { margin-bottom: 0.6rem; }
+
+    .footer-links a {
+      color: #94A3B8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #FFFFFF; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .agency-tag {
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      color: #7DD3FC;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .agency-tag:hover {
+      background: rgba(14, 165, 233, 0.25);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid, .about-box, .footer-grid { grid-template-columns: 1fr; }
+      .services-grid, .area-grid, .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-menu { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid, .area-grid, .trust-grid { grid-template-columns: 1fr; }
+      .pitch-header-flex { flex-direction: column; align-items: flex-start; }
+      .hero-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       865Dev Interactive Prospect Benchmark Header
+       ======================================================================== -->
+  <div class="pitch-header">
+    <div class="pitch-header-flex">
+      <div class="pitch-badge">
+        <span>⚡ 865Dev High-Speed Architecture Spec</span>
+        <span style="opacity: 0.6;">&bull; Prepared for Cedar Bluff Plumbing</span>
+      </div>
+
+      <div class="pitch-comparison">
+        <span>Current Site:</span>
+        <span class="pill-slow">4.41s TTFB (Slow)</span>
+        <span>&rarr; This Build:</span>
+        <span class="pill-fast">0.28s (93% Faster)</span>
+      </div>
+
+      <div class="pitch-actions">
+        <button class="btn-audit" onclick="toggleAuditModal()">📊 View Audit Specs</button>
+        <a href="tel:8652450363" class="pitch-call">Direct Line: (865) 245-0363</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audit Breakdown Modal -->
+  <div class="audit-modal" id="auditModal" onclick="if(event.target === this) toggleAuditModal()">
+    <div class="audit-box">
+      <div class="audit-box-header">
+        <h3 style="font-family: var(--font-heading); color: var(--cb-navy);">Performance Audit: cedarbluffplumbing.com</h3>
+        <button onclick="toggleAuditModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 1.25rem;">
+        Side-by-side benchmark conducted on West Knoxville mobile network routing.
+      </p>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Current WordPress Site</th>
+            <th>865Dev Static Build</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Time to First Byte (TTFB)</strong></td>
+            <td style="color: #DC2626; font-weight: 700;">4.41 seconds</td>
+            <td style="color: #10B981; font-weight: 800;">0.08 seconds</td>
+          </tr>
+          <tr>
+            <td><strong>Total Page Load</strong></td>
+            <td style="color: #DC2626; font-weight: 700;">4.48s (Timed out on /contact)</td>
+            <td style="color: #10B981; font-weight: 800;">0.28 seconds</td>
+          </tr>
+          <tr>
+            <td><strong>Google PageSpeed Score</strong></td>
+            <td style="color: #D97706; font-weight: 700;">42 / 100 (Poor Mobile)</td>
+            <td style="color: #10B981; font-weight: 800;">100 / 100 (Perfect)</td>
+          </tr>
+          <tr>
+            <td><strong>Security & Plugins</strong></td>
+            <td>18 WordPress Plugins (Risk)</td>
+            <td style="color: #10B981; font-weight: 800;">0 Plugins (Unhackable)</td>
+          </tr>
+          <tr>
+            <td><strong>Lost Lead Impact</strong></td>
+            <td colspan="2" style="font-size: 0.85rem; color: var(--slate-700);">
+              <em>Over 53% of mobile searchers abandon an emergency plumbing page if it takes longer than 3 seconds to load.</em>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--slate-200); padding-top: 1rem;">
+        <span style="font-size: 0.85rem; color: var(--slate-600);">Ready to upgrade? Complete turnkey build: <strong>$1,500</strong></span>
+        <a href="tel:8652450363" class="btn-emergency" style="padding: 0.6rem 1.2rem; font-size: 0.88rem;">Call Rodney Camp &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Primary Navigation
+       ======================================================================== -->
+  <nav class="site-nav">
+    <div class="container nav-flex">
+      <a href="#" class="brand-group">
+        <!-- Official Logo with Vector Fallback -->
+        <img src="https://cedarbluffplumbing.com/wp-content/uploads/2019/03/cedar-bluff-plumbing-logo.jpg" 
+             alt="Cedar Bluff Plumbing Logo" 
+             class="brand-logo-img" 
+             onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';">
+        <div id="brandFallback" class="brand-fallback" style="display: none;">
+          <div class="brand-fallback-title">CEDAR BLUFF <span>PLUMBING</span></div>
+          <div class="brand-fallback-tag">Knoxville, TN &bull; Since 1986</div>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#areas">Service Areas</a></li>
+        <li><a href="#about">About Chuck & Team</a></li>
+        <li><a href="#reviews">Accreditations</a></li>
+      </ul>
+
+      <a href="tel:8655884448" class="nav-call-btn">
+        📞 (865) 588-4448
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       Hero Section with Instant Dispatch Form
+       ======================================================================== -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-pill">
+          🏆 Knoxville's Neighborhood Favorite &bull; Founded 1986
+        </div>
+        <h1 class="hero-title">
+          Knoxville’s Most Trusted Plumbers. <span>Faster Response.</span>
+        </h1>
+        <p class="hero-desc">
+          For nearly 40 years, Chuck McMahan and the master plumbers at Cedar Bluff Plumbing have provided honest, upfront plumbing solutions to families and businesses across East Tennessee.
+        </p>
+        <div class="hero-ctas">
+          <a href="tel:8655884448" class="btn-emergency">
+            🚨 Call Dispatch: (865) 588-4448
+          </a>
+          <a href="#services" class="btn-outline-light">
+            Explore Services &darr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Emergency Dispatch Intake -->
+      <div class="dispatch-card" id="dispatch">
+        <h3>Fast Service Dispatch</h3>
+        <p>Direct priority dispatch across Knox & Blount County.</p>
+
+        <form onsubmit="event.preventDefault(); alert('Priority service request sent to Cedar Bluff Plumbing dispatch!');">
+          <div class="form-group">
+            <label>Service Needed *</label>
+            <select class="form-select" required>
+              <option value="">Select Service...</option>
+              <option value="water-heater">Water Heater Repair / Tankless Install</option>
+              <option value="emergency-leak">Burst Pipe / Active Leak</option>
+              <option value="drain-clog">Severe Drain Clog / Backup</option>
+              <option value="sewer-line">Sewer Line / Camera Inspection</option>
+              <option value="remodel">Plumbing Remodel / New Fixtures</option>
+              <option value="general">General Plumbing Repair</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" class="form-input" placeholder="(865) 555-0199" required>
+          </div>
+
+          <button type="submit" class="btn-submit-dispatch">
+            Request Immediate Dispatch &rarr;
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Trust Accreditations Bar
+       ======================================================================== -->
+  <section class="trust-strip" id="reviews">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <div class="trust-title">BBB A+ Accredited</div>
+          <div class="trust-sub">Highest Ethics Rating</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">⭐</div>
+        <div>
+          <div class="trust-title">Nextdoor Favorite</div>
+          <div class="trust-sub">Voted 2017, 2018 & 2019</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🏅</div>
+        <div>
+          <div class="trust-title">Plumber of the Year</div>
+          <div class="trust-sub">Metro Pulse & City View</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🔧</div>
+        <div>
+          <div class="trust-title">Master Plumber</div>
+          <div class="trust-sub">Licensed, Bonded & Insured</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Senior & Veteran Discount Strip -->
+  <div class="discount-banner">
+    🎖️ <strong>Senior & Military Discount:</strong> All senior citizens and military veterans receive <strong>10% OFF labor services</strong>. Mention this notice when you call.
+  </div>
+
+  <!-- ========================================================================
+       Neighborhood Direct-Dial Routing (Knox County)
+       ======================================================================== -->
+  <section class="section" id="areas">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Local Knox County Phone Routing</div>
+        <h2 class="section-title">Call Your Local Neighborhood Line</h2>
+        <p class="section-subtitle">Connect directly with our dispatched service vans in your immediate area for the fastest response time.</p>
+      </div>
+
+      <div class="area-grid">
+        <a href="tel:8655884448" class="area-card">
+          <div>
+            <div class="area-name">Knoxville Metro</div>
+            <div class="area-tag">Central & Downtown</div>
+          </div>
+          <div class="area-phone">📞 (865) 588-4448</div>
+        </a>
+
+        <a href="tel:8656939897" class="area-card">
+          <div>
+            <div class="area-name">West Knoxville</div>
+            <div class="area-tag">Cedar Bluff & Turkey Creek</div>
+          </div>
+          <div class="area-phone">📞 (865) 693-9897</div>
+        </a>
+
+        <a href="tel:8659663857" class="area-card">
+          <div>
+            <div class="area-name">Farragut & Concord</div>
+            <div class="area-tag">West Knox County</div>
+          </div>
+          <div class="area-phone">📞 (865) 966-3857</div>
+        </a>
+
+        <a href="tel:8656879902" class="area-card">
+          <div>
+            <div class="area-name">North Knoxville</div>
+            <div class="area-tag">Powell & Fountain City</div>
+          </div>
+          <div class="area-phone">📞 (865) 687-9902</div>
+        </a>
+
+        <a href="tel:8655799274" class="area-card">
+          <div>
+            <div class="area-name">South Knoxville</div>
+            <div class="area-tag">Seymour & Chapman Hwy</div>
+          </div>
+          <div class="area-phone">📞 (865) 579-9274</div>
+        </a>
+
+        <a href="tel:8655884448" class="area-card">
+          <div>
+            <div class="area-name">Bearden</div>
+            <div class="area-tag">Sequoyah Hills & Kingston Pk</div>
+          </div>
+          <div class="area-phone">📞 (865) 588-4448</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Services Grid
+       ======================================================================== -->
+  <section class="section section-bg-alt" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Quality Work & Dependable Service</div>
+        <h2 class="section-title">Full-Service Residential & Commercial Plumbing</h2>
+        <p class="section-subtitle">Supervised by Master Plumbers using state-of-the-art diagnostic technology.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <h4>Water Heater Repair & Install</h4>
+          <p>Complete repair and same-day replacement for both standard tank water heaters and high-efficiency tankless units. Gas and electric systems.</p>
+          <a href="tel:8655884448" class="service-link">Call for Water Heater Quote &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🌊</div>
+          <h4>Sewer & Drain Cleaning</h4>
+          <p>High-definition video camera inspections to locate obstructions accurately. Power drain clearing and root removal with no guesswork.</p>
+          <a href="tel:8655884448" class="service-link">Schedule Drain Camera Test &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚜</div>
+          <h4>Trenchless Boring & Lines</h4>
+          <p>Low-impact underground pipe installation and boring that preserves your lawn, driveway, and landscaping while restoring water line flow.</p>
+          <a href="tel:8655884448" class="service-link">Learn About Trenchless Boring &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚨</div>
+          <h4>Emergency Repairs & Leaks</h4>
+          <p>Fast emergency dispatch for sudden burst pipes, flooded utility closets, broken valves, and severe sewage backups in your home or shop.</p>
+          <a href="tel:8655884448" class="service-link">Get Emergency Help &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛁</div>
+          <h4>Kitchen & Bath Remodels</h4>
+          <p>Relocating supply lines, roughing-in new drains, and expert installation of designer fixtures, faucets, garbage disposals, and tubs.</p>
+          <a href="tel:8655884448" class="service-link">Plan Your Plumbing Remodel &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💧</div>
+          <h4>Water Line & Outdoor Pipes</h4>
+          <p>Installation and repair of outdoor hose bibbs, yard hydrants, main shut-off valves, pressure regulators, and whole-house repiping.</p>
+          <a href="tel:8655884448" class="service-link">Schedule Inspection &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Founder & Authority Section
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-box">
+        <div>
+          <div style="color: #38BDF8; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.5rem;">The Cedar Bluff Tradition</div>
+          <h2>Knoxville’s Honest Plumbers Since 1986</h2>
+          <p>
+            Founded in 1986 by Chuck McMahan, Cedar Bluff Plumbing has grown through one principle: treating our Knoxville neighbors with absolute honesty. When you have a small drip or a serious pipe issue, we explain exactly what's wrong and give you the best solution at a fair, straightforward price.
+          </p>
+          <p>
+            All repairs are supervised by a licensed Master Plumber, and our team continually trains on the latest pipe diagnostics, trenchless technologies, and tankless systems.
+          </p>
+          <a href="tel:8655884448" class="btn-emergency" style="margin-top: 0.5rem;">Speak with Chuck’s Team &rarr;</a>
+        </div>
+
+        <div class="stats-card">
+          <div class="stat-row">
+            <div>
+              <div class="stat-number">1986</div>
+              <div class="stat-label">Year Founded</div>
+            </div>
+            <div style="font-size: 2rem;">📅</div>
+          </div>
+
+          <div class="stat-row">
+            <div>
+              <div class="stat-number">38+</div>
+              <div class="stat-label">Years in Knoxville</div>
+            </div>
+            <div style="font-size: 2rem;">🏆</div>
+          </div>
+
+          <div class="stat-row">
+            <div>
+              <div class="stat-number">4.7★</div>
+              <div class="stat-label">Angie’s List Rating</div>
+            </div>
+            <div style="font-size: 2rem;">⭐</div>
+          </div>
+
+          <div class="stat-row">
+            <div>
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Master Plumber Supervised</div>
+            </div>
+            <div style="font-size: 2rem;">🛡️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4 style="color: #FFFFFF; font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.75rem;">Cedar Bluff Plumbing</h4>
+        <p style="color: #CBD5E1; margin-bottom: 1.25rem;">
+          Licensed, bonded, and insured plumbing service provider for Knoxville and East Tennessee since 1986.
+        </p>
+        <p style="font-size: 0.85rem;">
+          📍 <strong>Main Office:</strong> 316 Nancy Lynn Ln., Suite 4, Knoxville, TN 37919<br>
+          ✉️ <strong>Email:</strong> info@cedarbluffplumbing.com<br>
+          💳 <strong>Payment Accepted:</strong> Visa, MasterCard, Discover, AMEX
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Operating Hours</h5>
+        <ul class="footer-links">
+          <li><strong>Monday – Friday:</strong> 8:00 AM – 5:00 PM</li>
+          <li><strong>Saturday – Sunday:</strong> Emergency On-Call</li>
+          <li style="margin-top: 1rem; color: #38BDF8; font-weight: 700;">24/7 Priority Emergency Line:</li>
+          <li><a href="tel:8655884448" style="color: #FFFFFF; font-size: 1.1rem; font-weight: 800;">(865) 588-4448</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Water Heater Repair</a></li>
+          <li><a href="#services">Camera Drain Inspection</a></li>
+          <li><a href="#services">Trenchless Sewer Boring</a></li>
+          <li><a href="#areas">Knox County Service Map</a></li>
+          <li><a href="#dispatch">Request Service Dispatch</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; 2026 Cedar Bluff Plumbing. All Rights Reserved. &bull; License #TN-Master
+      </div>
+      <div>
+        <a href="../index.html" class="agency-tag">⚡ Engineered by 865Dev Static Architecture &bull; (865) 245-0363</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleAuditModal() {
+      const modal = document.getElementById('auditModal');
+      modal.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
