@@ -3,9 +3,15 @@
 # Optimized for LiteSpeed & Apache Servers
 # ----------------------------------------------------------------------
 
-# 1. Force HTTPS
+# 1. Force HTTPS & Canonical Apex Domain (www to non-www)
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Redirect www.865dev.com to https://865dev.com
+  RewriteCond %{HTTP_HOST} ^www\.865dev\.com$ [NC]
+  RewriteRule ^(.*)$ https://865dev.com/$1 [L,R=301]
+
+  # Force HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
