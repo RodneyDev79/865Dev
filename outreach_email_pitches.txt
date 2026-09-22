@@ -1,0 +1,344 @@
+================================================================================
+865DEV COLD OUTREACH EMAIL PITCH PLAYBOOK
+HIGH-PERFORMANCE DEMONSTRATION SITES FOR KNOXVILLE BUSINESSES
+================================================================================
+Agency: 865Dev (Knoxville, TN)
+Contact: Rodney Camp | Founder & Lead Engineer
+Direct Phone: (865) 245-0363
+Agency Website: https://865dev.com
+Architecture: Static HTML5/CSS3/Vanilla JS &bull; Sub-0.3s TTFB &bull; Grade A+ SSL
+
+INDEX OF PERSONALIZED PROSPECTS:
+1. Cedar Bluff Plumbing (West Knoxville / Bearden)
+2. Alpha Motors LLC (Clinton Highway)
+3. Smith Handyman Service (West Knoxville / Hardin Valley)
+4. All Terrain Auto Care (Piney Grove / Middlebrook)
+5. Wild Love Bakehouse (North Central / Happy Holler)
+6. Knoxville Auto Sales LLC (Clinton Highway)
+7. Rocky Top Restoration LLC (Old Callahan / Northwest Knoxville)
+
+================================================================================
+PROSPECT 1: CEDAR BLUFF PLUMBING
+================================================================================
+Business: Cedar Bluff Plumbing (Founded 1986 by Chuck McMahan)
+Location: 316 Nancy Lynn Ln., Suite 4, Knoxville, TN 37919
+Phone: (865) 691-7686
+Current Website: cedarbluffplumbing.com
+Audited Flaw: 4.41s TTFB on Flywheel WordPress hosting; contact page timeout;
+              missing mobile tap-to-call lines for Knox County zones.
+Live Demo URL: https://865dev.com/prospects/cedar-bluff-plumbing.html
+Target Package: Turnkey Service Build ($1,500) + Managed Care ($100/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: Cedar Bluff Plumbing - mobile call speed audit + 0.3s prototype
+Option B: Quick question about cedarbluffplumbing.com mobile bounce rate
+
+--- EMAIL BODY ---
+Hi Chuck & the Cedar Bluff Plumbing team,
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville.
+
+I ran a quick performance benchmark on cedarbluffplumbing.com this week and wanted to share what I found: when homeowners search for an emergency plumber on their smartphones, your current WordPress server takes about 4.4 seconds before the first byte loads. 
+
+In the emergency plumbing trade, seconds equal lost jobs: when someone has a burst pipe, backed-up drain, or leaking water heater in West Knox or Farragut, they won’t wait 4 to 5 seconds on a blank screen—they hit the back button and call the next plumber on Google.
+
+To show your team how fast your site can actually be, we took your exact blue and navy branding, 1986 company history, and 10% senior/veteran discount badges, and rebuilt a working prototype on our ultra-fast static architecture. It loads in 0.28 seconds:
+
+👉 https://865dev.com/prospects/cedar-bluff-plumbing.html
+
+Tap that link on your smartphone to test how quickly the tap-to-call buttons for West Knox, Cedar Bluff, Farragut, and Bearden respond.
+
+We build turnkey sites like this for Knoxville service businesses for a flat $1,500 with zero monthly plugin headaches or WordPress security vulnerabilities. 
+
+I’d love to chat for 5 minutes this week if you’d like to see how we can help you capture more emergency calls across Knox County.
+
+Warm regards,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi Chuck — Rodney Camp with 865Dev in Knoxville. Ran a speed audit on cedarbluffplumbing.com (4.4s server delay) and built a working mobile prototype using your exact branding and direct-dial lines that loads in 0.28s: https://865dev.com/prospects/cedar-bluff-plumbing.html — check it out on your phone when you get a chance!”
+
+
+================================================================================
+PROSPECT 2: ALPHA MOTORS LLC
+================================================================================
+Business: Alpha Motors LLC
+Location: 5011 Clinton Highway, Knoxville, TN 37912
+Phone: (865) 247-4950
+Current Website: alphamotors.info
+Audited Flaw: Rented DealerCarSearch portal lock-in at $650/mo ($7,800/yr) on a
+              .info domain; heavy third-party tracker lag; lack of asset ownership.
+Live Demo URL: https://865dev.com/prospects/alpha-motors.html
+Target Package: Dealership CMS Build ($3,500) + Managed Retainer ($250/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: 5011 Clinton Hwy inventory portal audit + 0.3s prototype (Save $4,800/yr)
+Option B: Alpha Motors: Cut DealerCarSearch portal fees & keep $4,800/yr profit
+
+--- EMAIL BODY ---
+Hi [General Manager / Dealer Principal],
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville.
+
+I drove by your lot on Clinton Highway recently and looked up alphamotors.info on my phone. Like many independent dealerships in town, you’re currently paying DealerCarSearch roughly $650 every single month ($7,800/year) for a rented portal on a .info domain weighed down by third-party tracking scripts.
+
+We specialize in building custom, high-speed Dealership CMS platforms that you own outright as a permanent business asset:
+
+1. Immediate Bottom-Line Savings: Replace your $650/mo portal bill with our $250/mo managed plan, immediately putting $4,800 in net profit back into your dealership every single year.
+2. 0.28s Instant Inventory Speed: Filter lot inventory instantly with zero page reloads, keeping smartphone shoppers engaged.
+3. Full Brand & Asset Ownership: Transition to a primary .com domain with custom ITIN financing and warranty badges tailored to your buyers.
+
+To show you exactly what this looks like, we built a working demonstration site loaded with your actual Clinton Highway lot inventory (including your Corvette, Dodge Challengers, and Chevy Colorado):
+
+👉 https://865dev.com/prospects/alpha-motors.html
+
+Tap that link on your smartphone to test how fast the vehicle filters, financing intake, and trade-in forms respond.
+
+We handle the full turnkey build and inventory migration for $3,500. Over 3 years, you save more than $10,900 in software overhead while owning a dramatically faster site. I’d love to drop by Clinton Highway or chat for 5 minutes if you’d like to run through the numbers.
+
+Best regards,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi there — Rodney Camp with 865Dev in Knoxville. Checked out alphamotors.info and built a live working concept using your actual Clinton Hwy inventory (Corvette, Challengers, Colorado) that cuts your DealerCarSearch SaaS fees by $4,800/year and loads in 0.28s: https://865dev.com/prospects/alpha-motors.html — take a look on your phone!”
+
+
+================================================================================
+PROSPECT 3: SMITH HANDYMAN SERVICE
+================================================================================
+Business: Smith Handyman Service
+Location: 1544 Schaeffer Rd. Suite A, Knoxville, TN 37932
+Phone: (865) 966-1606
+Current Website: smithhandymanservice.com
+Audited Flaw: 3.85s TTFB on WordPress with 24 active plugins (Slick, Fancybox,
+              ElegantIcons); high mobile estimate form abandonment.
+Live Demo URL: https://865dev.com/prospects/smith-handyman.html
+Target Package: Turnkey Service Build ($1,500) + Managed Care ($100/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: Schaeffer Rd estimate form speed audit + 0.3s prototype (for Rick & team)
+Option B: Smith Handyman Service: Fix mobile estimate form drop-offs
+
+--- EMAIL BODY ---
+Hi Rick & the Smith Handyman team,
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville.
+
+I ran a performance audit on smithhandymanservice.com this week. Your current WordPress site is running about 24 different active plugins (Slick carousel, Fancybox, ElegantIcons scripts), which causes the server to take nearly 3.9 seconds before loading on smartphones.
+
+When West Knoxville homeowners look to book a home repair, drywall fix, or deck project, mobile attention spans are short. Multi-second load times and sluggish form fields cause up to 50% of prospective clients to abandon estimate requests before hitting submit.
+
+To show how fast and clean your estimate intake can be, we rebuilt your real branding, contractor orange accents, "Best of Knoxville" awards, and service lists on our ultra-fast static architecture. It loads in 0.28 seconds:
+
+👉 https://865dev.com/prospects/smith-handyman.html
+
+Tap that link on your phone to test the instant estimate request form and see how smooth it feels.
+
+We build turnkey websites for Knoxville contractors for a flat $1,500 with ongoing local care and zero plugin updates or security vulnerabilities to worry about.
+
+I’d love to chat for 5 minutes this week if you’d like to see how a faster site can capture more repair jobs across West Knoxville.
+
+Warmly,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi Rick — Rodney Camp with 865Dev in Knoxville. Audited smithhandymanservice.com (3.85s WordPress plugin delay) and put together a working prototype using your contractor orange branding and instant quote form that loads in 0.28s: https://865dev.com/prospects/smith-handyman.html — check it out on your phone!”
+
+
+================================================================================
+PROSPECT 4: ALL TERRAIN AUTO CARE
+================================================================================
+Business: All Terrain Auto Care (Founded in 2000)
+Location: 2335 Piney Grove Church Rd, Knoxville, TN 37909
+Phone: (865) 691-3400
+Current Website: allterrainautocare.com
+Audited Flaw: 1.62s Apache TTFB with session cookie latency (CIRKUITSESID);
+              multi-step mobile navigation; slow drop-off booking.
+Live Demo URL: https://865dev.com/prospects/all-terrain-auto.html
+Target Package: Turnkey Service Build ($1,500) + Managed Care ($100/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: Piney Grove shop speed audit + 0.3s prototype (for your service team)
+Option B: All Terrain Auto Care: 1-tap mobile drop-off booking concept
+
+--- EMAIL BODY ---
+Hi [Service Manager / Owner],
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville.
+
+I ran a quick performance benchmark on allterrainautocare.com: the legacy server takes about 1.6 seconds before the first byte loads on mobile devices due to session cookie overhead, and the mobile navigation is multi-layered.
+
+For Knoxville drivers dealing with a sudden check-engine light or looking to book a Jeep lift kit installation on their smartphones, speed and a clean 1-tap drop-off form make a huge difference in booking conversions.
+
+To show your team what a modern build feels like, we took your real logo, trail green and amber branding, Jeep 4x4 specialty focus, and photo-backed digital inspection highlights, and rebuilt a concept on our ultra-fast architecture. It loads in 0.28 seconds:
+
+👉 https://865dev.com/prospects/all-terrain-auto.html
+
+Tap that link on your smartphone to test how fast the drop-off booking form responds.
+
+We build turnkey sites like this for Knoxville automotive shops for a flat $1,500 with ongoing local support and hosting. Happy to chat for 5 minutes if you’d like to see how it can help you fill your service bays.
+
+Best regards,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi there — Rodney Camp with 865Dev in Knoxville. Ran a speed audit on allterrainautocare.com and built a live working concept using your exact branding, Jeep 4x4 specialties, and digital inspection badges that loads in 0.28s: https://865dev.com/prospects/all-terrain-auto.html — check it out on your phone!”
+
+
+================================================================================
+PROSPECT 5: WILD LOVE BAKEHOUSE
+================================================================================
+Business: Wild Love Bakehouse (Founded 2015 by Shaun & Meg Parrish)
+Location: 1625 N. Central St., Knoxville, TN 37917
+Phone: (865) 200-8078
+Current Website: wildlovebakehouse.com
+Audited Flaw: Broken SSL certificate (x509: certificate signed by unknown
+              authority) triggering full-screen mobile security warnings
+              ("Your connection is not private"); unforced HTTP.
+Live Demo URL: https://865dev.com/prospects/wild-love-bakehouse.html
+Target Package: Turnkey Service Build ($1,500) + Managed Care ($100/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: Wild Love Bakehouse - mobile security warning fix + 0.3s prototype
+Option B: Quick heads-up about wildlovebakehouse.com browser security alert
+
+--- EMAIL BODY ---
+Hi Shaun & Meg,
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville. I live right here in town and love what you’ve built on North Central (and at Old City Java).
+
+I wanted to give you a heads-up about an urgent issue on your website: when visitors tap wildlovebakehouse.com from an iPhone Safari or Android Chrome browser, modern devices trigger a full-screen red security alert saying:
+"Your connection is not private — this website may be impersonating wildlovebakehouse.com"
+
+Because the SSL certificate is misconfigured and the site isn't enforcing HTTPS, up to 60%+ of prospective customers searching for your hours, location, or daily pastry menu on their phones back out thinking the site is compromised or abandoned.
+
+To show how clean and fast it can be, we built a personalized working demonstration site using your exact olive and blush branding, official SVG logo, scratch Viennoiserie menu, and an instant weekend pastry box pre-order form. It runs on 100% encrypted HTTPS and loads in 0.28 seconds:
+
+👉 https://865dev.com/prospects/wild-love-bakehouse.html
+
+Tap that link on your smartphone to see how smooth the daily menu and pickup form feel without any security warnings.
+
+We build turnkey sites like this for Knoxville businesses for a flat $1,500 with ongoing local support. If you’d like to get this fixed so your morning visitors have a flawless experience, give me a call at (865) 245-0363 or reply here!
+
+Warmly,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi Shaun & Meg — Rodney Camp with 865Dev here in Knoxville. Ran into an issue visiting wildlovebakehouse.com on mobile where Safari/Chrome throw a red ‘Connection Not Private / Security Warning’ alert. Put together a working prototype using your exact branding, scratch menu, and a weekend pastry box preorder form on encrypted HTTPS that loads in 0.28s: https://865dev.com/prospects/wild-love-bakehouse.html — hope it helps your team!”
+
+
+================================================================================
+PROSPECT 6: KNOXVILLE AUTO SALES LLC
+================================================================================
+Business: Knoxville Auto Sales LLC
+Location: 6641 Clinton Hwy, Knoxville, TN 37912
+Phone: (865) 320-9500
+Current Website: knoxvilleautosalesllc.com
+Audited Flaw: Paying DealerCarSearch $650/mo ($7,800/yr) for a rented portal;
+              1.52s TTFB latency; heavy third-party tracker bloat (Tealium, GoCRM).
+Live Demo URL: https://865dev.com/prospects/knoxville-auto-sales.html
+Target Package: Dealership CMS Build ($3,500) + Managed Retainer ($250/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: 6641 Clinton Hwy inventory portal audit + 0.3s prototype (Save $4,800/yr)
+Option B: Knoxville Auto Sales: Cut DealerCarSearch fees & own your lot CMS
+
+--- EMAIL BODY ---
+Hi [General Manager / Dealer Principal],
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville.
+
+I drove by your lot on Clinton Highway recently and pulled up knoxvilleautosalesllc.com on my smartphone. Like many independent dealerships in Knox County, you’re currently hosted on DealerCarSearch paying roughly $650 every single month ($7,800/year) for a rented template loaded with third-party tracking scripts (Tealium, GoCRM) that drag down your mobile load speed to over 1.5 seconds.
+
+We specialize in building custom, self-hosted Dealership CMS platforms that you own 100% as a business asset:
+
+1. Immediate Cost Reduction: Replace your $650/mo portal fee with our $250/mo managed plan, putting $4,800 in net profit back in your pocket every single year.
+2. Instant 0.28s Load Speed: Filter lot inventory, trucks, and SUVs instantly with zero page reloads or tracker lag.
+3. Complete Asset Ownership: Full control over your vehicle inventory, customer financing leads, and search engine authority.
+
+To show you exactly what this looks like for your dealership, we built a working demonstration using your real lot inventory (including your 2018 F-150, 2021 Charger, 2024 RAM 1500, and Camaro):
+
+👉 https://865dev.com/prospects/knoxville-auto-sales.html
+
+Tap that link on your smartphone to test how fast the vehicle filters and financing forms respond.
+
+We handle the full build and inventory migration turnkey for $3,500. Over 3 years, you save more than $10,900 in software overhead while owning a faster site. I’d love to drop by Clinton Highway or chat for 5 minutes this week if you’d like to see the numbers.
+
+Best regards,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi there — Rodney Camp with 865Dev in Knoxville. Looked at knoxvilleautosalesllc.com and built a working prototype using your actual Clinton Hwy lot inventory (F-150, RAM 1500, Charger, Camaro) that cuts your DealerCarSearch SaaS fees by $4,800/year and loads in 0.28s: https://865dev.com/prospects/knoxville-auto-sales.html — take a look on your phone when you have a minute!”
+
+
+================================================================================
+PROSPECT 7: ROCKY TOP RESTORATION LLC
+================================================================================
+Business: Rocky Top Restoration LLC
+Location: 2339 Old Callahan Drive, Knoxville, TN 37912
+Phone: (865) 440-7449
+Current Website: rockytoprestoration.com
+Audited Flaw: Webflow cloud latency (1.35s TTFB) with heavy JavaScript bundles
+              (webfont.js, Lottie animations) causing high mobile bounce risk on
+              emergency 2 AM calls.
+Live Demo URL: https://865dev.com/prospects/rocky-top-restoration.html
+Target Package: Turnkey Service Build ($1,500) + Managed Care ($100/mo)
+
+--- SUBJECT LINE OPTIONS ---
+Option A: Callahan Dr emergency response speed audit + 0.3s prototype
+Option B: Rocky Top Restoration: Sub-second mobile speed for emergency claims
+
+--- EMAIL BODY ---
+Hi Team Rocky Top Restoration,
+
+I’m Rodney Camp, local IT engineer and founder of 865Dev here in Knoxville.
+
+In the emergency restoration business, conversions happen under extreme stress: when a homeowner in Knox or Blount County wakes up to a burst pipe or smoke at 2:00 AM, they Google "water damage restoration Knoxville" on their phone and tap the first result.
+
+We ran a speed benchmark on rockytoprestoration.com: because the site runs on Webflow with heavy JavaScript libraries and animation trackers, the server takes 1.35 seconds before the first byte loads, and mobile click-to-call buttons take several seconds to become interactive. In those few seconds, many frantic homeowners hit the back button and call the next contractor in the Google local pack.
+
+To show how fast an emergency response site can perform, we rebuilt your real branding, official logo, emergency service offerings, and direct insurance billing badges on our ultra-fast architecture. It loads in 0.28 seconds:
+
+👉 https://865dev.com/prospects/rocky-top-restoration.html
+
+Tap that on your mobile device to test how instant the 24/7 hotline and dispatch form load.
+
+Just one additional insurance restoration claim ($10,000–$25,000+) won from zero mobile bounce pays for this build ten times over. We do turnkey sites for $1,500 with ongoing local support. Would love to connect for 5 minutes if you’d like to see how it can capture more emergency calls.
+
+Best regards,
+
+Rodney Camp
+865Dev | Knoxville, TN
+Direct: (865) 245-0363
+Website: https://865dev.com
+
+--- BONUS SMS PITCH ---
+“Hi there — Rodney Camp with 865Dev in Knoxville. Audited rockytoprestoration.com and noticed Webflow script latency slows down emergency mobile calls. Built a live working prototype with your exact branding, 24/7 dispatch hotline, and insurance badges that loads in 0.28s: https://865dev.com/prospects/rocky-top-restoration.html — test it on your phone when you get a chance!”
+
+================================================================================
+END OF PLAYBOOK
+================================================================================
