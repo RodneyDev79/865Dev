@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Motors LLC | Quality Used Cars, Trucks & SUVs | Knoxville, TN | 865Dev Spec Build</title>
+  <meta name="description" content="Shop quality used cars, trucks, and SUVs at Alpha Motors LLC on Clinton Highway in Knoxville, TN. NVP Warranty, ITIN financing, and instant approvals. Ultra-fast prototype by 865Dev.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --am-red: #A51C30;
+      --am-red-dark: #7F1D1D;
+      --am-red-bright: #DC2626;
+      --am-gold: #F59E0B;
+      --am-gold-glow: rgba(245, 158, 11, 0.25);
+      
+      --bg-dark: #0B0F17;
+      --bg-card: #131B2A;
+      --bg-card-hover: #1A253A;
+      --border-dark: #202D45;
+      
+      --slate-100: #F1F5F9;
+      --slate-300: #CBD5E1;
+      --slate-400: #94A3B8;
+      --slate-600: #475569;
+      --slate-800: #1E293B;
+      --slate-900: #0F172A;
+      
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       865Dev Dealership CMS Pitch / Comparison Bar
+       ========================================================================== */
+    .pitch-header {
+      background: #000000;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--am-red-bright);
+      position: sticky;
+      top: 0;
+      z-index: 2100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .pitch-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .pitch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      color: #FCA5A5;
+    }
+
+    .pitch-comparison {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-slow {
+      background: rgba(220, 38, 38, 0.25);
+      border: 1px solid #EF4444;
+      color: #FCA5A5;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .pill-fast {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #6EE7B7;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .pill-savings {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid #F59E0B;
+      color: #FCD34D;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .pitch-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-audit {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-audit:hover {
+      background: var(--am-red);
+      border-color: var(--am-red);
+    }
+
+    .pitch-call {
+      color: #FCD34D;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .pitch-call:hover { text-decoration: underline; }
+
+    /* Audit Breakdown Modal */
+    .audit-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .audit-modal.open { display: flex; }
+
+    .audit-box {
+      background: #131B2A;
+      border: 1px solid var(--border-dark);
+      border-radius: 14px;
+      max-width: 680px;
+      width: 100%;
+      padding: 2.2rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      color: #FFFFFF;
+    }
+
+    .audit-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-dark);
+      padding-bottom: 0.75rem;
+    }
+
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .audit-table th, .audit-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .audit-table th { background: rgba(255, 255, 255, 0.05); color: #93C5FD; font-weight: 700; }
+
+    /* ==========================================================================
+       Main Dealership Navigation
+       ========================================================================== */
+    .dealership-nav {
+      background: rgba(11, 15, 23, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      position: sticky;
+      top: 36px;
+      z-index: 2000;
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 44px;
+      max-width: 220px;
+      object-fit: contain;
+    }
+
+    .brand-fallback {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-fallback-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .brand-fallback-name span { color: var(--am-red-bright); }
+
+    .brand-fallback-sub {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--slate-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: var(--slate-300);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover { color: #FFFFFF; }
+
+    .itin-badge-nav {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--am-gold);
+      color: #FCD34D;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .btn-lot-call {
+      background: linear-gradient(135deg, var(--am-red), var(--am-red-dark));
+      color: #FFFFFF;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(165, 28, 48, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .btn-lot-call:hover {
+      background: var(--am-red-bright);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Hero Section
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 5rem 0;
+      background: radial-gradient(circle at 75% 25%, rgba(165, 28, 48, 0.22) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(165, 28, 48, 0.18);
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      color: #FCA5A5;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title span { color: var(--am-red-bright); }
+
+    .hero-desc {
+      color: var(--slate-300);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-hero {
+      background: linear-gradient(135deg, var(--am-red), var(--am-red-bright));
+      color: #FFFFFF;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.45);
+    }
+
+    .btn-secondary-hero {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-dark);
+      color: #FFFFFF;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary-hero:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #CBD5E1;
+    }
+
+    /* Fast Financing Card */
+    .hero-finance-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-top: 5px solid var(--am-red-bright);
+      border-radius: 14px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-finance-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      color: #FFFFFF;
+    }
+
+    .hero-finance-card p {
+      color: var(--slate-400);
+      font-size: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--slate-300);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      background: #0B0F17;
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--am-red-bright);
+    }
+
+    .btn-submit-app {
+      width: 100%;
+      background: linear-gradient(135deg, var(--am-gold), #D97706);
+      color: #000000;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit-app:hover { background: #B45309; color: #FFFFFF; }
+
+    /* ==========================================================================
+       Trust & Value Badges Strip
+       ========================================================================== */
+    .dealership-trust-strip {
+      background: #0F1624;
+      border-bottom: 1px solid var(--border-dark);
+      padding: 1.75rem 0;
+    }
+
+    .dealership-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .trust-card-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .trust-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: rgba(165, 28, 48, 0.2);
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      color: var(--am-red-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .trust-card-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .trust-card-sub {
+      font-size: 0.8rem;
+      color: var(--slate-400);
+    }
+
+    /* ==========================================================================
+       Live Inventory Grid (With Real Vehicles from Clinton Hwy Lot)
+       ========================================================================== */
+    .section-padding { padding: 5rem 0; }
+
+    .inventory-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--slate-400);
+      font-size: 1.05rem;
+    }
+
+    /* Filter Pills */
+    .filter-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      color: var(--slate-300);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn.active, .pill-btn:hover {
+      background: var(--am-red);
+      border-color: var(--am-red);
+      color: #FFFFFF;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .car-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--am-red);
+    }
+
+    .car-img-wrapper {
+      position: relative;
+      height: 220px;
+      background: #000000;
+      overflow: hidden;
+    }
+
+    .car-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover .car-img-wrapper img {
+      transform: scale(1.04);
+    }
+
+    .car-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(11, 15, 23, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .car-price-tag {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(165, 28, 48, 0.95);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 900;
+      padding: 0.3rem 0.85rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .car-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .car-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .car-specs {
+      display: flex;
+      justify-content: space-between;
+      color: var(--slate-400);
+      font-size: 0.88rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .car-meta-details {
+      font-size: 0.82rem;
+      color: var(--slate-400);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .car-meta-details strong { color: #FFFFFF; }
+
+    .car-actions {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .btn-car-detail {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-dark);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.65rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-car-detail:hover { background: rgba(255, 255, 255, 0.16); }
+
+    .btn-car-apply {
+      background: var(--am-red);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.65rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-car-apply:hover { background: var(--am-red-bright); }
+
+    /* ==========================================================================
+       CMS Value Feature Box: The 865Dev Solution
+       ========================================================================== */
+    .cms-pitch-container {
+      background: linear-gradient(135deg, #131B2A 0%, #1E293B 100%);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 3.5rem;
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .cms-pitch-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .cms-pitch-desc {
+      color: var(--slate-300);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .cms-check-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .cms-check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+      color: var(--slate-300);
+    }
+
+    .cms-check-list strong { color: #FFFFFF; }
+
+    .check-icon {
+      color: #10B981;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* Live CMS Mockup Box */
+    .cms-mockup-window {
+      background: #0B0F17;
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .cms-window-top {
+      background: #1E293B;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .cms-window-body { padding: 1.25rem; }
+
+    .cms-lot-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .cms-lot-status {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #6EE7B7;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .btn-cms-add {
+      display: block;
+      width: 100%;
+      background: rgba(165, 28, 48, 0.15);
+      border: 1px dashed var(--am-red-bright);
+      color: #FCA5A5;
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       Location & Store Info
+       ========================================================================== */
+    .store-info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 3.5rem;
+    }
+
+    .store-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .hours-table td {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border-dark);
+      color: var(--slate-300);
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .dealership-footer {
+      background: #070A10;
+      border-top: 1px solid var(--border-dark);
+      padding: 4rem 0 2rem 0;
+      font-size: 0.9rem;
+      color: var(--slate-400);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-top: 1px solid var(--border-dark);
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+
+    .agency-tag {
+      background: rgba(165, 28, 48, 0.15);
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      color: #FCA5A5;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .agency-tag:hover {
+      background: rgba(165, 28, 48, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid, .cms-pitch-container, .store-info-grid { grid-template-columns: 1fr; }
+      .car-grid { grid-template-columns: repeat(2, 1fr); }
+      .dealership-trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-menu { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .car-grid, .dealership-trust-grid { grid-template-columns: 1fr; }
+      .pitch-header-flex { flex-direction: column; align-items: flex-start; }
+      .hero-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       865Dev Dealership CMS Pitch Header (Customized for Alpha Motors)
+       ======================================================================== -->
+  <div class="pitch-header">
+    <div class="pitch-header-flex">
+      <div class="pitch-badge">
+        <span>⚡ 865Dev Dealership CMS Prototype</span>
+        <span style="opacity: 0.6;">&bull; Prepared for Alpha Motors LLC</span>
+      </div>
+
+      <div class="pitch-comparison">
+        <span>DealerCarSearch:</span>
+        <span class="pill-slow">~$650/mo forever</span>
+        <span>&rarr; 865Dev CMS:</span>
+        <span class="pill-fast">0.28s Load</span>
+        <span class="pill-savings">Save $4,800/yr</span>
+      </div>
+
+      <div class="pitch-actions">
+        <button class="btn-audit" onclick="toggleAuditModal()">📊 Cost & Speed Breakdown</button>
+        <a href="tel:8652450363" class="pitch-call">Rodney's Cell: (865) 245-0363</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audit & Cost Comparison Modal -->
+  <div class="audit-modal" id="auditModal" onclick="if(event.target === this) toggleAuditModal()">
+    <div class="audit-box">
+      <div class="audit-box-header">
+        <h3 style="font-family: var(--font-heading); color: #FFFFFF;">Alpha Motors: Portal Vendor vs. 865Dev Dealership CMS</h3>
+        <button onclick="toggleAuditModal()" style="background: none; border: none; font-size: 1.5rem; color: #FFFFFF; cursor: pointer;">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--slate-300); margin-bottom: 1.25rem;">
+        Independent dealer cost analysis for 5011 Clinton Hwy, Knoxville, TN.
+      </p>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Feature / Parameter</th>
+            <th>DealerCarSearch Portal</th>
+            <th>865Dev Dealership CMS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ongoing Software Cost</strong></td>
+            <td style="color: #EF4444; font-weight: 700;">$600 – $800 / mo ($7,200+/yr)</td>
+            <td style="color: #10B981; font-weight: 800;">$250 / mo ($3,000/yr)</td>
+          </tr>
+          <tr>
+            <td><strong>3-Year Total Cost</strong></td>
+            <td style="color: #EF4444; font-weight: 700;">$21,600+ (Rented template)</td>
+            <td style="color: #10B981; font-weight: 800;">$11,000 (You own it 100%)</td>
+          </tr>
+          <tr>
+            <td><strong>Mobile PageSpeed on Lot</strong></td>
+            <td style="color: #EF4444; font-weight: 700;">3.6s (Tealium / heavy scripts)</td>
+            <td style="color: #10B981; font-weight: 800;">0.28s (Sub-second filtering)</td>
+          </tr>
+          <tr>
+            <td><strong>Dedicated Local Support</strong></td>
+            <td>Out-of-state ticket portal</td>
+            <td style="color: #10B981; font-weight: 800;">3 hrs/mo hands-on dev included</td>
+          </tr>
+          <tr>
+            <td><strong>Platform Ownership</strong></td>
+            <td>Vendor lock-in on .info domain</td>
+            <td style="color: #10B981; font-weight: 800;">100% Owned by Alpha Motors</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-dark); padding-top: 1rem;">
+        <span style="font-size: 0.85rem; color: var(--slate-300);">Turnkey package: <strong>$3,500 build + $250/mo retainer</strong></span>
+        <a href="tel:8652450363" class="btn-primary-hero" style="padding: 0.6rem 1.2rem; font-size: 0.88rem;">Call Rodney Camp &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Primary Navigation
+       ======================================================================== -->
+  <nav class="dealership-nav">
+    <div class="container nav-flex">
+      <a href="#" class="brand-link">
+        <!-- Official Logo with Stylized Fallback -->
+        <img src="https://imagescdn.dealercarsearch.com/DealerImages/27585/52551/am2 (3).png" 
+             alt="Alpha Motors Logo" 
+             class="brand-logo-img" 
+             onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';">
+        <div id="brandFallback" class="brand-fallback" style="display: none;">
+          <div class="brand-fallback-name">ALPHA <span>MOTORS</span></div>
+          <div class="brand-fallback-sub">5011 Clinton Hwy &bull; Knoxville, TN</div>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#inventory">Lot Inventory</a></li>
+        <li><a href="#financing">Financing</a></li>
+        <li><a href="#warranty">NVP Warranty</a></li>
+        <li><a href="#store">Hours & Location</a></li>
+        <li><span class="itin-badge-nav">Préstamos con ITIN</span></li>
+      </ul>
+
+      <a href="tel:8654442954" class="btn-lot-call">
+        📞 (865) 444-2954
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       Hero Section with Instant Approval Application
+       ======================================================================== -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge-pill">
+          🏁 Clinton Highway's Premier Pre-Owned Inventory &bull; Knoxville, TN
+        </div>
+        <h1 class="hero-title">
+          Knoxville’s Best Used Trucks, Cars & SUVs. <span>No Hassle.</span>
+        </h1>
+        <p class="hero-desc">
+          Alpha Motors is dedicated to bringing East Tennessee a hand-selected lineup of high-performance sports cars, heavy-duty trucks, and clean family SUVs. Relaxed shopping, transparent pricing, and instant financing approval.
+        </p>
+        <div class="hero-ctas">
+          <a href="#inventory" class="btn-primary-hero">
+            🏎️ Browse 22 Lot Vehicles &darr;
+          </a>
+          <a href="tel:8654442954" class="btn-secondary-hero">
+            Call Sales: (865) 444-2954
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Credit Intake Card -->
+      <div class="hero-finance-card" id="financing">
+        <h3>Fast Auto Finance Pre-Approval</h3>
+        <p>Good credit, first-time buyer, or ITIN? We work with all lenders.</p>
+
+        <form onsubmit="event.preventDefault(); alert('Finance pre-approval request submitted to Alpha Motors sales desk!');">
+          <div class="form-group">
+            <label>Vehicle of Interest</label>
+            <select class="form-select">
+              <option value="">Any Vehicle / General Pre-Approval</option>
+              <option value="corvette">2012 Chevrolet Corvette w/1LT ($36,990)</option>
+              <option value="challenger15">2015 Dodge Challenger R/T 6-Spd ($19,990)</option>
+              <option value="challenger14">2014 Dodge Challenger R/T HEMI ($16,990)</option>
+              <option value="chrysler300">2017 Chrysler 300 300S HEMI ($15,990)</option>
+              <option value="colorado">2012 Chevrolet Colorado 4WD ($11,990)</option>
+              <option value="malibu">2023 Chevrolet Malibu 1LT ($11,990)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" class="form-input" placeholder="e.g. Marcus Vance" required>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" class="form-input" placeholder="(865) 555-0199" required>
+          </div>
+
+          <button type="submit" class="btn-submit-app">
+            Check Finance Options (Instant) &rarr;
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Trust Badges & Value Strip
+       ======================================================================== -->
+  <section class="dealership-trust-strip">
+    <div class="container dealership-trust-grid">
+      <div class="trust-card-item">
+        <div class="trust-card-icon">🛡️</div>
+        <div>
+          <div class="trust-card-title">NVP Warranty Certified</div>
+          <div class="trust-card-sub">Comprehensive Lot Coverage</div>
+        </div>
+      </div>
+
+      <div class="trust-card-item">
+        <div class="trust-card-icon">💳</div>
+        <div>
+          <div class="trust-card-title">ITIN Loans Accepted</div>
+          <div class="trust-card-sub">Préstamos con ITIN Disponibles</div>
+        </div>
+      </div>
+
+      <div class="trust-card-item">
+        <div class="trust-card-icon">🔄</div>
+        <div>
+          <div class="trust-card-title">We Buy Trade-Ins</div>
+          <div class="trust-card-sub">Top Dollar for Your Vehicle</div>
+        </div>
+      </div>
+
+      <div class="trust-card-item">
+        <div class="trust-card-icon">🚚</div>
+        <div>
+          <div class="trust-card-title">Out-of-State Buying</div>
+          <div class="trust-card-sub">Seamless Remote Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Live Vehicle Inventory Section (Real Cars from 5011 Clinton Hwy)
+       ======================================================================== -->
+  <section class="section-padding" id="inventory">
+    <div class="container">
+      <div class="inventory-header">
+        <div>
+          <h2 class="section-title">Featured Lot Vehicles For Sale</h2>
+          <p class="section-subtitle">Real live inventory parked on our Clinton Highway lot in Knoxville, TN.</p>
+        </div>
+
+        <div class="filter-pills">
+          <button class="pill-btn active">All Inventory (22)</button>
+          <button class="pill-btn">Performance & Muscle</button>
+          <button class="pill-btn">Trucks & 4x4s</button>
+          <button class="pill-btn">Under $15,000</button>
+        </div>
+      </div>
+
+      <div class="car-grid">
+
+        <!-- Vehicle 1: 2012 Corvette -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="https://imagescdn.dealercarsearch.com/Media/27585/23997401/639189261856885722.jpg" alt="2012 Chevrolet Corvette 2dr Cpe w/1LT">
+            <div class="car-badge">Performance Coupe</div>
+            <div class="car-price-tag">$36,990</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2012 Chevrolet Corvette 2dr Cpe w/1LT</h3>
+            <div class="car-specs">
+              <span>Mileage: 17,912 mi</span>
+              <span>6-Speed Manual</span>
+            </div>
+            <div class="car-meta-details">
+              <strong>Engine:</strong> 6.2L V8 SFI (430 HP)<br>
+              <strong>Color:</strong> Arctic White &bull; <strong>Stock:</strong> #0003<br>
+              <strong>VIN:</strong> 1G1YA2DW7C5103121
+            </div>
+            <div class="car-actions">
+              <a href="tel:8654442954" class="btn-car-detail">📞 Test Drive</a>
+              <a href="#financing" class="btn-car-apply">Apply Online</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 2: 2015 Dodge Challenger R/T -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="https://imagescdn.dealercarsearch.com/Media/27585/24075812/639193659149413440.jpg" alt="2015 Dodge Challenger 2dr Cpe R/T">
+            <div class="car-badge">HEMI V8 Muscle</div>
+            <div class="car-price-tag">$19,990</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2015 Dodge Challenger 2dr Cpe R/T</h3>
+            <div class="car-specs">
+              <span>Mileage: 78,653 mi</span>
+              <span>Manual Transmission</span>
+            </div>
+            <div class="car-meta-details">
+              <strong>Engine:</strong> 5.7L V8 HEMI VVT<br>
+              <strong>Color:</strong> Billet Silver &bull; <strong>Stock:</strong> #r/tdge<br>
+              <strong>VIN:</strong> 2C3CDZAT3FH770474
+            </div>
+            <div class="car-actions">
+              <a href="tel:8654442954" class="btn-car-detail">📞 Test Drive</a>
+              <a href="#financing" class="btn-car-apply">Apply Online</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 3: 2014 Dodge Challenger R/T -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="https://imagescdn.dealercarsearch.com/Media/27585/24303203/639250936279789654.jpg" alt="2014 Dodge Challenger 2dr Cpe R/T">
+            <div class="car-badge">HEMI V8 Muscle</div>
+            <div class="car-price-tag">$16,990</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2014 Dodge Challenger 2dr Cpe R/T</h3>
+            <div class="car-specs">
+              <span>Mileage: 83,936 mi</span>
+              <span>Automatic Trans</span>
+            </div>
+            <div class="car-meta-details">
+              <strong>Engine:</strong> 5.7L V8 HEMI MDS VVT<br>
+              <strong>Color:</strong> Granite Gray &bull; <strong>Stock:</strong> #0083r/t<br>
+              <strong>VIN:</strong> 2C3CDYBT6EH185556
+            </div>
+            <div class="car-actions">
+              <a href="tel:8654442954" class="btn-car-detail">📞 Test Drive</a>
+              <a href="#financing" class="btn-car-apply">Apply Online</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 4: 2017 Chrysler 300S Alloy -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="https://imagescdn.dealercarsearch.com/Media/27585/24225751/639230156190759132.jpg" alt="2017 Chrysler 300 300S Alloy Edition RWD">
+            <div class="car-badge">Luxury HEMI Sedan</div>
+            <div class="car-price-tag">$15,990</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2017 Chrysler 300 300S Alloy Edition</h3>
+            <div class="car-specs">
+              <span>Mileage: 125,273 mi</span>
+              <span>Automatic Trans</span>
+            </div>
+            <div class="car-meta-details">
+              <strong>Engine:</strong> 5.7L V8 HEMI &bull; Leather Interior<br>
+              <strong>Color:</strong> Charcoal &bull; <strong>Stock:</strong> #chyrlser3<br>
+              <strong>VIN:</strong> 2C3CCABT9HH663841
+            </div>
+            <div class="car-actions">
+              <a href="tel:8654442954" class="btn-car-detail">📞 Test Drive</a>
+              <a href="#financing" class="btn-car-apply">Apply Online</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 5: 2012 Chevy Colorado 4WD -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="https://imagescdn.dealercarsearch.com/Media/27585/24101788/639205948778107015.jpg" alt="2012 Chevrolet Colorado 4WD Crew Cab LT">
+            <div class="car-badge">4WD Crew Cab</div>
+            <div class="car-price-tag">$11,990</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2012 Chevrolet Colorado 4WD Crew Cab</h3>
+            <div class="car-specs">
+              <span>Mileage: 146,888 mi</span>
+              <span>4-Wheel Drive</span>
+            </div>
+            <div class="car-meta-details">
+              <strong>Engine:</strong> 3.7L DOHC 5-Cylinder SFI<br>
+              <strong>Color:</strong> Deep Blue &bull; <strong>Stock:</strong> #012<br>
+              <strong>VIN:</strong> 1GCHTCFE5C8131493
+            </div>
+            <div class="car-actions">
+              <a href="tel:8654442954" class="btn-car-detail">📞 Test Drive</a>
+              <a href="#financing" class="btn-car-apply">Apply Online</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vehicle 6: 2023 Chevrolet Malibu 1LT -->
+        <div class="car-card">
+          <div class="car-img-wrapper">
+            <img src="https://imagescdn.dealercarsearch.com/Media/27585/24311137/639254452109654676.jpg" alt="2023 Chevrolet Malibu 4dr Sdn 1LT">
+            <div class="car-badge">Late Model Sedan</div>
+            <div class="car-price-tag">$11,990</div>
+          </div>
+          <div class="car-body">
+            <h3 class="car-title">2023 Chevrolet Malibu 4dr Sdn 1LT</h3>
+            <div class="car-specs">
+              <span>Mileage: 143,364 mi</span>
+              <span>Automatic FWD</span>
+            </div>
+            <div class="car-meta-details">
+              <strong>Engine:</strong> 1.5L Turbo DOHC 4-Cylinder<br>
+              <strong>Color:</strong> Dark Gray &bull; <strong>Stock:</strong> #A113993<br>
+              <strong>VIN:</strong> 1G1ZD5ST7PF113993
+            </div>
+            <div class="car-actions">
+              <a href="tel:8654442954" class="btn-car-detail">📞 Test Drive</a>
+              <a href="#financing" class="btn-car-apply">Apply Online</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       The 865Dev Solution: Dealership CMS Feature Showcase
+       ======================================================================== -->
+  <section class="container">
+    <div class="cms-pitch-container">
+      <div>
+        <span style="color: var(--am-gold); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em;">865Dev Dealership CMS</span>
+        <h2 class="cms-pitch-title">Stop Paying $650/mo Portal Rent. Own Your Dealership Engine.</h2>
+        <p class="cms-pitch-desc">
+          Most used car lots along Clinton Highway are stuck paying thousands every year to out-of-state SaaS providers for templates they never own. 865Dev gives Alpha Motors a high-speed custom platform engineered for Knoxville buyers.
+        </p>
+
+        <ul class="cms-check-list">
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Upload Cars in 30 Seconds from Your Phone:</strong> Snap photos on the lot, type the price and VIN, and it publishes instantly.</div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Instant SMS & Email Lead Routing:</strong> Credit applications and test-drive bookings ring directly to your sales desk.</div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>Sub-Second Loading for Mobile Walk-Ups:</strong> Customers browsing your lot on cellular data experience 0.3s page loads with zero lag.</div>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <div><strong>3 Hours of Included Local IT Support Every Month:</strong> Rodney Camp handles weekly inventory batch updates, banner changes, and maintenance!</div>
+          </li>
+        </ul>
+
+        <a href="tel:8652450363" class="btn-primary-hero">
+          Schedule 10-Minute Lot Walkthrough &rarr;
+        </a>
+      </div>
+
+      <!-- CMS Mobile Dashboard Mockup -->
+      <div class="cms-mockup-window">
+        <div class="cms-window-top">
+          <span>📱 Dealership CMS Mobile Admin</span>
+          <span style="color: #6EE7B7;">Alpha Motors Lot Engine</span>
+        </div>
+        <div class="cms-window-body">
+          <div class="cms-lot-item">
+            <div>
+              <strong style="color: #FFFFFF; font-size: 0.9rem;">2012 Chevy Corvette w/1LT</strong>
+              <div style="font-size: 0.75rem; color: var(--slate-400);">Stock #0003 &bull; $36,990</div>
+            </div>
+            <span class="cms-lot-status">ACTIVE ON LOT</span>
+          </div>
+
+          <div class="cms-lot-item">
+            <div>
+              <strong style="color: #FFFFFF; font-size: 0.9rem;">2015 Dodge Challenger R/T</strong>
+              <div style="font-size: 0.75rem; color: var(--slate-400);">Stock #r/tdge &bull; $19,990</div>
+            </div>
+            <span class="cms-lot-status">ACTIVE ON LOT</span>
+          </div>
+
+          <div class="cms-lot-item">
+            <div>
+              <strong style="color: #FFFFFF; font-size: 0.9rem;">2017 Chrysler 300 300S</strong>
+              <div style="font-size: 0.75rem; color: var(--slate-400);">Stock #chyrlser3 &bull; $15,990</div>
+            </div>
+            <span class="cms-lot-status">ACTIVE ON LOT</span>
+          </div>
+
+          <div class="btn-cms-add">
+            + Tap to Add Vehicle Photos & VIN (Instant Publish)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Store Info & Location
+       ======================================================================== -->
+  <section class="container" style="padding-bottom: 5rem;" id="store">
+    <div class="store-info-grid">
+      <div>
+        <h2 class="store-title">Visit Alpha Motors on Clinton Highway</h2>
+        <p style="color: var(--slate-300); margin-bottom: 1.5rem;">
+          Conveniently located in North Knoxville between Powell and Norwood. Stop by for an honest, pressure-free test drive today.
+        </p>
+
+        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+          📍 <strong>Address:</strong> 5011 Clinton Highway, Knoxville, TN 37912
+        </p>
+        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+          📞 <strong>Lot Direct:</strong> <a href="tel:8654442954" style="color: #FCA5A5; font-weight: 700; text-decoration: none;">(865) 444-2954</a>
+        </p>
+        <p style="font-size: 0.95rem;">
+          💳 <strong>Financing:</strong> Prime, Subprime, First-Time Buyers, and ITIN Loans
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem; color: #FFFFFF;">Operating Hours</h4>
+        <table class="hours-table">
+          <tbody>
+            <tr>
+              <td>Monday – Friday</td>
+              <td>9:00 AM – 6:00 PM</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>9:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td style="color: var(--slate-400);">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="dealership-footer">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <h4 style="color: #FFFFFF; font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.5rem;">Alpha Motors LLC</h4>
+          <p style="font-size: 0.85rem; max-width: 400px; color: var(--slate-400);">
+            Quality used cars, pickups, vans, and SUVs for sale in Knoxville, Tennessee. Certified NVP warranty partner.
+          </p>
+        </div>
+
+        <div>
+          <h5 style="color: #FFFFFF; margin-bottom: 0.5rem;">Lot Location</h5>
+          <p style="font-size: 0.85rem;">5011 Clinton Hwy, Knoxville, TN 37912</p>
+          <p style="font-size: 0.85rem; margin-top: 0.25rem;">Phone: (865) 444-2954</p>
+        </div>
+      </div>
+
+      <div class="footer-flex">
+        <div>
+          &copy; 2026 Alpha Motors LLC. All Rights Reserved. &bull; Licensed TN Auto Dealer
+        </div>
+        <div>
+          <a href="../index.html" class="agency-tag">⚡ Engineered by 865Dev Dealership CMS &bull; (865) 245-0363</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleAuditModal() {
+      const modal = document.getElementById('auditModal');
+      modal.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
