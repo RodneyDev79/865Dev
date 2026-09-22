@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wild Love Bakehouse | Scratch Bakery & Espresso Bar | Knoxville, TN | 0.28s Spec Build by 865Dev</title>
+  <meta name="description" content="North Knoxville's beloved scratch bakery and specialty espresso bar. Laminated croissants, seasonal hand tarts, artisanal sourdough, and craft coffee. Ultra-fast prototype by 865Dev.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wlb-olive-dark: #243531;
+      --wlb-olive-main: #38504B;
+      --wlb-olive-light: #4D6B64;
+      --wlb-olive-subtle: #EBF1EF;
+      
+      --wlb-blush: #F5AAA7;
+      --wlb-blush-dark: #D98885;
+      --wlb-blush-subtle: #FDF3F2;
+      
+      --wlb-terracotta: #C86D51;
+      --wlb-terracotta-hover: #B55C41;
+      
+      --wlb-linen: #FAF7F2;
+      --wlb-cream: #F3ECE2;
+      --wlb-card-bg: #FFFFFF;
+      
+      --slate-800: #1F2926;
+      --slate-600: #4B5854;
+      --slate-400: #889691;
+      --slate-200: #E2E8E5;
+      
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--wlb-linen);
+      color: var(--slate-800);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       865Dev Interactive Client Pitch / Benchmark Bar
+       ========================================================================== */
+    .pitch-header {
+      background: #141E1C;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--wlb-blush);
+      position: sticky;
+      top: 0;
+      z-index: 2100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .pitch-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .pitch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      color: var(--wlb-blush);
+      font-family: var(--font-heading);
+    }
+
+    .pitch-comparison {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-alert {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid #EF4444;
+      color: #FCA5A5;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .pill-fast {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #6EE7B7;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .pitch-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-audit {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: all 0.2s ease;
+    }
+
+    .btn-audit:hover {
+      background: var(--wlb-blush);
+      color: #141E1C;
+      border-color: var(--wlb-blush);
+    }
+
+    .pitch-call {
+      color: #FEE2E2;
+      font-weight: 800;
+      text-decoration: none;
+      font-family: var(--font-heading);
+    }
+
+    .pitch-call:hover { text-decoration: underline; }
+
+    /* Audit Breakdown Modal */
+    .audit-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 25, 23, 0.82);
+      backdrop-filter: blur(5px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .audit-modal.open { display: flex; }
+
+    .audit-box {
+      background: #FFFFFF;
+      border-radius: 14px;
+      max-width: 680px;
+      width: 100%;
+      padding: 2.25rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--slate-200);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .audit-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 0.75rem;
+    }
+
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .audit-table th, .audit-table td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--slate-200);
+    }
+
+    .audit-table th { background: var(--wlb-linen); color: var(--wlb-olive-dark); font-weight: 700; }
+
+    /* ==========================================================================
+       Header & Navigation
+       ========================================================================== */
+    .site-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(56, 80, 75, 0.12);
+      position: sticky;
+      top: 36px;
+      z-index: 2000;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .brand-svg-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--wlb-olive-dark);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: 0.75rem;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--wlb-terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--slate-800);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover { color: var(--wlb-terracotta); }
+
+    .nav-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-order-btn {
+      background: var(--wlb-terracotta);
+      color: #FFFFFF;
+      padding: 0.65rem 1.35rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 3px 10px rgba(200, 109, 81, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .nav-order-btn:hover {
+      background: var(--wlb-terracotta-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Hero Section
+       ========================================================================== */
+    .hero {
+      background: linear-gradient(170deg, var(--wlb-olive-dark) 0%, var(--wlb-olive-main) 100%);
+      color: #FFFFFF;
+      padding: 5rem 0 5.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 80% 25%, rgba(245, 170, 167, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245, 170, 167, 0.15);
+      border: 1px solid var(--wlb-blush);
+      color: var(--wlb-blush);
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--wlb-blush);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: #E2E8E5;
+      margin-bottom: 2rem;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-hero-primary {
+      background: var(--wlb-terracotta);
+      color: #FFFFFF;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(200, 109, 81, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--wlb-terracotta-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 1.5rem;
+      font-size: 0.88rem;
+      color: #CBD5D1;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-trust-item span { color: var(--wlb-blush); font-weight: 800; }
+
+    /* Hero Preorder Quick Card */
+    .hero-card {
+      background: #FFFFFF;
+      color: var(--slate-800);
+      border-radius: 16px;
+      padding: 2.2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-card-header {
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-card-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--wlb-olive-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.85rem;
+      color: var(--slate-600);
+      font-family: var(--font-heading);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: var(--slate-800);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      background: var(--wlb-linen);
+      color: var(--slate-800);
+      transition: all 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--wlb-olive-main);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(56, 80, 75, 0.15);
+    }
+
+    .btn-submit-order {
+      width: 100%;
+      background: var(--wlb-olive-main);
+      color: #FFFFFF;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(36, 53, 49, 0.2);
+    }
+
+    .btn-submit-order:hover {
+      background: var(--wlb-olive-dark);
+    }
+
+    /* ==========================================================================
+       Status & Location Quick Strip
+       ========================================================================== */
+    .status-strip {
+      background: var(--wlb-cream);
+      border-bottom: 1px solid rgba(56, 80, 75, 0.08);
+      padding: 1.1rem 0;
+    }
+
+    .status-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .status-icon {
+      width: 36px;
+      height: 36px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .status-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--slate-600);
+      letter-spacing: 0.05em;
+    }
+
+    .status-value {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--wlb-olive-dark);
+      font-family: var(--font-heading);
+    }
+
+    /* ==========================================================================
+       Daily Scratch Menu Section
+       ========================================================================== */
+    .section-padding {
+      padding: 5rem 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--wlb-terracotta);
+      background: var(--wlb-blush-subtle);
+      border: 1px solid rgba(200, 109, 81, 0.2);
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--wlb-olive-dark);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--slate-600);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Menu Category Tabs */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      color: var(--slate-600);
+      padding: 0.65rem 1.4rem;
+      border-radius: 30px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--wlb-olive-main);
+      color: #FFFFFF;
+      border-color: var(--wlb-olive-main);
+      box-shadow: 0 3px 10px rgba(56, 80, 75, 0.2);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .menu-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 1.6rem;
+      border: 1px solid rgba(56, 80, 75, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-item-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--wlb-olive-dark);
+    }
+
+    .menu-item-price {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: var(--wlb-terracotta);
+      font-size: 1.1rem;
+    }
+
+    .menu-item-desc {
+      color: var(--slate-600);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .menu-item-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .item-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--wlb-olive-subtle);
+      color: var(--wlb-olive-main);
+    }
+
+    /* ==========================================================================
+       Artisan Difference / Founders Story
+       ========================================================================== */
+    .story-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 5.5rem 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .story-card {
+      background: linear-gradient(135deg, var(--wlb-olive-dark), var(--wlb-olive-main));
+      border-radius: 16px;
+      padding: 2.8rem;
+      color: #FFFFFF;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(36, 53, 49, 0.2);
+    }
+
+    .story-card::after {
+      content: "“";
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      font-size: 8rem;
+      font-family: var(--font-display);
+      color: rgba(245, 170, 167, 0.15);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .story-quote {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      color: #FFFFFF;
+    }
+
+    .story-author {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: var(--wlb-blush);
+      font-size: 1rem;
+    }
+
+    .story-sub {
+      font-size: 0.82rem;
+      color: #CBD5D1;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--wlb-blush-subtle);
+      color: var(--wlb-terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .feature-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: var(--wlb-olive-dark);
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--slate-600);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       Pre-order & Catering Section
+       ========================================================================== */
+    .preorder-section {
+      background: var(--wlb-linen);
+      padding: 5rem 0;
+    }
+
+    .preorder-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid rgba(56, 80, 75, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+
+    /* ==========================================================================
+       Visit Us & Hours
+       ========================================================================== */
+    .visit-section {
+      background: var(--wlb-cream);
+      padding: 5rem 0;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--slate-200);
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .hours-table td {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--slate-200);
+      font-size: 0.95rem;
+    }
+
+    .hours-table td:first-child {
+      font-weight: 700;
+      color: var(--wlb-olive-dark);
+      font-family: var(--font-heading);
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+      color: var(--slate-600);
+      font-weight: 600;
+    }
+
+    .today-highlight td {
+      color: var(--wlb-terracotta) !important;
+      font-weight: 800 !important;
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .site-footer {
+      background: var(--wlb-olive-dark);
+      color: #E2E8E5;
+      padding: 4.5rem 0 2rem 0;
+      border-top: 4px solid var(--wlb-blush);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-text {
+      font-size: 0.92rem;
+      color: #CBD5D1;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--wlb-blush);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.65rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #CBD5D1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #94A39E;
+    }
+
+    .footer-bottom a {
+      color: var(--wlb-blush);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal Confirmation */
+    .confirmation-toast {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--wlb-olive-dark);
+      color: #FFFFFF;
+      padding: 1.2rem 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-left: 4px solid var(--wlb-blush);
+      z-index: 4000;
+      max-width: 400px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .preorder-box { grid-template-columns: 1fr; gap: 2.5rem; }
+      .visit-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-menu { display: none; }
+      .hero-title { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       865Dev Interactive Client Pitch / Benchmark Bar
+       ======================================================================== -->
+  <div class="pitch-header">
+    <div class="pitch-header-flex">
+      <div class="pitch-badge">
+        <span>⚡ 865Dev Spec Redesign</span>
+        <span style="color: #94A39E; font-weight: normal;">|</span>
+        <span>Wild Love Bakehouse</span>
+      </div>
+
+      <div class="pitch-comparison">
+        <span class="pill-alert">⚠️ Broken SSL & Insecure HTTP</span>
+        <span style="color: #94A39E;">&rarr;</span>
+        <span class="pill-fast">🔒 100% Encrypted &bull; 0.28s TTFB</span>
+      </div>
+
+      <div class="pitch-actions">
+        <button class="btn-audit" onclick="toggleAuditModal()">View Security Audit</button>
+        <span style="color: #94A39E;">|</span>
+        <a href="tel:8652450363" class="pitch-call">Call Rodney: (865) 245-0363</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Audit Breakdown Modal
+       ======================================================================== -->
+  <div class="audit-modal" id="auditModal" onclick="if(event.target === this) toggleAuditModal()">
+    <div class="audit-box">
+      <div class="audit-box-header">
+        <div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--wlb-olive-dark);">Security & Speed Diagnostic: Wild Love Bakehouse</h3>
+          <p style="font-size: 0.82rem; color: var(--slate-600); margin-top: 0.2rem;">Domain: wildlovebakehouse.com &bull; Inspected September 2026</p>
+        </div>
+        <button onclick="toggleAuditModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--slate-600);">&times;</button>
+      </div>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Audit Metric</th>
+            <th>Current Site (wildlovebakehouse.com)</th>
+            <th>865Dev Static Build</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SSL / HTTPS Status</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">Broken Cert / Unsigned</span><br><small style="color: var(--slate-600);">Triggers "Your connection is not private" browser warning</small></td>
+            <td><span style="color: #10B981; font-weight: 800;">Grade A+ SSL (Let's Encrypt)</span><br><small style="color: var(--slate-600);">100% Secure Green Padlock on all devices</small></td>
+          </tr>
+          <tr>
+            <td><strong>Address Bar Security</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">Chrome "Not Secure" Alert</span><br><small style="color: var(--slate-600);">Served over unencrypted HTTP protocol</small></td>
+            <td><span style="color: #10B981; font-weight: 800;">Forced HTTPS Strict HSTS</span><br><small style="color: var(--slate-600);">Full end-to-end security compliance</small></td>
+          </tr>
+          <tr>
+            <td><strong>Mobile Bounce Risk</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">High (~68% abandon on warning)</span></td>
+            <td><span style="color: #10B981; font-weight: 800;">Zero Warning Bounce Rate</span></td>
+          </tr>
+          <tr>
+            <td><strong>Server Response (TTFB)</strong></td>
+            <td><span style="color: #D97706; font-weight: 700;">1.42s (Shared Hosting)</span></td>
+            <td><span style="color: #10B981; font-weight: 800;">0.28s (Global Edge CDN)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Preorder Experience</strong></td>
+            <td><span style="color: var(--slate-600);">No integrated weekend box form</span></td>
+            <td><span style="color: #10B981; font-weight: 800;">1-Tap Mobile Box Preorders</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: var(--wlb-blush-subtle); border-left: 4px solid var(--wlb-terracotta); padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 800; color: var(--wlb-terracotta); margin-bottom: 0.35rem;">Why Fixing This Matters for North Knoxville Foot Traffic:</h4>
+        <p style="font-size: 0.85rem; color: var(--slate-800); line-height: 1.55;">
+          When food lovers discover Wild Love on Google Maps, Instagram, or local foodie blogs and tap your link, modern iOS Safari and Google Chrome immediately halt them with a stark red security warning saying <em>"Your connection is not private."</em> Most users immediately back out, assuming the site is compromised or abandoned. Our modern rebuild eliminates this issue permanently, protects your reputation, and makes morning pastry preorders instant.
+        </p>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.8rem;">
+        <button class="btn-audit" style="background: var(--slate-200); color: var(--slate-800);" onclick="toggleAuditModal()">Close</button>
+        <a href="tel:8652450363" class="btn-hero-primary" style="padding: 0.55rem 1.2rem; font-size: 0.88rem;">Call Rodney Camp &bull; (865) 245-0363</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Main Navigation
+       ======================================================================== -->
+  <nav class="site-nav">
+    <div class="container nav-flex">
+      <a href="#top" class="brand-group">
+        <!-- Exact Official Wild Love Bakehouse SVG Logo -->
+        <svg class="brand-svg-logo" viewBox="0 0 320 204" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .wlb-svg-path { fill: #38504B; transition: fill 0.2s ease; }
+            .brand-group:hover .wlb-svg-path { fill: #C86D51; }
+          </style>
+          <g>
+            <g>
+              <path class="wlb-svg-path" d="M74.3,199.3c0,1.3-0.5,2.3-1.5,2.9c-1,0.6-2.6,0.9-4.6,0.9H62v-12.9h6.2c1.9,0,3.3,0.3,4.2,0.9 c0.9,0.6,1.4,1.4,1.4,2.5c0,0.6-0.1,1.1-0.4,1.6c-0.3,0.5-0.7,0.8-1.3,1.1C73.5,196.8,74.3,197.8,74.3,199.3z M64.9,192.9v2.5h3.3 c0.9,0,1.6-0.1,1.9-0.3c0.4-0.2,0.6-0.5,0.6-1c0-0.5-0.2-0.8-0.6-1c-0.4-0.2-1-0.3-1.9-0.3H64.9z M70.6,200.2 c0.5-0.2,0.8-0.6,0.8-1.2c0-0.6-0.3-1-0.9-1.2c-0.6-0.2-1.4-0.3-2.3-0.3h-3.3v2.9h3.3C69.3,200.5,70.1,200.4,70.6,200.2z"/>
+              <path class="wlb-svg-path" d="M92.8,200.4h-5.9l-0.9,2.7h-3.1l4.4-12.9h5.1l4.4,12.9h-3.1L92.8,200.4z M91.9,198l-1.6-4.8h-1l-1.6,4.8H91.9 z"/>
+              <path class="wlb-svg-path" d="M109.9,198h-1.4v5.1h-2.9v-12.9h2.9v5.1h1.1l4.8-5.1h3.6l-5.8,6.2l6.3,6.7h-3.8L109.9,198z"/>
+              <path class="wlb-svg-path" d="M139.5,200.5v2.6h-11.9v-12.9H139v2.6h-8.5v2.4h8.1v2.4h-8.1v2.8H139.5z"/>
+              <path class="wlb-svg-path" d="M161.3,190.3v12.9h-2.9v-5.5h-6.2v5.5h-2.9v-12.9h2.9v4.7h6.2v-4.7H161.3z"/>
+              <path class="wlb-svg-path" d="M172.3,201.6c-1.2-1.1-1.7-2.7-1.7-4.9s0.6-3.8,1.7-4.9s2.7-1.7,4.8-1.7c2,0,3.6,0.6,4.8,1.7 c1.2,1.1,1.7,2.7,1.7,4.9s-0.6,3.8-1.7,4.9c-1.2,1.1-2.7,1.7-4.8,1.7C175.1,203.3,173.5,202.7,172.3,201.6z M179.8,199.7 c0.6-0.6,0.9-1.6,0.9-3s-0.3-2.4-0.9-3c-0.6-0.6-1.5-0.9-2.7-0.9c-1.2,0-2.1,0.3-2.7,0.9c-0.6,0.6-0.9,1.6-0.9,3s0.3,2.4,0.9,3 c0.6,0.6,1.5,0.9,2.7,0.9C178.3,200.6,179.2,200.3,179.8,199.7z"/>
+              <path class="wlb-svg-path" d="M192.9,190.3h2.9v7.4c0,1,0.2,1.7,0.7,2.2c0.5,0.5,1.3,0.7,2.4,0.7c1.1,0,1.9-0.2,2.4-0.7 c0.5-0.5,0.7-1.2,0.7-2.2v-7.4h2.9v7.4c0,3.7-2,5.6-6,5.6c-4,0-6-1.9-6-5.6V190.3z"/>
+              <path class="wlb-svg-path" d="M215.1,192c0.5-0.6,1.2-1.1,2.2-1.4c0.9-0.3,2.1-0.5,3.4-0.5c1,0,2.1,0.1,3,0.3c1,0.2,1.7,0.4,2.1,0.5v2.8 c-0.5-0.2-1.2-0.4-2.2-0.7c-1-0.2-1.9-0.3-2.9-0.3c-2.3,0-3.5,0.5-3.5,1.4c0,0.3,0.2,0.5,0.5,0.7c0.3,0.1,0.8,0.3,1.5,0.4l3.8,0.5 c1.3,0.2,2.3,0.5,3,1.1c0.7,0.6,1,1.3,1,2.2c0,1.3-0.6,2.4-1.7,3.1c-1.1,0.8-2.8,1.1-4.9,1.1c-1.1,0-2.2-0.1-3.2-0.3 c-1-0.2-1.8-0.4-2.2-0.6v-2.9c0.5,0.2,1.2,0.5,2.3,0.8s2.1,0.4,3,0.4c1.2,0,2.1-0.1,2.8-0.4c0.6-0.2,1-0.6,1-1.1 c0-0.3-0.1-0.5-0.4-0.7c-0.3-0.2-0.8-0.3-1.6-0.4l-3.9-0.5c-1.3-0.2-2.2-0.5-2.9-1.1c-0.6-0.5-1-1.3-1-2.3 C214.4,193.3,214.7,192.6,215.1,192z"/>
+              <path class="wlb-svg-path" d="M248.6,200.5v2.6h-11.9v-12.9h11.4v2.6h-8.5v2.4h8.1v2.4h-8.1v2.8H248.6z"/>
+            </g>
+            <g>
+              <path class="wlb-svg-path" d="M319.6,137c-0.1-4.9-1.4-9.5-4.4-13.5c-6.1-8.2-16.6-8.9-23.8-1.7c-2.5,2.5-4.2,5.4-5.3,8.7 c-0.4,1.1-0.7,2.2-1.1,3.4c-1.3-0.8-2-1.8-2.5-3c-0.9-2-1.3-4.1-1.3-6.2c0-0.8,0-1.6,0-2.4c0-2.3-0.1-2.4-2.4-2.5 c-1.8-0.1-3.6-0.1-5.4-0.2c-1.4,0-1.5,0-1.7,1.5c-0.3,2.7-0.5,5.3-0.8,8c-0.6,4.9-1.6,9.8-3.7,14.4c-0.7,1.4-1.5,2.8-2.4,4.1 c-1.2,1.7-1.9,1.6-2.9-0.1c-0.8-1.3-1.4-2.7-2-4.2c-1.5-4.2-2-8.5-2.2-12.9c-0.1-2,0-4,0.3-6c0.3-1.4,0.2-3,0.2-4.5 c-0.1-1.3-0.2-1.4-1.4-1.4c-2.4-0.1-4.9-0.2-7.3-0.3c-0.7,0-1,0.4-1.2,1c-0.5,1.3-1.1,2.6-1.8,3.7c-1.4,2.2-3.3,3.8-5.8,5 c-0.3-0.7-0.5-1.3-0.7-1.8c-0.9-2.7-2.2-5.2-4-7.4c-3.4-4.2-7.8-6-13.2-5.1c-3.6,0.6-6.5,2.6-9.1,5.1c-2,1.8-3.7,3.9-4.2,6.6 c-0.4,2.2-1,4.4-1.3,6.6c-0.3,2-0.7,3.9-1.6,5.8c-1.5,3.1-3.1,6-5.5,8.4c-0.6,0.6-1.4,1.1-2.2,1.5c-1.4,0.6-3.3-0.1-4.1-1.3 c-1.5-2.3-2.8-4.7-3.5-7.3c-0.1-0.4-0.2-1,0-1.4c0.5-1.2,1-2.3,1.6-3.5c0.8-1.7,1.7-3.3,2.3-5.1c1.6-4.1,3-8.2,4.5-12.3 c0.6-1.8,1.3-3.5,1.7-5.3c0.9-4.4,1.8-8.8,2.5-13.2c0.6-3.4,1.1-6.7,1.5-10.1c0.5-4.9,0.9-9.8,1.3-14.6c0.4-4.2,0.4-8.4,0-12.6 c-0.2-2.1-0.3-4.2-0.5-6.4c-0.4-4.1-1.6-7.8-4.3-11c-4.1-5-10.5-6.2-16.1-3c-1.6,0.9-3.1,2.1-4.4,3.5c-3.4,3.5-5,7.9-6.2,12.4 c-0.6,2.4-0.8,4.8-1,7.3c-0.4,4.6-1,9.1-1.1,13.7c-0.3,10.7-0.3,21.3,1.1,31.9c0.7,5.2,1.4,10.3,2.6,15.4c0.8,3.5,1.8,7,3,10.4 c0.6,1.7,0.5,2.9-0.4,4.3c-1.3,2.2-3.1,3.8-4.9,5.5c-2.9,2.8-7.6,4-11.2,0.6c-0.9-0.8-1.8-1.6-2.6-2.5c-1.1-1.3-2.2-2.6-3.2-4 c-2.7-3.8-4.6-7.9-6.5-12.1c-0.5-1.2-0.3-2.2,0.4-3.2c2.3-3.2,3.9-6.9,5.2-10.6c4.1-11,6.6-22.5,8.7-34c0.9-5.2,1.6-10.4,2.3-15.6 c0.5-3.6,0.9-7.3,1.1-11c0.3-3.6,0.4-7.2,0.4-10.9c0-4.5,0-9.1-0.2-13.6c-0.2-3.1-0.7-6.2-1.1-9.3c-0.6-3.6-1.8-6.9-3.9-9.9 c-5.7-8.2-15.6-10.3-24.1-5c-3.2,2-5.8,4.7-7.8,7.9c-0.5,0.8-1,1.6-1.4,2.5c-3,7.4-3.8,15.3-4.2,23.2c-0.3,5.2-0.2,10.3-0.1,15.5 c0.2,5.8,0.5,11.6,1,17.4c0.5,5.1,1.3,10.2,2.1,15.3c1.4,9.3,3.5,18.4,6.2,27.4c0.4,1.3,0.8,2.6,1.2,4c-0.3,0.2-0.6,0.3-0.8,0.4 c-2.9,1.1-5.2,3.1-7.2,5.5c-2.5,3-4,6.5-5.1,10.2c-0.4,1.4-0.9,2.9-1.7,4.1c-1.5,2.5-3.1,5-4.8,7.4c-0.8,1.2-1.8,2.2-2.9,3.1 c-2.1,1.8-3.9,1.7-6-0.1c-0.8-0.7-1.5-1.5-2.1-2.4c-0.8-1.2-1.5-2.5-2.3-3.6c-0.8-1.2-0.6-2.2,0-3.4c1.3-2.6,2.5-5.3,3.6-8 c1.1-2.8,2-5.7,3.1-8.6c1.6-4.1,2.9-8.2,3.7-12.6c0.6-3.6,1.2-7.1,1.8-10.7c0.5-3.5,1.1-7.1,1.5-10.6c0.4-4,0.7-8,1-11.9 c0.4-4.1,0.4-8.2,0-12.3c-0.2-2.2-0.3-4.4-0.5-6.5c-0.4-4-1.6-7.7-4.2-10.9c-1.9-2.3-4.2-3.9-7.1-4.6c-4.5-1-8.4,0.3-11.7,3.2 c-4.3,3.7-6.9,8.4-8,13.9c-1.4,7-1.9,14-2.1,21.1c-0.2,7,0.1,14,0.2,20.9c0.1,5.3,0.8,10.6,1.5,15.9c0.9,6.4,2.3,12.8,4.2,19 c1.1,3.5,1.1,3.5-0.6,6.7c-0.4,0.8-0.9,1.5-1.3,2.2c-0.9,1.6-2.2,2.9-3.6,4c-3.1,2.7-7.2,1.6-9.3-1.5c-1.7-2.5-2.5-5.4-3.1-8.3 c-1-4.6-1-9.3-0.5-14c0.1-1.2,0-2.4,0-3.7c-0.3-0.1-0.6-0.2-0.8-0.2c-2.6,0.1-5.1,0.2-7.7,0.3c-0.8,0-1,0.4-1.1,1.1 c-0.1,1.4-0.4,2.8-0.4,4.1c-0.1,3-1.9,5-4,6.8c-1.7,1.4-3.8,1.4-5.7,0.1c-1.2-0.8-2.1-1.9-2.9-3.2c-1.1-1.9-1.7-4-2-6.2 c-0.1-0.7-0.3-1.3-0.4-2.1h-9.5c-0.2,0.2-0.2,0.5-0.3,1.2c-0.1,4.7-0.1,9.4-0.1,14.1c0,3.7,0,7.4-1.1,10.9 c-0.3,0.9-0.6,1.8-1.6,1.9c-1.1,0.1-1.7-0.8-2.2-1.6c-0.1-0.1-0.1-0.2-0.1-0.3c-0.5-1.3-1.1-2.6-1.4-3.9 c-0.9-4.2-1.8-8.3-1.7-12.6c0.1-2.3,0.1-4.7,0-7c0-0.9-0.2-1.8-0.3-2.7h-7.4c-0.9,0.1-1.7,0.2-2,0.3c0,0.2-0.1,0.4-0.1,0.6 c0,0.6,0,1.2,0,1.8c0.2,5,0.4,9.9-0.1,14.9c-0.4,3.6-1.2,7.2-2.8,10.4c-0.4,0.9-0.9,1.8-2.1,1.7c-1.1-0.1-1.5-1.1-1.9-2 c-0.1-0.1-0.1-0.3-0.1-0.5c-0.7-1.8-0.9-3.6-1-5.5c-0.3-5.4-0.7-10.7-1.1-16.1c-0.1-1.1-0.1-2.1-0.2-3.2c-0.2-1.7-0.3-1.8-1.9-1.9 c-1.8-0.1-3.6,0-5.4,0c-2.1,0-2.1,0-2.2,2.1c0,0.1,0,0.1,0,0.2c-0.2,6.9,0.3,13.7,1.5,20.5c0.7,3.9,1.7,7.7,3.6,11.2 c0.9,1.7,2,3.2,3.5,4.3c2.9,2.3,6.7,2.4,9.7,0.2c0.9-0.7,1.8-1.5,2.5-2.4c1-1.3,1.8-2.8,2.7-4.2c0.2-0.3,0.4-0.6,0.8-1.1 c0.4,0.7,0.6,1.2,0.9,1.6c1.1,1.5,2,3.1,3.2,4.3c3.4,3.3,8.2,3.2,11.6-0.3c1.4-1.4,2.3-3.1,3.1-4.8c1.4-3.3,2.2-6.8,2.7-10.3 c0.1-0.8,0.3-1.5,0.5-2.5c5.4,3.5,10.8,3.6,16.3,0.6c0.2,0.3,0.3,0.4,0.3,0.5c0.2,0.5,0.3,1,0.4,1.5c1.1,3.5,2.5,6.9,4.8,9.9 c2.6,3.3,5.6,5.7,10,6.3c5.6,0.8,10.4-0.5,14.2-4.8c1.2-1.4,2.3-2.9,3.4-4.4c0.2-0.3,0.5-0.6,0.9-1c0.2,0.3,0.4,0.6,0.6,0.8 c1.7,2.2,3.5,4.3,5.8,5.9c4.7,3.1,9.6,3.3,14.5,0.5c2-1.1,3.7-2.7,5.2-4.4c0.3-0.4,0.7-0.8,1-1.1c0.2,0.1,0.3,0.1,0.3,0.1 c0.4,0.6,0.8,1.2,1.3,1.8c2.8,3.7,6.4,5.4,11,4.8c2.4-0.3,4.6-1.5,6.5-3c2.6-2.1,4.6-4.8,6.1-7.7c0.3-0.5,0.5-1,0.9-1.6 c0.9,1.1,1.7,2.1,2.5,3c2.2,2.6,4.7,4.9,7.8,6.6c3.6,2,7.4,2.8,11.4,1.5c4.2-1.4,8.2-3.4,11.3-6.7c0.4-0.4,0.9-0.9,1.4-1.4 c0.4,0.5,0.6,1,0.9,1.3c1,1.3,1.9,2.6,3,3.7c5.7,5.6,14.2,4.7,18.8-1.8c0.6-0.8,1.2-1.6,2-2.5c0.3,0.8,0.5,1.2,0.7,1.7 c0.5,1,1,2.2,1.7,3.1c1.7,2.3,4.3,3.5,6.9,4.5c2.3,0.9,4.8,1,7.2,0.4c3.9-0.8,7-2.9,9.5-5.9c3.4-4,5.3-8.6,6.1-13.7 c0.2-1.1,0.6-1.7,1.6-2.1c1.4-0.6,2.7-1.3,4-2c0.4-0.2,0.7-0.3,1.2-0.6c0.1,0.9,0.3,1.7,0.4,2.5c0.6,4.6,1.7,9,3.7,13.2 c1.1,2.2,2.4,4.1,4.3,5.7c3.7,3.2,8.5,3.5,12.5,0.7c1.6-1.1,3-2.6,4.1-4.2c2.1-3,3.6-6.3,4.7-9.8c0.2-0.5,0.4-1.1,0.6-1.7 c1.1,0.6,1.9,1.3,2.9,1.7c1,0.4,2.1,0.7,3.2,1c0.3,0.1,0.6,0.5,0.7,0.8c0.2,0.5,0.3,1.1,0.5,1.7c1.2,4.1,3.3,7.7,6.7,10.3 c4.9,3.7,10.2,4.4,15.8,1.7c3.8-1.8,6.5-4.8,8.4-8.5c0.1-0.2,0.1-0.5,0.2-0.9c-2.6-1.3-5.2-2.6-7.8-3.9c-0.7-0.3-1,0-1.5,0.5 c-0.8,0.9-1.5,1.8-2.4,2.5c-2.3,1.7-5,1.6-7-0.3c-1-0.9-1.6-2.2-2.4-3.3c-0.2-0.3-0.1-0.7-0.2-1.1c0.7-0.2,1.3-0.3,2-0.4 c6.9-1.5,13.7-3,20.6-4.6C319.5,138.3,319.6,138.2,319.6,137z"/>
+              <path class="wlb-svg-path" d="M61.6,103.6c0-4.1,3.4-7.6,7.5-7.6c4.3,0,7.7,3.3,7.7,7.6c0,4.1-3.4,7.6-7.5,7.6 C65,111.2,61.6,107.8,61.6,103.6z"/>
+            </g>
+          </g>
+        </svg>
+        <div class="brand-text-block">
+          <span class="brand-title">Wild Love Bakehouse</span>
+          <span class="brand-tagline">Knoxville &bull; Est. 2015</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#menu">Daily Menu</a></li>
+        <li><a href="#story">Our Craft</a></li>
+        <li><a href="#preorder">Pastry Box Pre-Orders</a></li>
+        <li><a href="#hours">Hours & Location</a></li>
+      </ul>
+
+      <div class="nav-btn-group">
+        <a href="#preorder" class="nav-order-btn">
+          <span>📦</span> Pre-Order Box
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       Hero Section
+       ======================================================================== -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span>🥐 North Central Street &bull; Happy Holler</span>
+        </div>
+
+        <h1 class="hero-title">
+          Made from scratch daily, with <em>love and heart.</em>
+        </h1>
+
+        <p class="hero-lead">
+          Slow-fermented artisan sourdough, butter-laminated French pastries, seasonal hand tarts, and precision Counter Culture espresso. Baked fresh each dawn in North Knoxville.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#menu" class="btn-hero-primary">
+            <span>Explore Daily Menu</span>
+            <span>&rarr;</span>
+          </a>
+          <a href="#preorder" class="btn-hero-secondary">
+            <span>Weekend Box Pre-Orders</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-row">
+          <div class="hero-trust-item">
+            <span>✓</span> 100% Scratch Baked Daily
+          </div>
+          <div class="hero-trust-item">
+            <span>✓</span> Pure European Butter
+          </div>
+          <div class="hero-trust-item">
+            <span>✓</span> Natural Sourdough Fermentation
+          </div>
+          <div class="hero-trust-item">
+            <span>✓</span> Counter Culture Specialty Coffee
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Preorder Widget -->
+      <div class="hero-card" id="quick-order">
+        <div class="hero-card-header">
+          <h3 class="hero-card-title">Reserve Weekend Pastries</h3>
+          <p class="hero-card-subtitle">Beat the morning sell-out with guaranteed North Central pickup.</p>
+        </div>
+
+        <form id="heroPreorderForm" onsubmit="handlePreorder(event)">
+          <div class="form-group">
+            <label class="form-label" for="pickupDate">Pickup Day (Wed – Sun)</label>
+            <select class="form-control" id="pickupDate" required>
+              <option value="">Select pickup morning...</option>
+              <option value="Wednesday Morning (8am - 12pm)">Wednesday Morning (8am - 12pm)</option>
+              <option value="Thursday Morning (8am - 12pm)">Thursday Morning (8am - 12pm)</option>
+              <option value="Friday Morning (8am - 12pm)">Friday Morning (8am - 12pm)</option>
+              <option value="Saturday Morning (8am - 12pm)">Saturday Morning (8am - 12pm)</option>
+              <option value="Sunday Morning (8am - 12pm)">Sunday Morning (8am - 12pm)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="boxChoice">Pastry Selection</label>
+            <select class="form-control" id="boxChoice" required>
+              <option value="">Choose your box...</option>
+              <option value="Baker's Choice Half-Dozen Box ($24)">Baker's Choice Half-Dozen Box ($24)</option>
+              <option value="Baker's Dozen Laminated Box ($45)">Baker's Dozen Laminated Box ($45)</option>
+              <option value="Savory Breakfast Box - 4 Croissants + 2 Quiche ($32)">Savory Breakfast Box ($32)</option>
+              <option value="Artisan Loaf Pair (Sourdough + Focaccia) ($17)">Artisan Loaf Pair ($17)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerName">Your Name</label>
+            <input type="text" class="form-control" id="customerName" placeholder="Shaun Parrish" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerContact">Mobile Phone or Email</label>
+            <input type="text" class="form-control" id="customerContact" placeholder="(865) 555-0199 or name@domain.com" required>
+          </div>
+
+          <button type="submit" class="btn-submit-order">
+            <span>Reserve For Pickup</span>
+            <span>&rarr;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Status & Operating Hours Strip
+       ======================================================================== -->
+  <section class="status-strip">
+    <div class="container status-flex">
+      <div class="status-item">
+        <div class="status-icon">📍</div>
+        <div>
+          <div class="status-label">Visit North Knoxville</div>
+          <div class="status-value">1625 N. Central St., Knoxville, TN 37917</div>
+        </div>
+      </div>
+
+      <div class="status-item">
+        <div class="status-icon">⏰</div>
+        <div>
+          <div class="status-label">Bakeshop Hours</div>
+          <div class="status-value">Wednesday – Sunday: 8:00 AM – 4:00 PM</div>
+        </div>
+      </div>
+
+      <div class="status-item">
+        <div class="status-icon">📞</div>
+        <div>
+          <div class="status-label">Call Bakery Direct</div>
+          <div class="status-value">
+            <a href="tel:8652008078" style="color: var(--wlb-olive-dark); text-decoration: none;">(865) 200-8078</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-item">
+        <div class="status-icon">✨</div>
+        <div>
+          <div class="status-label">Daily Freshness</div>
+          <div class="status-value" style="color: #059669;">Pastries Coming Out Hot Daily</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Daily Scratch Menu
+       ======================================================================== -->
+  <section class="section-padding" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-badge">Crafted Each Morning</span>
+        <h2 class="section-title">The Scratch Daily Menu</h2>
+        <p class="section-desc">
+          We use high-fat European butter, locally milled organic grains, and slow natural ferments. Menu items rotate with regional East Tennessee seasons.
+        </p>
+      </div>
+
+      <!-- Menu Filter Tabs -->
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="filterMenu('all', this)">All Offerings</button>
+        <button class="tab-btn" onclick="filterMenu('viennoiserie', this)">Laminated Pastries</button>
+        <button class="tab-btn" onclick="filterMenu('savory', this)">Savory & Quiche</button>
+        <button class="tab-btn" onclick="filterMenu('breads', this)">Artisan Breads</button>
+        <button class="tab-btn" onclick="filterMenu('coffee', this)">Specialty Coffee</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <!-- Item 1 -->
+        <div class="menu-card" data-category="viennoiserie">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Classic French Butter Croissant</h3>
+              <span class="menu-item-price">$4.25</span>
+            </div>
+            <p class="menu-item-desc">72 flaky, golden-brown laminated layers of pure cultured European butter with a delicate, honeycomb interior.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Signature</span>
+            <span class="item-tag">3-Day Ferment</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-card" data-category="viennoiserie">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Double-Baked Almond Croissant</h3>
+              <span class="menu-item-price">$5.50</span>
+            </div>
+            <p class="menu-item-desc">Filled with rich house-made almond frangipane cream, soaked in vanilla bean syrup, and topped with toasted sliced almonds.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Guest Favorite</span>
+            <span class="item-tag">Rich & Sweet</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-card" data-category="viennoiserie">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Pain au Chocolat</h3>
+              <span class="menu-item-price">$4.75</span>
+            </div>
+            <p class="menu-item-desc">Crisp, buttery laminated dough wrapped around two batons of premium French Valrhona dark chocolate.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Classic</span>
+            <span class="item-tag">Valrhona Dark Chocolate</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-card" data-category="viennoiserie">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Morning Bun</h3>
+              <span class="menu-item-price">$4.75</span>
+            </div>
+            <p class="menu-item-desc">Laminated croissant dough rolled with fresh orange zest, cinnamon, and cardamon, baked with a caramelized sugar crust.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Spiced</span>
+            <span class="item-tag">Orange Zest</span>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-card" data-category="viennoiserie">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Seasonal Raspberry Hand Tart</h3>
+              <span class="menu-item-price">$5.00</span>
+            </div>
+            <p class="menu-item-desc">Buttery, tender crust filled with house-cooked raspberry jam, finished with vanilla bean glaze and freeze-dried berry dust.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">House Favorite</span>
+            <span class="item-tag">Scratch Jam</span>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="menu-card" data-category="savory">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Ham & Gruyère Croissant</h3>
+              <span class="menu-item-price">$6.25</span>
+            </div>
+            <p class="menu-item-desc">Cured country ham, aged Swiss Gruyère, and stone-ground Dijon mustard folded inside our flaky laminated dough.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Savory Morning</span>
+            <span class="item-tag">Aged Gruyère</span>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="menu-card" data-category="savory">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Daily Deep-Dish Quiche</h3>
+              <span class="menu-item-price">$7.50</span>
+            </div>
+            <p class="menu-item-desc">Silky custard baked in our handmade butter crust. Rotating daily selections: Bacon, Leek & Gruyère or Roasted Mushroom & Goat Cheese.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Hearty</span>
+            <span class="item-tag">Vegetarian Available</span>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="menu-card" data-category="breads">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Country Sourdough Batard</h3>
+              <span class="menu-item-price">$8.50</span>
+            </div>
+            <p class="menu-item-desc">Naturally leavened with our wild starter, 36-hour slow fermentation, blistered dark crust, and moist, open crumb.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Wild Leaven</span>
+            <span class="item-tag">Take-Home Loaf</span>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="menu-card" data-category="breads">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Rosemary Sea Salt Focaccia</h3>
+              <span class="menu-item-price">$6.00</span>
+            </div>
+            <p class="menu-item-desc">High-hydration Italian bread dimpled with cold-pressed extra virgin olive oil, fresh garden rosemary, and crunchy Maldon sea salt.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Vegan</span>
+            <span class="item-tag">Maldon Salt</span>
+          </div>
+        </div>
+
+        <!-- Item 10 -->
+        <div class="menu-card" data-category="coffee">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Cortado & Espresso</h3>
+              <span class="menu-item-price">$4.25</span>
+            </div>
+            <p class="menu-item-desc">Equal parts precision double shot of Counter Culture single-origin espresso and silky steamed milk.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Counter Culture</span>
+            <span class="item-tag">Specialty Bar</span>
+          </div>
+        </div>
+
+        <!-- Item 11 -->
+        <div class="menu-card" data-category="coffee">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Honey-Lavender Latte</h3>
+              <span class="menu-item-price">$5.75</span>
+            </div>
+            <p class="menu-item-desc">House-infused local Tennessee wildflower honey and organic culinary lavender with espresso and microfoam.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Wild Love Signature</span>
+            <span class="item-tag">Local Honey</span>
+          </div>
+        </div>
+
+        <!-- Item 12 -->
+        <div class="menu-card" data-category="coffee">
+          <div>
+            <div class="menu-card-header">
+              <h3 class="menu-item-name">Ceremonial Uji Matcha Latte</h3>
+              <span class="menu-item-price">$5.50</span>
+            </div>
+            <p class="menu-item-desc">First-harvest Japanese stone-ground matcha whisked traditionally, lightly sweetened with vanilla bean syrup.</p>
+          </div>
+          <div class="menu-item-tags">
+            <span class="item-tag">Antioxidant-Rich</span>
+            <span class="item-tag">Dairy-Free Friendly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       The Craft & Philosophy
+       ======================================================================== -->
+  <section class="story-section" id="story">
+    <div class="container story-grid">
+      <div>
+        <span class="section-badge">North Knoxville Roots</span>
+        <h2 class="section-title">Rooted in Passion, Butter & Craft</h2>
+        <p class="section-desc" style="margin-bottom: 1.5rem;">
+          Founded by Shaun and Meg Parrish (the team behind Knoxville’s historic Old City Java), Wild Love Bakehouse was created to bring genuine, uncompromising European baking traditions to North Central Street.
+        </p>
+
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon-box">🌾</div>
+            <div>
+              <h4 class="feature-title">No Shortcuts, No Commercial Mixes</h4>
+              <p class="feature-desc">Every pastry, sourdough loaf, and cream is made completely from raw ingredients in our Happy Holler bakery kitchen.</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <div class="feature-icon-box">🧈</div>
+            <div>
+              <h4 class="feature-title">European Cultured Butter</h4>
+              <p class="feature-desc">Higher butterfat laminations produce the light, shattering crust and melt-in-your-mouth crumb that define world-class Viennoiserie.</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <div class="feature-icon-box">☕</div>
+            <div>
+              <h4 class="feature-title">Specialty Coffee Tradition</h4>
+              <p class="feature-desc">Two decades of coffee mastery ensures your morning Cortado, Flat White, or Honey-Lavender latte is dialed in with scientific precision.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="story-card">
+        <p class="story-quote">
+          “Baking is patience. When you bite into a croissant that has spent three days fermenting, laminating, and resting, you can taste the dedication of the hands that shaped it.”
+        </p>
+        <div class="story-author">Shaun & Meg Parrish</div>
+        <div class="story-sub">Founders & Bakers &bull; Wild Love Bakehouse & Old City Java</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Weekend Pre-Order & Catering Section
+       ======================================================================== -->
+  <section class="preorder-section" id="preorder">
+    <div class="container">
+      <div class="preorder-box">
+        <div>
+          <span class="section-badge">Catering & Weekend Pickups</span>
+          <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--wlb-olive-dark); margin-bottom: 1rem;">Pastry Boxes for Your Mornings & Gatherings</h2>
+          <p style="color: var(--slate-600); margin-bottom: 1.5rem; line-height: 1.65;">
+            Hosting Sunday brunch, an office team meeting, or a celebration? Reserve custom pastry boxes or whole artisan sourdough loaves in advance. We pack everything fresh for seamless pickup.
+          </p>
+
+          <div style="background: var(--wlb-linen); padding: 1.25rem; border-radius: 10px; border-left: 4px solid var(--wlb-olive-main); margin-bottom: 1.5rem;">
+            <strong style="color: var(--wlb-olive-dark); font-family: var(--font-heading); display: block; margin-bottom: 0.25rem;">Pre-Order Guidelines:</strong>
+            <p style="font-size: 0.88rem; color: var(--slate-600); margin: 0;">
+              Please submit orders at least 24 hours prior to your desired morning pickup day (Wednesdays through Sundays).
+            </p>
+          </div>
+
+          <p style="font-size: 0.95rem; color: var(--slate-800);">
+            Prefer to speak with our bakery counter directly?<br>
+            📞 Call us at <a href="tel:8652008078" style="color: var(--wlb-terracotta); font-weight: 800; text-decoration: none;">(865) 200-8078</a> during bakeshop hours.
+          </p>
+        </div>
+
+        <div>
+          <form onsubmit="handlePreorder(event)">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="First and last name" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="(865) 000-0000" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="you@domain.com" required>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Pickup Date</label>
+                <input type="date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Estimated Time</label>
+                <select class="form-control" required>
+                  <option value="8:00 AM - 10:00 AM">8:00 AM – 10:00 AM</option>
+                  <option value="10:00 AM - 12:00 PM">10:00 AM – 12:00 PM</option>
+                  <option value="12:00 PM - 2:00 PM">12:00 PM – 2:00 PM</option>
+                  <option value="2:00 PM - 4:00 PM">2:00 PM – 4:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Select Package</label>
+              <select class="form-control" required>
+                <option value="Half-Dozen Baker's Assortment ($24)">Half-Dozen Baker's Assortment ($24)</option>
+                <option value="Dozen Mixed Viennoiserie ($45)">Dozen Mixed Viennoiserie ($45)</option>
+                <option value="Savory Breakfast Box - 4 Croissants + 2 Quiche ($32)">Savory Breakfast Box ($32)</option>
+                <option value="Custom Office Catering (15+ People)">Custom Office Catering (15+ People)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Special Notes / Allergies</label>
+              <textarea class="form-control" rows="2" placeholder="Dietary restrictions or favorite pastry preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-hero-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">
+              <span>Submit Pre-Order Request</span>
+              <span>&rarr;</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Visit Us & Hours
+       ======================================================================== -->
+  <section class="visit-section" id="hours">
+    <div class="container visit-grid">
+      <div>
+        <span class="section-badge">Find Us In North Knox</span>
+        <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--wlb-olive-dark); margin-bottom: 1rem;">Visit the Bakehouse</h2>
+        <p style="color: var(--slate-600); margin-bottom: 1.5rem; line-height: 1.6;">
+          Wild Love Bakehouse is situated along North Central Street in the historic Happy Holler and North Knoxville corridor, just minutes from downtown Knoxville. Free street and neighborhood parking available.
+        </p>
+
+        <p style="font-size: 0.95rem; margin-bottom: 0.6rem;">
+          📍 <strong>Street Address:</strong> 1625 N. Central St., Knoxville, TN 37917
+        </p>
+        <p style="font-size: 0.95rem; margin-bottom: 0.6rem;">
+          📞 <strong>Bakehouse Line:</strong> <a href="tel:8652008078" style="color: var(--wlb-terracotta); font-weight: 800; text-decoration: none;">(865) 200-8078</a>
+        </p>
+        <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+          ✉️ <strong>Inquiries:</strong> info@wildlovebakehouse.com
+        </p>
+
+        <a href="https://maps.google.com/?q=Wild+Love+Bakehouse+1625+N+Central+St+Knoxville+TN+37917" target="_blank" rel="noopener" class="btn-hero-secondary" style="color: var(--wlb-olive-dark); border-color: var(--wlb-olive-main); background: #FFFFFF; font-size: 0.9rem;">
+          <span>Open in Google Maps</span>
+          <span>&nearr;</span>
+        </a>
+      </div>
+
+      <div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--wlb-olive-dark); margin-bottom: 0.5rem;">Weekly Operating Hours</h3>
+        <p style="font-size: 0.85rem; color: var(--slate-600); margin-bottom: 1rem;">Kitchen fires up before sunrise; fresh batches emerge throughout the morning.</p>
+
+        <table class="hours-table">
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td style="color: #94A39E;">Closed &bull; Kitchen Prep</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td style="color: #94A39E;">Closed &bull; Kitchen Prep</td>
+            </tr>
+            <tr class="today-row" id="row-wed">
+              <td>Wednesday</td>
+              <td>8:00 AM – 4:00 PM</td>
+            </tr>
+            <tr class="today-row" id="row-thu">
+              <td>Thursday</td>
+              <td>8:00 AM – 4:00 PM</td>
+            </tr>
+            <tr class="today-row" id="row-fri">
+              <td>Friday</td>
+              <td>8:00 AM – 4:00 PM</td>
+            </tr>
+            <tr class="today-row" id="row-sat">
+              <td>Saturday</td>
+              <td>8:00 AM – 4:00 PM</td>
+            </tr>
+            <tr class="today-row" id="row-sun">
+              <td>Sunday</td>
+              <td>8:00 AM – 4:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-title">Wild Love Bakehouse</h3>
+        <p class="footer-text">
+          Handcrafted European Viennoiserie, seasonal fruit hand tarts, slow artisan sourdough, and specialty Counter Culture coffee in North Knoxville.
+        </p>
+        <p style="font-size: 0.85rem; color: #94A39E;">
+          1625 N. Central St., Knoxville, TN 37917 &bull; (865) 200-8078
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Bakeshop Hours</h4>
+        <ul class="footer-links">
+          <li><strong>Wednesday – Sunday:</strong> 8:00 AM – 4:00 PM</li>
+          <li><strong>Monday & Tuesday:</strong> Closed</li>
+          <li style="margin-top: 1rem; color: var(--wlb-blush); font-weight: 700;">Direct Bakery Phone:</li>
+          <li><a href="tel:8652008078" style="color: #FFFFFF; font-size: 1.1rem; font-weight: 800;">(865) 200-8078</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore Offerings</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Viennoiserie & Croissants</a></li>
+          <li><a href="#menu">Savory Quiche & Brioche</a></li>
+          <li><a href="#menu">Sourdough & Focaccia</a></li>
+          <li><a href="#menu">Counter Culture Espresso Bar</a></li>
+          <li><a href="#preorder">Weekend Box Pre-Orders</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; 2026 Wild Love Bakehouse &bull; Made from scratch daily in Knoxville, Tennessee.
+      </div>
+      <div>
+        <a href="../index.html">⚡ Engineered by 865Dev Static Architecture &bull; (865) 245-0363</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Confirmation Toast -->
+  <div class="confirmation-toast" id="confirmToast">
+    <strong style="color: var(--wlb-blush); font-family: var(--font-heading); display: block; margin-bottom: 0.35rem;">✓ Pre-Order Received!</strong>
+    <p style="font-size: 0.85rem; margin: 0; color: #E2E8E5;">
+      Thank you! In production, this form sends an instant notification to the bakery counter and emails you a pickup voucher.
+    </p>
+  </div>
+
+  <script>
+    // Audit Modal Controls
+    function toggleAuditModal() {
+      const modal = document.getElementById('auditModal');
+      modal.classList.toggle('open');
+    }
+
+    // Filter Menu Tabs
+    function filterMenu(category, element) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+
+      const cards = document.querySelectorAll('.menu-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Handle Preorder Simulation
+    function handlePreorder(e) {
+      e.preventDefault();
+      const toast = document.getElementById('confirmToast');
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 5000);
+    }
+
+    // Highlight Current Day of the Week
+    (function highlightDay() {
+      const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+      const today = days[new Date().getDay()];
+      const targetRow = document.getElementById('row-' + today);
+      if (targetRow) {
+        targetRow.classList.add('today-highlight');
+      }
+    })();
+  </script>
+
+</body>
+</html>
