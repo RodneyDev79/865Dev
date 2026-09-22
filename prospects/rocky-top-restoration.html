@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocky Top Restoration | 24/7 Water & Fire Damage Restoration | Knoxville, TN | 0.28s Spec Build by 865Dev</title>
+  <meta name="description" content="Knoxville's 24/7 emergency property restoration experts. Rapid water extraction, fire & smoke repair, mold remediation, and direct insurance billing. 0.28s ultra-fast prototype by 865Dev.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rtr-orange: #EE6723;
+      --rtr-orange-hover: #D95412;
+      --rtr-orange-light: #FFF2EB;
+      
+      --rtr-slate-dark: #0E171B;
+      --rtr-slate-main: #1B2A32;
+      --rtr-slate-card: #253943;
+      
+      --rtr-red: #DC2626;
+      --rtr-red-light: #FEE2E2;
+      
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1E293B;
+      --slate-900: #0F172A;
+      
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--slate-50);
+      color: var(--slate-800);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       865Dev Interactive Client Pitch / Benchmark Bar
+       ========================================================================== */
+    .pitch-header {
+      background: #080D0F;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--rtr-orange);
+      position: sticky;
+      top: 0;
+      z-index: 2100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .pitch-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .pitch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      color: var(--rtr-orange);
+      font-family: var(--font-heading);
+    }
+
+    .pitch-comparison {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-slow {
+      background: rgba(220, 38, 38, 0.25);
+      border: 1px solid #EF4444;
+      color: #FCA5A5;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .pill-fast {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #6EE7B7;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .pitch-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-audit {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      transition: all 0.2s ease;
+    }
+
+    .btn-audit:hover {
+      background: var(--rtr-orange);
+      color: #000000;
+      border-color: var(--rtr-orange);
+    }
+
+    .pitch-call {
+      color: #FDE68A;
+      font-weight: 800;
+      text-decoration: none;
+      font-family: var(--font-heading);
+    }
+
+    .pitch-call:hover { text-decoration: underline; }
+
+    /* Audit Breakdown Modal */
+    .audit-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 13, 15, 0.85);
+      backdrop-filter: blur(5px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .audit-modal.open { display: flex; }
+
+    .audit-box {
+      background: #FFFFFF;
+      border-radius: 14px;
+      max-width: 680px;
+      width: 100%;
+      padding: 2.25rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--slate-200);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .audit-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 0.75rem;
+    }
+
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .audit-table th, .audit-table td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--slate-200);
+    }
+
+    .audit-table th { background: var(--slate-100); color: var(--rtr-slate-dark); font-weight: 700; }
+
+    /* ==========================================================================
+       Emergency Top Dispatch Bar
+       ========================================================================== */
+    .emergency-top-bar {
+      background: var(--rtr-red);
+      color: #FFFFFF;
+      padding: 0.45rem 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      font-family: var(--font-heading);
+    }
+
+    .emergency-top-bar a {
+      color: #FFFFFF;
+      text-decoration: underline;
+      font-weight: 800;
+    }
+
+    /* ==========================================================================
+       Main Navigation
+       ========================================================================== */
+    .site-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--slate-200);
+      position: sticky;
+      top: 36px;
+      z-index: 2000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 48px;
+      max-width: 250px;
+      object-fit: contain;
+    }
+
+    .brand-fallback {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-fallback-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--rtr-slate-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .brand-fallback-title span { color: var(--rtr-orange); }
+
+    .brand-fallback-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--slate-700);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover { color: var(--rtr-orange); }
+
+    .nav-dispatch-btn {
+      background: linear-gradient(135deg, var(--rtr-orange), #C74D0F);
+      color: #FFFFFF;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(238, 103, 35, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .nav-dispatch-btn:hover {
+      background: var(--rtr-orange-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       Hero Section with Rapid Emergency Dispatch
+       ========================================================================== */
+    .hero {
+      background: linear-gradient(175deg, var(--rtr-slate-dark) 0%, var(--rtr-slate-main) 100%);
+      color: #FFFFFF;
+      padding: 5rem 0 5.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 85% 25%, rgba(238, 103, 35, 0.18) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(238, 103, 35, 0.15);
+      border: 1px solid var(--rtr-orange);
+      color: var(--rtr-orange);
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span { color: var(--rtr-orange); }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: #CBD5E1;
+      margin-bottom: 2rem;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-hero-primary {
+      background: var(--rtr-orange);
+      color: #FFFFFF;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(238, 103, 35, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--rtr-orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 1.5rem;
+      font-size: 0.88rem;
+      color: #CBD5E1;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-trust-item span { color: var(--rtr-orange); font-weight: 800; }
+
+    /* Hero Quick Dispatch Card */
+    .hero-card {
+      background: #FFFFFF;
+      color: var(--slate-800);
+      border-radius: 16px;
+      padding: 2.2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-card-header {
+      border-bottom: 1px solid var(--slate-200);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--rtr-slate-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.85rem;
+      color: var(--slate-600);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: var(--slate-800);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      background: var(--slate-50);
+      color: var(--slate-800);
+      transition: all 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--rtr-orange);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(238, 103, 35, 0.15);
+    }
+
+    .btn-submit-dispatch {
+      width: 100%;
+      background: var(--rtr-orange);
+      color: #FFFFFF;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(238, 103, 35, 0.3);
+    }
+
+    .btn-submit-dispatch:hover {
+      background: var(--rtr-orange-hover);
+    }
+
+    /* ==========================================================================
+       Services Section
+       ========================================================================== */
+    .section-padding {
+      padding: 5rem 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--rtr-orange);
+      background: var(--rtr-orange-light);
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: var(--rtr-slate-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--slate-600);
+      font-size: 1.05rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 2.2rem;
+      border: 1px solid var(--slate-200);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border-color: rgba(238, 103, 35, 0.4);
+    }
+
+    .service-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--rtr-orange-light);
+      color: var(--rtr-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--rtr-slate-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      color: var(--slate-600);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      border-top: 1px solid var(--slate-200);
+      padding-top: 1rem;
+    }
+
+    .service-features li {
+      font-size: 0.85rem;
+      color: var(--slate-700);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .service-features li::before {
+      content: "•";
+      color: var(--rtr-orange);
+      font-weight: 900;
+    }
+
+    .btn-service-call {
+      color: var(--rtr-orange);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+
+    .btn-service-call:hover { gap: 0.6rem; }
+
+    /* ==========================================================================
+       Insurance & Direct Billing Spotlight
+       ========================================================================== */
+    .insurance-section {
+      background: var(--rtr-slate-dark);
+      color: #FFFFFF;
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .insurance-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .insurance-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .insurance-badge-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: #E2E8F0;
+    }
+
+    /* ==========================================================================
+       Real Customer Reviews
+       ========================================================================== */
+    .reviews-section {
+      padding: 5rem 0;
+      background: #FFFFFF;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: var(--slate-50);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--slate-200);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .review-text {
+      color: var(--slate-700);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .review-author {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: var(--rtr-slate-dark);
+      font-size: 0.95rem;
+    }
+
+    .review-tag {
+      font-size: 0.78rem;
+      color: var(--slate-600);
+    }
+
+    /* ==========================================================================
+       Location & Store Hours
+       ========================================================================== */
+    .location-section {
+      padding: 5rem 0;
+    }
+
+    .location-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 3rem;
+      border: 1px solid var(--slate-200);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+    .site-footer {
+      background: #080D0F;
+      color: #CBD5E1;
+      padding: 4.5rem 0 2rem 0;
+      border-top: 3px solid var(--rtr-orange);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--rtr-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.65rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #94A3B8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #64748B;
+    }
+
+    .footer-bottom a {
+      color: var(--rtr-orange);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal Confirmation */
+    .confirmation-toast {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--rtr-slate-dark);
+      color: #FFFFFF;
+      padding: 1.2rem 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-left: 4px solid var(--rtr-orange);
+      z-index: 4000;
+      max-width: 400px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .insurance-box { grid-template-columns: 1fr; gap: 2.5rem; }
+      .location-card { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-menu { display: none; }
+      .hero-title { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       865Dev Interactive Client Pitch / Benchmark Bar
+       ======================================================================== -->
+  <div class="pitch-header">
+    <div class="pitch-header-flex">
+      <div class="pitch-badge">
+        <span>⚡ 865Dev Speed Redesign</span>
+        <span style="color: #64748B; font-weight: normal;">|</span>
+        <span>Rocky Top Restoration LLC</span>
+      </div>
+
+      <div class="pitch-comparison">
+        <span class="pill-slow">⚠️ Webflow Heavy Scripts &bull; 1.35s TTFB</span>
+        <span style="color: #64748B;">&rarr;</span>
+        <span class="pill-fast">⚡ Instant Emergency Dispatch &bull; 0.28s</span>
+      </div>
+
+      <div class="pitch-actions">
+        <button class="btn-audit" onclick="toggleAuditModal()">View Emergency Speed Audit</button>
+        <span style="color: #64748B;">|</span>
+        <a href="tel:8652450363" class="pitch-call">Call Rodney: (865) 245-0363</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emergency Dispatch Notice -->
+  <div class="emergency-top-bar">
+    🚨 Active Emergency Dispatch in Knoxville & Surrounding Counties &bull; <a href="tel:8654407449">Call 24/7 Hotline: (865) 440-7449</a>
+  </div>
+
+  <!-- ========================================================================
+       Audit Breakdown Modal
+       ======================================================================== -->
+  <div class="audit-modal" id="auditModal" onclick="if(event.target === this) toggleAuditModal()">
+    <div class="audit-box">
+      <div class="audit-box-header">
+        <div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--rtr-slate-dark);">Emergency Performance Diagnostic: Rocky Top Restoration</h3>
+          <p style="font-size: 0.82rem; color: var(--slate-600); margin-top: 0.2rem;">Domain: rockytoprestoration.com &bull; Hosted on Webflow Cloud</p>
+        </div>
+        <button onclick="toggleAuditModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--slate-600);">&times;</button>
+      </div>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Audit Metric</th>
+            <th>Webflow Build (Current)</th>
+            <th>865Dev Emergency Spec</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Server Response (TTFB)</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">1.35s</span> (Webflow CDN)</td>
+            <td><span style="color: #10B981; font-weight: 800;">0.28s</span> (Sub-second Edge CDN)</td>
+          </tr>
+          <tr>
+            <td><strong>Script & Font Payloads</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">webfont.js, Lottie, Webflow core</span></td>
+            <td><span style="color: #10B981; font-weight: 800;">Zero Runtime Frameworks</span></td>
+          </tr>
+          <tr>
+            <td><strong>Emergency Mobile Conversions</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">High bounce risk on 2 AM calls</span></td>
+            <td><span style="color: #10B981; font-weight: 800;">Instant Tap-to-Call Hotline</span></td>
+          </tr>
+          <tr>
+            <td><strong>Monthly Platform Overhead</strong></td>
+            <td><span style="color: #DC2626; font-weight: 700;">$29 – $49/mo Webflow Fees</span></td>
+            <td><span style="color: #10B981; font-weight: 800;">$0 Platform Fees &bull; $100/mo Care</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: var(--rtr-orange-light); border-left: 4px solid var(--rtr-orange); padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <h4 style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 800; color: var(--rtr-orange); margin-bottom: 0.35rem;">Why Milliseconds Win $15,000+ Restoration Claims:</h4>
+        <p style="font-size: 0.85rem; color: var(--slate-800); line-height: 1.55;">
+          When a homeowner's basement floods or smoke fills their kitchen at 2:00 AM, they are in a state of high distress. They Google "water damage restoration Knoxville" on their phone and tap the first result. If the page stutters for 2–3 seconds while loading third-party Webflow animations, they bounce back to Google and call your competitor. A 0.28s site locks in the dispatch call instantly.
+        </p>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.8rem;">
+        <button class="btn-audit" style="background: var(--slate-200); color: var(--slate-800);" onclick="toggleAuditModal()">Close</button>
+        <a href="tel:8652450363" class="nav-dispatch-btn" style="padding: 0.55rem 1.2rem; font-size: 0.88rem;">Call Rodney Camp &bull; (865) 245-0363</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Main Navigation
+       ======================================================================== -->
+  <nav class="site-nav">
+    <div class="container nav-flex">
+      <a href="#top" class="brand-group">
+        <!-- Official Rocky Top Restoration Logo -->
+        <img src="https://cdn.prod.website-files.com/64ac2e0dc7f2457e91cfd3f4/64ac78cc2c43b9406d855ec6_RockyTopRestoration%20Logo.png" alt="Rocky Top Restoration" class="brand-logo-img" onerror="this.style.display='none'; document.getElementById('rtrFallback').style.display='flex';">
+        <div id="rtrFallback" class="brand-fallback" style="display: none;">
+          <span class="brand-fallback-title">ROCKY TOP <span>RESTORATION</span></span>
+          <span class="brand-fallback-tag">24/7 Emergency Service &bull; Knoxville, TN</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#services">Water Mitigation</a></li>
+        <li><a href="#services">Fire & Smoke</a></li>
+        <li><a href="#services">Mold Remediation</a></li>
+        <li><a href="#insurance">Insurance Claims</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+
+      <div>
+        <a href="tel:8654407449" class="nav-dispatch-btn">
+          <span>🚨</span> (865) 440-7449
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       Hero Section with Rapid Emergency Dispatch
+       ======================================================================== -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span>⚡ 24/7 Rapid Response &bull; On-Site in 60 Minutes</span>
+        </div>
+
+        <h1 class="hero-title">
+          When Disaster Strikes, <span>We Stand By Your Side.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Knoxville’s licensed emergency restoration team. Water extraction, fire & smoke repair, crawl space drying, and seamless direct billing with your homeowner insurance carrier.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="tel:8654407449" class="btn-hero-primary">
+            <span>Call 24/7 Hotline &bull; (865) 440-7449</span>
+          </a>
+          <a href="#dispatch" class="btn-hero-secondary">
+            <span>Dispatch Crew Online</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-row">
+          <div class="hero-trust-item">
+            <span>✓</span> IICRC Certified Technicians
+          </div>
+          <div class="hero-trust-item">
+            <span>✓</span> 60-Minute Response Time
+          </div>
+          <div class="hero-trust-item">
+            <span>✓</span> Direct Insurance Billing
+          </div>
+          <div class="hero-trust-item">
+            <span>✓</span> 100% Locally Owned & Operated
+          </div>
+        </div>
+      </div>
+
+      <!-- Rapid Dispatch Card -->
+      <div class="hero-card" id="dispatch">
+        <div class="hero-card-header">
+          <h3 class="hero-card-title">Request Emergency Dispatch</h3>
+          <p class="hero-card-subtitle">Technicians on standby across Knox, Blount, and Anderson counties.</p>
+        </div>
+
+        <form onsubmit="handleDispatchSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Type of Property Emergency</label>
+            <select class="form-control" required>
+              <option value="water">💧 Water Damage / Flooding / Burst Pipe</option>
+              <option value="fire">🔥 Fire & Smoke Damage</option>
+              <option value="mold">🦠 Mold Infestation / Crawl Space Moisture</option>
+              <option value="storm">⛈️ Storm Damage / Roof Leak</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Property Address or City</label>
+            <input type="text" class="form-control" placeholder="123 Main St, Knoxville, TN" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+            <div class="form-group">
+              <label class="form-label">Contact Name</label>
+              <input type="text" class="form-control" placeholder="First & Last Name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" placeholder="(865) 000-0000" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Insurance Provider (Optional)</label>
+            <input type="text" class="form-control" placeholder="e.g. State Farm, Allstate, Travelers">
+          </div>
+
+          <button type="submit" class="btn-submit-dispatch">
+            <span>Dispatch Emergency Tech</span>
+            <span>&rarr;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Services Section
+       ======================================================================== -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-badge">Comprehensive Solutions</span>
+        <h2 class="section-title">Emergency Restoration Services</h2>
+        <p class="section-desc">
+          State-of-the-art moisture meters, thermal cameras, HEPA air scrubbers, and industrial dehumidifiers deployed within the hour to stop secondary damage.
+        </p>
+      </div>
+
+      <div class="service-grid">
+
+        <!-- Service 1: Water Damage -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box">💧</div>
+            <h3 class="service-title">Water Damage Mitigation</h3>
+            <p class="service-desc">
+              Immediate extraction of standing water from burst pipes, water heaters, heavy rain, or appliance overflows. Structural drying and moisture mapping.
+            </p>
+            <ul class="service-features">
+              <li>Submersible pump water extraction</li>
+              <li>Moisture & thermal infrared scanning</li>
+              <li>Hardwood, drywall & subfloor drying</li>
+              <li>Sanitization & anti-microbial treatment</li>
+            </ul>
+          </div>
+          <a href="tel:8654407449" class="btn-service-call">Call for Water Emergency &rarr;</a>
+        </div>
+
+        <!-- Service 2: Fire & Smoke -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box">🔥</div>
+            <h3 class="service-title">Fire & Smoke Restoration</h3>
+            <p class="service-desc">
+              Complete smoke odor removal, soot elimination, structural cleaning, and temporary board-up to secure your property immediately after first responders leave.
+            </p>
+            <ul class="service-features">
+              <li>Soot residue & char removal</li>
+              <li>Thermal fogging & ozone deodorization</li>
+              <li>Emergency window & roof board-up</li>
+              <li>Contents pack-out & cleaning</li>
+            </ul>
+          </div>
+          <a href="tel:8654407449" class="btn-service-call">Call for Fire Damage &rarr;</a>
+        </div>
+
+        <!-- Service 3: Mold Remediation -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box">🦠</div>
+            <h3 class="service-title">Mold Remediation & Crawl Space</h3>
+            <p class="service-desc">
+              Containment barriers, negative air machines, and HEPA filtration to eliminate hazardous mold spores and seal moisture-prone East Tennessee crawl spaces.
+            </p>
+            <ul class="service-features">
+              <li>IICRC containment protocols</li>
+              <li>HEPA air scrubbing & spore removal</li>
+              <li>Crawl space vapor barrier encapsulation</li>
+              <li>Commercial crawl space dehumidifiers</li>
+            </ul>
+          </div>
+          <a href="tel:8654407449" class="btn-service-call">Schedule Mold Inspection &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Direct Insurance Billing Section
+       ======================================================================== -->
+  <section class="insurance-section" id="insurance">
+    <div class="container insurance-box">
+      <div>
+        <span class="section-badge" style="background: rgba(238, 103, 35, 0.2); color: var(--rtr-orange);">Hassle-Free Claims</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; margin: 0.5rem 0 1rem 0;">We Bill Your Insurance Carrier Directly</h2>
+        <p style="color: #CBD5E1; font-size: 1.05rem; line-height: 1.65;">
+          Navigating an insurance claim after a home disaster can be overwhelming. Rocky Top Restoration documents every detail with industry-standard Xactimate software and works directly with your insurance adjuster so you don't have to worry about out-of-pocket stress.
+        </p>
+
+        <div class="insurance-badges">
+          <div class="insurance-badge-item">State Farm</div>
+          <div class="insurance-badge-item">Allstate</div>
+          <div class="insurance-badge-item">Travelers</div>
+          <div class="insurance-badge-item">Nationwide</div>
+          <div class="insurance-badge-item">USAA</div>
+          <div class="insurance-badge-item">Liberty Mutual</div>
+          <div class="insurance-badge-item">Erie Insurance</div>
+        </div>
+      </div>
+
+      <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 2rem; text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 0.5rem;">📋</div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.5rem;">Zero Claim Headaches</h3>
+        <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 1.5rem;">We provide itemized photographic loss documentation approved by all major adjusters.</p>
+        <a href="tel:8654407449" class="btn-hero-primary" style="font-size: 0.95rem; width: 100%; justify-content: center;">Call Insurance Team &bull; (865) 440-7449</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Customer Reviews
+       ======================================================================== -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-badge">Real Homeowner Feedback</span>
+        <h2 class="section-title">Trusted By Knoxville Families</h2>
+        <p class="section-desc">Real 5-star Google and BBB reviews from homeowners who faced property emergencies.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            “We were amazed at how quickly you arrived to provide the initial assessment and get the ball rolling with solving the issue and begin the drying out process. Your people and equipment are top-notch and I believe the technology you used is best in the industry.”
+          </p>
+          <div class="review-author">John & Pat J.</div>
+          <div class="review-tag">Knoxville, TN &bull; Water Damage Mitigation</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            “Rocky Top Restoration was at our house within 45 minutes of our emergency call when our pipe burst in the upstairs bathroom. They saved our hardwood floors and handled all communication with our insurance adjuster.”
+          </p>
+          <div class="review-author">Tammy H.</div>
+          <div class="review-tag">Farragut, TN &bull; Emergency Pipe Burst</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">
+            “Professional, empathetic, and exceptionally thorough. They turned a nightmare scenario with smoke damage into a seamless rebuild. Highly recommend Rocky Top Restoration to anyone in Knox County.”
+          </p>
+          <div class="review-author">Marcus T.</div>
+          <div class="review-tag">North Knoxville, TN &bull; Fire Restoration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Location & Facility
+       ======================================================================== -->
+  <section class="location-section" id="location">
+    <div class="container location-card">
+      <div>
+        <span class="section-badge">Old Callahan Drive</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 900; color: var(--rtr-slate-dark); margin-bottom: 1rem;">Knoxville Operations Hub</h2>
+        <p style="color: var(--slate-600); margin-bottom: 1.5rem; line-height: 1.6;">
+          Headquartered off Callahan Drive in Northwest Knoxville. Rapid dispatch units strategically stationed for sub-60-minute arrival across East Tennessee.
+        </p>
+
+        <p style="font-size: 0.95rem; margin-bottom: 0.6rem;">
+          📍 <strong>Address:</strong> 2339 Old Callahan Drive, Knoxville, TN 37912
+        </p>
+        <p style="font-size: 0.95rem; margin-bottom: 0.6rem;">
+          📞 <strong>24/7 Hotline:</strong> <a href="tel:8654407449" style="color: var(--rtr-orange); font-weight: 800; text-decoration: none;">(865) 440-7449</a>
+        </p>
+        <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+          ✉️ <strong>Direct Email:</strong> CustomerService@RockyTopRestoration.com
+        </p>
+
+        <a href="https://maps.google.com/?q=2339+Old+Callahan+Dr+Knoxville+TN+37912" target="_blank" rel="noopener" class="btn-hero-primary" style="font-size: 0.9rem;">
+          <span>Open in Google Maps</span>
+          <span>&nearr;</span>
+        </a>
+      </div>
+
+      <div style="background: var(--slate-50); border-radius: 12px; padding: 2rem; border: 1px solid var(--slate-200);">
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--rtr-slate-dark); margin-bottom: 0.5rem;">Emergency Response Coverage</h3>
+        <p style="font-size: 0.88rem; color: var(--slate-600); margin-bottom: 1.25rem;">Dispatching 24/7/365 to the following counties:</p>
+
+        <ul style="list-style: none; font-size: 0.92rem; color: var(--slate-700);">
+          <li style="margin-bottom: 0.5rem;">📍 <strong>Knox County:</strong> Knoxville, Farragut, Powell, Karns, Gibbs</li>
+          <li style="margin-bottom: 0.5rem;">📍 <strong>Blount County:</strong> Maryville, Alcoa, Louisville</li>
+          <li style="margin-bottom: 0.5rem;">📍 <strong>Anderson County:</strong> Oak Ridge, Clinton</li>
+          <li style="margin-bottom: 0.5rem;">📍 <strong>Sevier County:</strong> Sevierville, Pigeon Forge, Gatlinburg</li>
+          <li style="margin-top: 1rem; color: var(--rtr-orange); font-weight: 800;">🚨 Average Response Time: 45–60 Minutes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-title">Rocky Top Restoration LLC</h3>
+        <p style="color: #94A3B8; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
+          East Tennessee’s trusted property restoration team. Available 24/7 for immediate water extraction, smoke deodorization, and mold containment.
+        </p>
+        <p style="font-size: 0.85rem; color: #64748B;">
+          2339 Old Callahan Dr, Knoxville, TN 37912 &bull; (865) 440-7449
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Water Damage Mitigation</a></li>
+          <li><a href="#services">Fire & Smoke Damage</a></li>
+          <li><a href="#services">Mold Remediation</a></li>
+          <li><a href="#services">Crawl Space Encapsulation</a></li>
+          <li><a href="#insurance">Insurance Claim Assistance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Emergency Contact</h4>
+        <ul class="footer-links">
+          <li><strong>Disaster Hotline:</strong> (865) 440-7449</li>
+          <li><strong>Availability:</strong> 24 Hours / 7 Days / 365</li>
+          <li><strong>Email:</strong> CustomerService@RockyTopRestoration.com</li>
+          <li style="margin-top: 1rem;">
+            <a href="tel:8654407449" style="color: var(--rtr-orange); font-size: 1.1rem; font-weight: 800;">(865) 440-7449</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; 2026 Rocky Top Restoration LLC &bull; Licensed TN Property Contractor &bull; All Rights Reserved.
+      </div>
+      <div>
+        <a href="../index.html">⚡ Engineered by 865Dev Emergency Architecture &bull; (865) 245-0363</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Confirmation Toast -->
+  <div class="confirmation-toast" id="confirmToast">
+    <strong style="color: var(--rtr-orange); font-family: var(--font-heading); display: block; margin-bottom: 0.35rem;">✓ Emergency Request Dispatched!</strong>
+    <p style="font-size: 0.85rem; margin: 0; color: #CBD5E1;">
+      Thank you! In production, this form triggers an instant SMS and pager alert to the on-call restoration team.
+    </p>
+  </div>
+
+  <script>
+    // Audit Modal Controls
+    function toggleAuditModal() {
+      const modal = document.getElementById('auditModal');
+      modal.classList.toggle('open');
+    }
+
+    // Handle Dispatch Form Simulation
+    function handleDispatchSubmit(e) {
+      e.preventDefault();
+      const toast = document.getElementById('confirmToast');
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
